@@ -17,313 +17,386 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Testing Linked List feature in DSPortal app
- User will be able to understand different topics and try python code
+Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Portal
+
  @tag1
- Scenario: Verify that user is able to navigate to "Linked List" data structure page
+ Scenario: Navigate to "Linked List" data structure page
    Given The user is in the Home page after Sign in
    When The user clicks the Get Started button in Linked List Panel / The user select Linked List item from the drop down menu
-   Then The user be directed to "Linked List" Data Structure Page
- @tag2
- Scenario: Verify that user is able to navigate to "Introduction" page
-   Given The user is in the Linked List page after Sign in
-   When The user clicks "Introduction" button
-   Then The user should be redirected to "Introduction" page
+   Then The user be directed to Linked List Data Structure Page
+   
+   
+   
+   @tag2
+ Scenario: Navigate to "Introduction" page
+   Given The user is in the Stack page after Sign in
+   When The user clicks Introduction in Linked List page
+   Then The user should be redirected to Introduction page
  @tag3
-  Scenario: Verify that user is able to navigate to "try Editor" page for "Introduction" page
-   Given The user is on the Introduction page
-   When The user clicks Try Here button in Introduction page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
+  Scenario: Navigate to "try Editor" page for "Introduction" page
+   Given The user is on the Introduction in Stack page
+   When The user clicks Try Here>>> button in Introduction in Linked List page
+   Then Navigate to try Editor window with a Run button to test
   
   @tag4
-  Scenario: Verify that user receives error when click on Run button without entering code for "Introduction" page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
+  Scenario Outline: TryEditor functionality for "Introduction" page
+   Given The user is on the tryEditor Introduction page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
  
-     @tag5
-  Scenario: Verify that user receives error for invalid python code for Introduction page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
+      @tag5
+  Scenario: Navigate to "Practice Questions" Page for "Introduction" page
+   Given The user is on the tryEditor Operations for Introduction page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
   
       @tag6
-  Scenario: Verify that user is able to see output for valid python code for Introduction page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
-  
-      @tag7
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for Introduction page
-   Given The user is in the Introduction page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
-  
-      @tag8
-  Scenario: Verify that user is able to navigate to Linked List data structure page
-   Given The user is in the blank "Practice" page
-   When The user select Stack item from the drop down menu
-   Then The user be directed to Linked List Data Structure Page
-
-
-
- @tag9
- Scenario: Verify that user is able to navigate to Creating Linked List page
-   Given The user is in the Linked List page after Sign in
-   When The user clicks Creating Linked List button
-   Then The user should be redirected to Creating Linked List page
- @tag10
-  Scenario: Verify that user is able to navigate to "try Editor" page for Creating Linked List page
-   Given The user is on the Creating Linked List page
-   When The user clicks "Try Here" button in Operations in Stack page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
-  
-  @tag11
-  Scenario: Verify that user receives error when click on Run button without entering code for Creating Linked List page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
- 
-     @tag12
-  Scenario: Verify that user receives error for invalid python code for Creating Linked List page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
-  
-      @tag13
-  Scenario: Verify that user is able to see output for valid python code for Creating Linked List page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
-  
-      @tag14
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for Creating Linked List page
-   Given The user is in the Creating Linked List page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
-  
-      @tag15
-  Scenario: Verify that user is able to navigate to Linked List data structure page
-   Given The user is in the blank "Practice" page
+  Scenario: Navigate to "Linked List" data structure page
+   Given The user is in the blank Practice page
    When The user select Linked List item from the drop down menu
-   Then The user be directed to Linked List Data Structure Page
+   Then The user is redirected to Linked List Data Structure Page
    
    
    
-    @tag16
- Scenario: Verify that user is able to navigate to "Types of Linked List" page
-   Given The user is in the "Linked List" page after Sign in
-   When The user clicks "Types of Linked List" button
-   Then The user should be redirected to "Types of Linked List" page
- @tag17
-  Scenario: Verify that user is able to navigate to "try Editor" page for "Types of Linked List" page
-   Given The user is on the "Types of Linked List" page
-   When The user clicks "Try Here" button in Operations in Linked List page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
+   
+   
+ @tag7
+ Scenario: Navigate to "Creating Linked LIst" page
+   Given The user is in the Linked LIst page after Sign in
+   When The user clicks Creating Linked LIst button
+   Then The user should be redirected to Creating Linked LIst page
+ @tag8
+  Scenario: Navigate to "try Editor" page for "Creating Linked LIst" page
+   Given The user is on the Creating Linked LIst page
+   When The user clicks Try Here>>> button in Creating Linked LIst page
+   Then Navigate to try Editor window with a Run button to test
   
-  @tag18
-  Scenario: Verify that user receives error when click on Run button without entering code for "Types of Linked List" page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
+  @tag9
+  Scenario Outline: TryEditor functionality for "Creating Linked LIst" page
+   Given The user is on the tryEditor Creating Linked LIst page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
  
-     @tag19
-  Scenario: Verify that user receives error for invalid python code for "Types of Linked List" page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
+      @tag10
+  Scenario: Navigate to "Practice Questions" Page for "Creating Linked LIst" page
+   Given The user is on the tryEditor Creating Linked LIst page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
   
+      @tag11
+  Scenario: Navigate to "Linked LIst" data structure page
+   Given The user is in the blank Practice page
+   When The user select Linked LIst item from the drop down menu
+   Then The user is redirected to Linked LIst Data Structure Page
+
+ 
+ 
+ 
+  @tag12
+ Scenario: Navigate to "Types of Linked List" page
+   Given The user is in the Linked List page after Sign in
+   When The user clicks Types of Linked List in Linked List Page
+   Then The user should be redirected to Types of Linked List in Linked List page
+ @tag13
+  Scenario: Navigate to "try Editor" page for "Types of Linked List" page
+   Given The user is on the Types of Linked List page
+   When The user clicks Try Here>>> button in Types of Linked List page
+   Then Navigate to try Editor window with a Run button to test
+  
+  @tag14
+  Scenario Outline: TryEditor functionality for "Types of Linked List" page
+   Given The user is on the tryEditor Types of Linked List page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
+ 
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
+      @tag15
+  Scenario: Navigate to "Practice Questions" Page for "Types of Linked List" page
+   Given The user is on the tryEditor Operations for Types of Linked List page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
+  
+      @tag16
+  Scenario: Navigate to "Linked List" data structure page
+   Given The user is in the blank Practice page
+   When The user select Linked List item from the drop down menu
+   Then The user is redirected to Linked List Data Structure Page
+ 
+ 
+ 
+ 
+ 
+   @tag17
+ Scenario: Navigate to "Implement Linked List in Python" page
+   Given The user is in the Linked List page after Sign in
+   When The user clicks Implement Linked List in Python in Linked List Page
+   Then The user should be redirected to Implement Linked List in Python in Linked List page
+ @tag18
+  Scenario: Navigate to "try Editor" page for "Implement Linked List in Python" page
+   Given The user is on the Implement Linked List in Python page
+   When The user clicks Try Here>>> button in Implement Linked List in Python page
+   Then Navigate to try Editor window with a Run button to test
+  
+  @tag19
+  Scenario Outline: TryEditor functionality for "Implement Linked List in Python" page
+   Given The user is on the tryEditor Implement Linked List in Python page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
+ 
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
       @tag20
-  Scenario: Verify that user is able to see output for valid python code for "Types of Linked List" page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
+  Scenario: Navigate to "Practice Questions" Page for "Implement Linked List in Python" page
+   Given The user is on the tryEditor Operations for Types of Linked List page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
   
       @tag21
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Types of Linked List" page
-   Given The user is in the "Types of Linked List" page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
-  
-      @tag22
-  Scenario: Verify that user is able to navigate to "Linked List" data structure page
-   Given The user is in the blank "Practice" page
+  Scenario: Navigate to "Linked List" data structure page
+   Given The user is in the blank Practice page
    When The user select Linked List item from the drop down menu
-   Then The user be directed to "Linked List" Data Structure Page
+   Then The user is redirected to Linked List Data Structure Page
    
    
    
-      @tag23
- Scenario: Verify that user is able to navigate to "Implement Linked List in Python" page
+   
+     @tag22
+ Scenario: Navigate to "Traversal" page
    Given The user is in the Linked List page after Sign in
-   When The user clicks "Implement Linked List in Python" button
-   Then The user should be redirected to "Implement Linked List in Python" page
- @tag24
-  Scenario: Verify that user is able to navigate to try Editor page for "Implement Linked List in Python" page
-   Given The user is on the "Implement Linked List in Python" page
-   When The user clicks "Try Here" button in Operations in Linked List page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
+   When The user clicks Traversal in Linked List Page
+   Then The user should be redirected to Traversal in Linked List page
+ @tag23
+  Scenario: Navigate to "try Editor" page for "Traversal" page
+   Given The user is on the Traversal page
+   When The user clicks Try Here>>> button in Traversal page
+   Then Navigate to try Editor window with a Run button to test
   
-  @tag25
-  Scenario: Verify that user receives error when click on Run button without entering code for "Implement Linked List in Python" page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
+  @tag24
+  Scenario Outline: TryEditor functionality for "Traversal" page
+   Given The user is on the tryEditor Traversal page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
  
-     @tag26
-  Scenario: Verify that user receives error for invalid python code for "Implement Linked List in Python" page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
+      @tag25
+  Scenario: Navigate to "Practice Questions" Page for "Traversal" page
+   Given The user is on the tryEditor Operations for Traversal page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
   
-      @tag27
-  Scenario: Verify that user is able to see output for valid python code for "Implement Linked List in Python" page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
-  
-      @tag28
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Implement Linked List in Python" page
-   Given The user is in the "Implement Linked List in Python" page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
-  
-      @tag29
-  Scenario: Verify that user is able to navigate to "Linked List" data structure page
-   Given The user is in the blank "Practice" page
+      @tag26
+  Scenario: Navigate to "Linked List" data structure page
+   Given The user is in the blank Practice page
    When The user select Linked List item from the drop down menu
-   Then The user be directed to "Linked List" Data Structure Page
+   Then The user is redirected to Linked List Data Structure Page
    
    
-         @tag30
- Scenario: Verify that user is able to navigate to "Traversal" page
-   Given The user is in the "Linked List" page after Sign in
-   When The user clicks "Traversal" button
-   Then The user should be redirected to "Traversal" page
- @tag31
-  Scenario: Verify that user is able to navigate to try Editor page for "Traversal" page
-   Given The user is on the "Traversal" page
-   When The user clicks "Try Here" button in Operations in Linked List page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
+   
+   
+        @tag27
+ Scenario: Navigate to "Insertion" page
+   Given The user is in the Linked List page after Sign in
+   When The user clicks Insertion in Linked List Page
+   Then The user should be redirected to Insertion in Linked List page
+ @tag28
+  Scenario: Navigate to "try Editor" page for "Insertion" page
+   Given The user is on the Insertion page
+   When The user clicks Try Here>>> button in Insertion page
+   Then Navigate to try Editor window with a Run button to test
   
-  @tag32
-  Scenario: Verify that user receives error when click on Run button without entering code for "Traversal" page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
+  @tag29
+  Scenario Outline: TryEditor functionality for "Insertion" page
+   Given The user is on the tryEditor Insertion page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
  
-     @tag33
-  Scenario: Verify that user receives error for invalid python code for "Traversal" page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
+      @tag30
+  Scenario: Navigate to "Practice Questions" Page for "Insertion" page
+   Given The user is on the tryEditor Operations for Insertion page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
   
-      @tag34
-  Scenario: Verify that user is able to see output for valid python code for "Traversal" page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
+      @tag31
+  Scenario: Navigate to "Linked List" data structure page
+   Given The user is in the blank Practice page
+   When The user select Linked List item from the drop down menu
+   Then The user is redirected to Linked List Data Structure Page
+   
+   
+   
+        @tag32
+ Scenario: Navigate to "Deletion" page
+   Given The user is in the Linked List page after Sign in
+   When The user clicks Deletion in Linked List Page
+   Then The user should be redirected to Deletion in Linked List page
+ @tag33
+  Scenario: Navigate to "try Editor" page for "Deletion" page
+   Given The user is on the Deletion page
+   When The user clicks Try Here>>> button in Deletion page
+   Then Navigate to try Editor window with a Run button to test
   
+  @tag34
+  Scenario Outline: TryEditor functionality for "Deletion" page
+   Given The user is on the tryEditor Deletion page
+   When The user enters the <code> in text editor and clicks RUN Button
+   Then The <alert> should be displayed
+   
+   Examples: 
+      | code         | alert                             | 
+      | Empty        |     Error message in alert window | 
+      | Valid code   |   displayed in the console        |
+      | Invalid code | nameerror pop up alert message    | 
+   
+ 
+     #@tag5
+  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the invalid code in Editor and click the Run Button
+   #Then The user should able to see an error message in alert window
+  #
+      #@tag6
+  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
+   #Given The user is in the tryEditor page
+   #When The user write the valid code in Editor and click the Run Button
+   #Then The user should able to see output in the console
+  #
+     
       @tag35
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Traversal" page
-   Given The user is in the "Traversal" page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
+  Scenario: Navigate to "Practice Questions" Page for "Deletion" page
+   Given The user is on the tryEditor Operations for Deletion page 
+   When The user clicks Practice Questions button following browser back arrow
+   Then The user is navigated to Practice Questions page
   
       @tag36
-  Scenario: Verify that user is able to navigate to "Linked List" data structure page
-   Given The user is in the blank "Practice" page
+  Scenario: Navigate to "Linked List" data structure page
+   Given The user is in the blank Practice page
    When The user select Linked List item from the drop down menu
-   Then The user be directed to "Linked List" Data Structure Page
-   
-   
-           @tag37
- Scenario: Verify that user is able to navigate to "Insertion" page
-   Given The user is in the "Linked List" page after Sign in
-   When The user clicks "Insertion" button
-   Then The user should be redirected to "Insertion" page
- @tag38
-  Scenario: Verify that user is able to navigate to try Editor page for "Insertion" page
-   Given The user is on the "Insertion" page
-   When The user clicks "Try Here" button in Operations in Linked List page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
-  
-  @tag39
-  Scenario: Verify that user receives error when click on Run button without entering code for "Insertion" page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
- 
-     @tag40
-  Scenario: Verify that user receives error for invalid python code for "Insertion" page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
-  
-      @tag41
-  Scenario: Verify that user is able to see output for valid python code for "Insertion" page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
-  
-      @tag42
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Insertion" page
-   Given The user is in the "Insertion" page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
-  
-      @tag43
-  Scenario: Verify that user is able to navigate to "Linked List" data structure page
-   Given The user is in the blank "Practice" page
-   When The user select Linked List item from the drop down menu
-   Then The user be directed to "Linked List" Data Structure Page 
+   Then The user is redirected to Linked List Data Structure Page
    
    
    
-      @tag44
- Scenario: Verify that user is able to navigate to "Deletion" page
-   Given The user is in the "Linked List" page after Sign in
-   When The user clicks "Deletion" button
-   Then The user should be redirected to "Deletion" page
- @tag45
-  Scenario: Verify that user is able to navigate to try Editor page for "Deletion" page
-   Given The user is on the "Deletion" page
-   When The user clicks "Try Here" button in Operations in Linked List page
-   Then The user should be redirected to a page having an try Editor with a Run button to test
-  
-  @tag46
-  Scenario: Verify that user receives error when click on Run button without entering code for "Deletion" page
-   Given The user is in the tryEditor page
-   When The user clicks the Run Button without entering the code in the Editor
-   Then The user should able to see an error message in alert window
- 
-     @tag47
-  Scenario: Verify that user receives error for invalid python code for "Deletion" page
-   Given The user is in the tryEditor page
-   When The user write the invalid code in Editor and click the Run Button
-   Then The user should able to see an error message in alert window
-  
-      @tag48
-  Scenario: Verify that user is able to see output for valid python code for "Deletion" page
-   Given The user is in the tryEditor page
-   When The user write the valid code in Editor and click the Run Button
-   Then The user should able to see output in the console
-  
-      @tag49
-  Scenario: Verify that user is able to navigate to "Practice Questions" Page for "Deletion" page
-   Given The user is in the "Deletion" page after Sign in
-   When The user clicks "Practice Questions" button
-   Then The user should be redirected to "Practice Questions" page
-  
-      @tag50
-  Scenario: Verify that user is able to navigate to "Linked List" data structure page
-   Given The user is in the blank "Practice" page
-   When The user select Linked List item from the drop down menu
-   Then The user be directed to "Linked List" Data Structure Page 
    
    
-   @tag51
-   Scenario: Verify that user able to sign out successfully
-   Given The user is in the Stack page 
+   
+   
+   @tag37
+   Scenario: Signout from Linked List page and navigated to Home page
+   Given The user is in the Linked List page 
    When The user clicks Sign out 
    Then The user should be redirected to home page with message Logged out successfully

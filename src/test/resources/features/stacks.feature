@@ -22,7 +22,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
  @tag1
  Scenario: Navigate to "Stack" data structure page
    Given The user is in the Home page after Sign in
-   When The user clicks the Get Started button in Stack Panel / The user select Stack item from the drop down menu
+   When The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu
    Then The user is directed to Stack Data Structure Page
    
    

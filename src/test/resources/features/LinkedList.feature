@@ -22,7 +22,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
  @tag1
  Scenario: Navigate to "Linked List" data structure page
    Given The user is in the Home page after Sign in
-   When The user clicks the Get Started button in Linked List Panel / The user select Linked List item from the drop down menu
+   When The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu
    Then The user be directed to Linked List Data Structure Page
    
    

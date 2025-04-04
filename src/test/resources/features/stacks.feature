@@ -23,7 +23,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
  Scenario: Navigate to "Stack" data structure page
    Given The user is in the Home page after Sign in
    When The user clicks the Get Started button in Stack Panel / The user select Stack item from the drop down menu
-   Then The user be directed to Stack Data Structure Page
+   Then The user is directed to Stack Data Structure Page
    
    
    
@@ -88,12 +88,12 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
  @tag8
   Scenario: Navigate to "try Editor" page for "Implementation" page
    Given The user is on the Implementation page
-   When The user clicks Try Here>>> button in Implemention page
+   When The user clicks Try Here>>> button in Implementation page
    Then Navigate to try Editor window with a Run button to test
   
   @tag9
   Scenario Outline: TryEditor functionality for "Implementation" page
-   Given The user is on the tryEditor Implemention page
+   Given The user is on the tryEditor Implementation page
    When The user enters the <code> in text editor and clicks RUN Button
    Then The <alert> should be displayed
    
@@ -119,7 +119,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
      
       @tag10
   Scenario: Navigate to "Practice Questions" Page for "Implementation" page
-   Given The user is on the tryEditor Implemention page 
+   Given The user is on the tryEditor Implementation page 
    When The user clicks Practice Questions button following browser back arrow
    Then The user is navigated to Practice Questions page
   

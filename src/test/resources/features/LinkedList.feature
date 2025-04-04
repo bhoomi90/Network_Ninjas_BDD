@@ -17,24 +17,24 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Portal
+Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo Portal
 
  @tag1
  Scenario: Navigate to "Linked List" data structure page
    Given The user is in the Home page after Sign in
-   When The user clicks the Get Started button in Linked List Panel / The user select Linked List item from the drop down menu
+   When The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu
    Then The user be directed to Linked List Data Structure Page
    
    
    
    @tag2
  Scenario: Navigate to "Introduction" page
-   Given The user is in the Stack page after Sign in
+   Given The user is in the Linked List page after Sign in
    When The user clicks Introduction in Linked List page
    Then The user should be redirected to Introduction page
  @tag3
   Scenario: Navigate to "try Editor" page for "Introduction" page
-   Given The user is on the Introduction in Stack page
+   Given The user is on the Introduction in Linked List page
    When The user clicks Try Here>>> button in Introduction in Linked List page
    Then Navigate to try Editor window with a Run button to test
   

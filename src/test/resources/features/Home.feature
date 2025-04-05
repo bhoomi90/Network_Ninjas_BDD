@@ -206,7 +206,7 @@ Feature: Home page features
 		When The user clicks "Get Started" buttons of "Graph" on the homepage while Log in
 		Then The user should be redirected to "Graph" page
 		
-		#@tag33
+		#@tag35
 	#Scenario Outline: Verify menu access before and after login  
 		#Given The user is on the Home page
 		#When The user click "Get Started" on the "<menu_item>" menu

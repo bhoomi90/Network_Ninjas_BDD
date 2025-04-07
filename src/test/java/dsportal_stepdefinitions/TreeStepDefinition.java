@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TreeStepDefinitions {
+public class TreeStepDefinition {
 
 	@Given("The user is in the Home Page")
 	public void the_user_is_in_the_home_page() {

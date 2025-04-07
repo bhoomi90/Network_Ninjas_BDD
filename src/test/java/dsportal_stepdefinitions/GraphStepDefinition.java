@@ -1,22 +1,11 @@
 package dsportal_stepdefinitions;
-//import utilities.LoggerLoad;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GraphStepDefinition {
-	
-	
+
 	@Given("The user is in the Graph Introduction Page after Sign in")
 	public void the_user_is_in_the_graph_introduction_page_after_sign_in() {
 	    // Write code here that turns the phrase above into concrete actions
@@ -65,8 +54,8 @@ public class GraphStepDefinition {
 	    throw new io.cucumber.java.PendingException();
 	}
 
-	@When("The user enters the Invalid code1 in Text Editor and clicks RUN button")
-	public void the_user_enters_the_invalid_code1_in_text_editor_and_clicks_run_button() {
+	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
+	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();
 	}
@@ -175,5 +164,9 @@ public class GraphStepDefinition {
 
 
 
-	
+
+
+
+
+
 }

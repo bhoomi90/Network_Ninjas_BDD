@@ -348,7 +348,7 @@ Then The <alert> should be displayed
 Scenario: Redirected to Binary Search Trees page
 Given The user is on the Try Editor of Binary Search Trees page
 When The user clicks browser back arrow
-Then the user is navigated to Binary Search Trees page
+Then The user is navigated to Binary Search Trees page
 
 @implebst @tree13
 Scenario: Navigate to Implementation Of BST page

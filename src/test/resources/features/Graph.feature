@@ -24,12 +24,12 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
     
 @backtograph
 Scenario: Redirected to Graph page
 Given The user is on the Try Editor of Graph page
-When The user clicks grabrowser back arrow
+When The user clicks browser back arrow
 Then The user is navigated to Graph page 
 
 @grarep 
@@ -46,19 +46,19 @@ Then The user is navigated to tryEditor window
 
 @greptxteditor
 Scenario Outline: Graph Representations tryEditor Functionality  
-Given The user is on the GrareptryEditor page
+Given The user is on the tryEditor page
 When The user enters the <code> in Text Editor and clicks RUN button
 Then The <alert> should be displayed
 Examples: 
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
     
 @backtogrep
 Scenario: Redirected to Graph Representations page
 Given The user is on the Try Editor of Graph Representations page
-When The user clicks grepbrowser back arrow
+When The user clicks browser back arrow
 Then The user is navigated to Graph Representations page 
 
 @practques
@@ -69,13 +69,13 @@ Then the user should be redirected to the Practice page
 
 Scenario: Navigate to Graph page
 Given The user is in the blank Practice page
-When The user clicks grabrowser back arrow
+When The user clicks browser back arrow
 Then The user is redirected to Graph Page
  
 @signout
 Scenario: signout from Graph page and navigated to Home page
-Given The user is in Tree Introduction page
-When the user clicks Sign out
-Then the user is directed to Home page with message Logged out successfully
+Given The user is in the Graph page
+When The user clicks Sign out
+Then The user is directed to Home page with message Logged out successfully
 	
 

@@ -24,7 +24,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
 
 @backtoview
 Scenario: Redirected to Overview of Trees page
@@ -53,7 +53,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
     
 @backtotermino
 Scenario: Redirected to Terminologies page
@@ -82,7 +82,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
        
 @backtotyptrees
 Scenario: Redirected to Types of Trees page
@@ -111,13 +111,13 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
       
 @backtotravers
 Scenario: Redirected to Tree Traversals page
 Given The user is on the Try Editor of Tree Traversals page
-When the user clicks browser back arrow
-Then the user is navigated to Tree Traversals page 
+When The user clicks browser back arrow
+Then The user is navigated to Tree Traversals page 
  
 @illustrations   @tree5
 Scenario: Navigate to Traversals Illustration page
@@ -140,7 +140,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
        
 @backtoillus 
 Scenario: Redirected to Traversals Illustration page
@@ -169,13 +169,13 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
     
 @backtobinary
 Scenario: Redirected to Binary Trees page
 Given The user is on the Try Editor of Binary Trees page
-When the user clicks browser back arrow
-Then the user is navigated to Binary Trees page 
+When The user clicks browser back arrow
+Then The user is navigated to Binary Trees page 
  
 @typebintree   @tree7
 Scenario: Navigate to Types of Binary Trees page
@@ -198,13 +198,13 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
      
 @backtotypbin
 Scenario: Redirected to Types of Binary Trees page
 Given The user is on the Try Editor of Types of Binary Trees page
-When the user clicks browser back arrow
-Then the user is navigated to Types of Binary Trees page 
+When The user clicks browser back arrow
+Then The user is navigated to Types of Binary Trees page 
  
 @implepython @tree8
 Scenario: Navigate to Implementation in Python page
@@ -226,7 +226,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
     
 @backtopython
 Scenario: Redirected to Implementation in Python page
@@ -255,7 +255,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
 
 @backtobintra
 Scenario: Redirected to Binary Tree Traversals page
@@ -284,7 +284,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
 
 @backtoimpbin
 Scenario: Redirected to Implementation of Binary Trees page
@@ -313,7 +313,7 @@ Examples:
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
 
 @backtoappbin
 Scenario: Redirected to Applications of Binary trees page
@@ -342,13 +342,13 @@ Then The <alert> should be displayed
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
 
 @backtobinsea
 Scenario: Redirected to Binary Search Trees page
 Given The user is on the Try Editor of Binary Search Trees page
 When The user clicks browser back arrow
-Then the user is navigated to Binary Search Trees page
+Then The user is navigated to Binary Search Trees page
 
 @implebst @tree13
 Scenario: Navigate to Implementation Of BST page
@@ -371,7 +371,7 @@ Then The <alert> should be displayed
       | code          | alert                            |
       | Empty         | Error message in alert window    |
       | valid code    | displayed in the console         |
-      | Invalid code1 | nameerror pop up alert message   |
+      | Invalid code  | nameerror pop up alert message   |
 
 @backtobst
 Scenario: Redirected to Implementation Of BST page

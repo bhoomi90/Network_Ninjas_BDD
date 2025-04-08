@@ -119,10 +119,6 @@ public class DataStructureStepDefinition {
 	   
 	}
 
-	@Given("The user is in the Graph page")
-	public void the_user_is_in_the_graph_page() {
-	    
-	   
-	}
+	
 
 }

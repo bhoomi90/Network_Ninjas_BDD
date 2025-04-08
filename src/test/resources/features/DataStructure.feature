@@ -53,7 +53,7 @@ Feature: Data Structure-Introduction  page features
     
    @tag9
   Scenario: Verify that user able to sign out successfully
-    Given The user is in the Graph page 
+    Given The user is in the Data Structures - Introduction page 
     When The user clicks Sign out 
     Then The user should be redirected to home page with message Logged out successfully
     

@@ -1,21 +1,4 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
+
 @tag
 Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo Portal
 
@@ -51,18 +34,6 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Invalid code | nameerror pop up alert message    | 
    
  
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
      
       @tag5
   Scenario: Navigate to "Practice Questions" Page for "Introduction" page
@@ -104,19 +75,6 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Invalid code | nameerror pop up alert message    | 
    
  
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
-     
       @tag10
   Scenario: Navigate to "Practice Questions" Page for "Creating Linked LIst" page
    Given The user is on the tryEditor Creating Linked LIst page 
@@ -154,20 +112,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Empty        |     Error message in alert window | 
       | Valid code   |   displayed in the console        |
       | Invalid code | nameerror pop up alert message    | 
-   
  
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
      
       @tag15
   Scenario: Navigate to "Practice Questions" Page for "Types of Linked List" page
@@ -208,20 +153,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Valid code   |   displayed in the console        |
       | Invalid code | nameerror pop up alert message    | 
    
- 
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
-     
+
       @tag20
   Scenario: Navigate to "Practice Questions" Page for "Implement Linked List in Python" page
    Given The user is on the tryEditor Operations for Types of Linked List page 
@@ -261,18 +193,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Invalid code | nameerror pop up alert message    | 
    
  
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
+ 
      
       @tag25
   Scenario: Navigate to "Practice Questions" Page for "Traversal" page
@@ -312,19 +233,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Valid code   |   displayed in the console        |
       | Invalid code | nameerror pop up alert message    | 
    
- 
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
+
      
       @tag30
   Scenario: Navigate to "Practice Questions" Page for "Insertion" page
@@ -364,18 +273,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
       | Invalid code | nameerror pop up alert message    | 
    
  
-     #@tag5
-  #Scenario: Verify that user receives error for invalid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the invalid code in Editor and click the Run Button
-   #Then The user should able to see an error message in alert window
-  #
-      #@tag6
-  #Scenario: Verify that user is able to see output for valid python code for "Implementation" page
-   #Given The user is in the tryEditor page
-   #When The user write the valid code in Editor and click the Run Button
-   #Then The user should able to see output in the console
-  #
+
      
       @tag35
   Scenario: Navigate to "Practice Questions" Page for "Deletion" page

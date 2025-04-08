@@ -6,6 +6,12 @@ import io.cucumber.java.en.When;
 
 public class GraphStepDefinition {
 
+	@Given("The user is in the Home Page")
+	public void the_user_is_in_the_home_page() {
+	   
+	    
+	}
+
 	@Given("The user is in the Graph Introduction Page after Sign in")
 	public void the_user_is_in_the_graph_introduction_page_after_sign_in() {
 	   
@@ -30,14 +36,26 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@When("The user enters the Empty in Text Editor and clicks RUN button")
-	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
+	@When("The user clicks Try here>>> button")
+	public void the_user_clicks_try_here_button() {
 	   
 	    
 	}
 
-	@Then("The Error message in alert window should be displayed")
-	public void the_error_message_in_alert_window_should_be_displayed() {
+	@Then("The user is navigated to tryEditor window")
+	public void the_user_is_navigated_to_try_editor_window() {
+	   
+	    
+	}
+
+	@Given("The user is on the tryEditor page")
+	public void the_user_is_on_the_try_editor_page() {
+	   
+	    
+	}
+
+	@When("The user enters the Empty in Text Editor and clicks RUN button")
+	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
 	   
 	    
 	}
@@ -48,20 +66,8 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@Then("The displayed in the console should be displayed")
-	public void the_displayed_in_the_console_should_be_displayed() {
-	   
-	    
-	}
-
 	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
 	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
-	   
-	    
-	}
-
-	@Then("The nameerror pop up alert message should be displayed")
-	public void the_nameerror_pop_up_alert_message_should_be_displayed() {
 	   
 	    
 	}
@@ -72,8 +78,8 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@When("The user clicks grabrowser back arrow")
-	public void the_user_clicks_grabrowser_back_arrow() {
+	@When("The user clicks browser back arrow")
+	public void the_user_clicks_browser_back_arrow() {
 	   
 	    
 	}
@@ -102,20 +108,8 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@Given("The user is on the GrareptryEditor page")
-	public void the_user_is_on_the_grareptry_editor_page() {
-	   
-	    
-	}
-
 	@Given("The user is on the Try Editor of Graph Representations page")
 	public void the_user_is_on_the_try_editor_of_graph_representations_page() {
-	   
-	    
-	}
-
-	@When("The user clicks grepbrowser back arrow")
-	public void the_user_clicks_grepbrowser_back_arrow() {
 	   
 	    
 	}
@@ -150,23 +144,10 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@When("the user clicks Sign out")
-	public void the_user_clicks_sign_out() {
-	   
-	    
-	}
-
-	@Then("the user is directed to Home page with message Logged out successfully")
+	@Then("The user is directed to Home page with message Logged out successfully")
 	public void the_user_is_directed_to_home_page_with_message_logged_out_successfully() {
 	   
 	    
 	}
-
-
-
-
-
-
-
 
 }

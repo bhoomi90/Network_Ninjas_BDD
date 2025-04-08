@@ -107,7 +107,7 @@ public class DataStructureStepDefinition {
 	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Given("The user is in the Graph page")
+	@Given("The user is in the graph page")
 	public void the_user_is_in_the_graph_page() {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new io.cucumber.java.PendingException();

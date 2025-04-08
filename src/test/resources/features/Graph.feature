@@ -78,4 +78,3 @@ Given The user is in the Graph page
 When The user clicks Sign out
 Then The user is directed to Home page with message Logged out successfully
 	
-

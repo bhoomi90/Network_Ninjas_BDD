@@ -21,21 +21,21 @@ Feature: Data Structure-Introduction  page features
   I want to use this template for my feature file
 
   @tag1
-  Scenario: Verify that user is able to navigate to Data Structures - Introduction page
+  Scenario: Verify that user is able to navigate to "Data Structures - Introduction" page
     Given The user is in the Home page after logged in
-    When The user clicks the Getting Started button in Data Structures - Introduction OR The user select Data Structures - Introduction item from the drop down menu
-    Then The user be directed to Data Structures- Introduction Page 
+    When The user clicks the "Getting Started" button in Data Structures - Introduction OR The user select Data Structures - Introduction item from the drop down menu
+    Then The user be directed to "Data Structures- Introduction Page" 
     
    @tag2
-  Scenario: Verify that user is able to navigate to Time Complexity page
-    Given The user is in the Data Structures - Introduction page
-    When The user clicks Time Complexity button
-    Then The user should be redirected to Time Complexity of Data structures-Introduction
+  Scenario: Verify that user is able to navigate to "Time Complexity" page
+    Given The user is in the "Data Structures - Introduction" page
+    When The user clicks "Time Complexity" button
+    Then The user should be redirected to "Time Complexity" of Data structures-Introduction
     
    @tag3
-  Scenario: Verify that user is able to navigate to try Editor page
-    Given The user is in the Time Complexity page
-    When The user clicks Try Here button
+  Scenario: Verify that user is able to navigate to "try Editor" page
+    Given The user is in the "Time Complexity" page
+    When The user clicks "Try Here" button
     Then The user should be redirected to a page having an try Editor with a Run button to test
     
    @tag4
@@ -57,22 +57,22 @@ Feature: Data Structure-Introduction  page features
     Then The user should able to see output in the console
     
    @tag7
-  Scenario: Verify that user is able to navigate to Practice Questions page
-    Given The user is in the Time Complexity page
-    When The user clicks the Practice Questions button
-    Then The user should be redirected to Practice Questions of Data structures-Introduction
+  Scenario: Verify that user is able to navigate to "Practice Questions" page
+    Given The user is in the "Time Complexity" page
+    When The user clicks the "Practice Questions" button
+    Then The user should be redirected to "Practice Questions" of Data structures-Introduction
     
    @tag8
-  Scenario: Verify that user is able to navigate to Data Structures - Introduction  page
-    Given The user is in the blank Practice page
+  Scenario: Verify that user is able to navigate to "Data Structures - Introduction"  page
+    Given The user is in the blank "Practice" page
     When The user selected item from the drop down menu
-    Then The user be directed to selected item Page
+    Then The user be directed to "selected item"Page
     
    @tag9
   Scenario: Verify that user able to sign out successfully
     Given The user is in the Graph page 
-    When The user clicks Sign out 
-    Then The user should be redirected to home page with message Logged out successfully
+    When The user clicks "Sign out" 
+    Then The user should be redirected to home page with message "Logged out successfully"
     
     #@tag34
   #Scenario Outline: TryEditor functionality for "Time Complexity" page

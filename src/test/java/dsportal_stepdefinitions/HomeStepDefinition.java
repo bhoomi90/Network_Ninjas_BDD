@@ -5,15 +5,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class HomeStepDefinition {
+	
 	@Given("The user has browser open")
 	public void the_user_has_browser_open() {
-	    
+				    
 	    
 	}
 
 	@When("The user enter correct dsAlgo portal URL")
 	public void the_user_enter_correct_ds_algo_portal_url() {
-	    
+			    
 	    
 	}
 

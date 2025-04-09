@@ -5,9 +5,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginStepDefinition {
+	
+	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
-	    
+		
 	    
 	}
 

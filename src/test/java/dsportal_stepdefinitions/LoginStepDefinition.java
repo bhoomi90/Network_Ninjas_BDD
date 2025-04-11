@@ -1,10 +1,16 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
+
+import dsportal_Page.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginStepDefinition {
+	
+	WebDriver driver;
+    LoginPage clicklogin;
 	
 	
 	@Given("The user is on the DS Algo Home Page")

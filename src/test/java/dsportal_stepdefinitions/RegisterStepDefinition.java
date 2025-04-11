@@ -58,8 +58,8 @@ public class RegisterStepDefinition {
 	    
 	}
 
-	@When("The user clicks Register button after entering a username with spacebar characters other than digits and @\\/.\\/+\\/-\\/_")
-	public void the_user_clicks_register_button_after_entering_a_username_with_spacebar_characters_other_than_digits_and() {
+	@When("The user clicks Register button after entering a username with spacebar characters other than digits and {string}")
+	public void the_user_clicks_register_button_after_entering_a_username_with_spacebar_characters_other_than_digits_and(String username) {
 	   
 	    
 	}

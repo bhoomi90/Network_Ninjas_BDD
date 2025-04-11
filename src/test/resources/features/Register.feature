@@ -36,7 +36,7 @@ Feature: Register page features
    @tag6
   Scenario: Verify that user receives error message for invalid username field during registration
     Given The user is on the user registration page
-    When The user clicks Register button after entering a username with spacebar characters other than digits and @/./+/-/_
+    When The user clicks Register button after entering a username with spacebar characters other than digits and "@/./+/-/_"
     Then The user is not able to see error msg after entering invalid data
     
    @tag7

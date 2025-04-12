@@ -1,32 +1,58 @@
 package dsportal_stepdefinitions;
 
+import java.util.Random;
+
+import org.openqa.selenium.WebDriver;
+
+import dsportal_Page.LinkedListPage;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LinkedListStepDefinition {
 
+	WebDriver driver;
+	LinkedListPage linkedList;
+	
+	
 	@When("The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
-	    
+	
+//		Random rand = new Random();
+//		int sel_opt = rand.nextInt(1);
+//		System.out.println("Option no: " +sel_opt);
+//		
+//		if(sel_opt==1) {
+//			linkedList.open_linkedList_page();
+//		}
+//		else {
+//			linkedList.dropdown_linkedList_page();
+//		}
+
+		if(driver == null) System.out.println("Title 1 driver is null");
+
 	    
 	}
 
 	@Then("The user be directed to Linked List Data Structure Page")
 	public void the_user_be_directed_to_linked_list_data_structure_page() {
-	    
+		if(driver == null) System.out.println("Title 2 driver is null");
 	    
 	}
 
 	@Given("The user is in the Linked List page after Sign in")
 	public void the_user_is_in_the_linked_list_page_after_sign_in() {
-	    
+		if(driver == null) System.out.println("Title 3 driver is null");
+
 	    
 	}
 
 	@When("The user clicks Introduction in Linked List page")
 	public void the_user_clicks_introduction_in_linked_list_page() {
-	    
+		if(driver == null) System.out.println("Title 4 driver is null");
+		//linkedList.introduction_page();
+
 	    
 	}
 
@@ -44,13 +70,16 @@ public class LinkedListStepDefinition {
 
 	@When("The user clicks Try Here>>> button in Introduction in Linked List page")
 	public void the_user_clicks_try_here_button_in_introduction_in_linked_list_page() {
-	    
+		//linkedList.tryHere_page();
 	    
 	}
 
 	@Given("The user is on the tryEditor Introduction page")
 	public void the_user_is_on_the_try_editor_introduction_page() {
-	    
+//	    linkedList.emptyCode();
+//	    linkedList.validCode();
+//	    linkedList.invalidCode();
+
 	    
 	}
 

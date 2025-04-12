@@ -18,7 +18,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
  @tag3
   Scenario: Navigate to "try Editor" page for "Operations in Stack" page
    Given The user is on the Operations in Stack page
-   When The user clicks Try Here>>> button in Operations in Stack page
+   When The user clicks Try Here>>> button 
    Then Navigate to try Editor window with a Run button to test
   
   @tag4
@@ -59,7 +59,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
  @tag8
   Scenario: Navigate to "try Editor" page for "Implementation" page
    Given The user is on the Implementation page
-   When The user clicks Try Here>>> button in Implementation page
+   When The user clicks Try Here>>> button
    Then Navigate to try Editor window with a Run button to test
   
   @tag9
@@ -67,14 +67,12 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
    Given The user is on the tryEditor Implementation page
    When The user enters the <code> in text editor and clicks RUN Button
    Then The <alert> should be displayed
-   
+    
    Examples: 
       | code         | alert                             | 
       | Empty        |     Error message in alert window | 
       | Valid code   |   displayed in the console        |
       | Invalid code | nameerror pop up alert message    | 
-   
- 
      
       @tag10
   Scenario: Navigate to "Practice Questions" Page for "Implementation" page
@@ -99,7 +97,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
  @tag13
   Scenario: Navigate to "try Editor" page for "Applications" page
    Given The user is on the Applications page
-   When The user clicks Try Here>>> button in Applications page
+   When The user clicks Try Here>>> button
    Then Navigate to try Editor window with a Run button to test
   
   @tag14

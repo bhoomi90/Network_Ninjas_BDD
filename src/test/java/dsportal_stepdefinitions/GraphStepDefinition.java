@@ -30,41 +30,41 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@When("The user enters the Empty in Text Editor and clicks RUN button")
-	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
-	   
-	    
-	}
+//	@When("The user enters the Empty in Text Editor and clicks RUN button")
+//	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
+//	   
+//	    
+//	}
 
-	@Then("The Error message in alert window should be displayed")
-	public void the_error_message_in_alert_window_should_be_displayed() {
-	   
-	    
-	}
+//	@Then("The Error message in alert window should be displayed")
+//	public void the_error_message_in_alert_window_should_be_displayed() {
+//	   
+//	    
+//	}
 
-	@When("The user enters the valid code in Text Editor and clicks RUN button")
-	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
-	   
-	    
-	}
+//	@When("The user enters the valid code in Text Editor and clicks RUN button")
+//	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
+//	   
+//	    
+//	}
 
-	@Then("The displayed in the console should be displayed")
-	public void the_displayed_in_the_console_should_be_displayed() {
-	   
-	    
-	}
+//	@Then("The displayed in the console should be displayed")
+//	public void the_displayed_in_the_console_should_be_displayed() {
+//	   
+//	    
+//	}
 
-	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
-	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
-	   
-	    
-	}
+//	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
+//	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
+//	   
+//	    
+//	}
 
-	@Then("The nameerror pop up alert message should be displayed")
-	public void the_nameerror_pop_up_alert_message_should_be_displayed() {
-	   
-	    
-	}
+//	@Then("The nameerror pop up alert message should be displayed")
+//	public void the_nameerror_pop_up_alert_message_should_be_displayed() {
+//	   
+//	    
+//	}
 
 	@Given("The user is on the Try Editor of Graph page")
 	public void the_user_is_on_the_try_editor_of_graph_page() {
@@ -150,11 +150,11 @@ public class GraphStepDefinition {
 	    
 	}
 
-	@When("the user clicks Sign out")
-	public void the_user_clicks_sign_out() {
-	   
-	    
-	}
+//	@When("the user clicks Sign out")
+//	public void the_user_clicks_sign_out() {
+//	   
+//	    
+//	}
 
 	@Then("the user is directed to Home page with message Logged out successfully")
 	public void the_user_is_directed_to_home_page_with_message_logged_out_successfully() {

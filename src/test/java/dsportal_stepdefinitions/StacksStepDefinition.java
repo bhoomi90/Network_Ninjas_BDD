@@ -1,39 +1,49 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
+
+import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_Page.StackPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StacksStepDefinition {
 
-	@Given("The user is in the Home page after Sign in")
-	public void the_user_is_in_the_home_page_after_sign_in() {
-	    
-	    
-	}
-
+	WebDriver driver;
+	StackPage stack;
+	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
-	    
-	    
+		this.driver = PageDriverFactory.driver;
+		stack = new StackPage(driver);
+	    stack.dropdown_stack_page();
+	    stack.operationInStack_page();
+	    //stack.tryHere_page();
+	    //stack.emptyCode();
+	    //stack.validCode();
+	    if(driver == null) System.out.println("Title 1 driver is null");
+	    if(stack == null) System.out.println("Title 1 stack is null");
 	}
 
 	@Then("The user is directed to Stack Data Structure Page")
 	public void the_user_is_directed_to_stack_data_structure_page() {
 	    
-	    
+		if(driver == null) System.out.println("Title 2 driver is null");
+		if(stack == null) System.out.println("Title 2 stack is null");
 	}
 
 	@Given("The user is in the Stack page after Sign in")
 	public void the_user_is_in_the_stack_page_after_sign_in() {
-	    
-	    
+		if(driver == null) System.out.println("Title 3 driver is null");
+		if(stack == null) System.out.println("Title 3 stack is null");
 	}
 
 	@When("The user clicks Operations in Stack button")
 	public void the_user_clicks_operations_in_stack_button() {
-	    
-	    
+		if(driver == null) System.out.println("Title 4 driver is null");
+		if(stack == null) System.out.println("Title 4 stack is null");
+	    //stack.operationInStack_page();
 	}
 
 	@Then("The user should be redirected to Operations in Stack page")
@@ -44,12 +54,6 @@ public class StacksStepDefinition {
 
 	@Given("The user is on the Operations in Stack page")
 	public void the_user_is_on_the_operations_in_stack_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Try Here>>> button in Operations in Stack page")
-	public void the_user_clicks_try_here_button_in_operations_in_stack_page() {
 	    
 	    
 	}
@@ -66,41 +70,6 @@ public class StacksStepDefinition {
 	    
 	}
 
-	@When("The user enters the Empty in text editor and clicks RUN Button")
-	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
-	    
-	    
-	}
-
-	@Then("The Error message in alert window should be displayed")
-	public void the_error_message_in_alert_window_should_be_displayed() {
-	    
-	    
-	}
-
-	@When("The user enters the Valid code in text editor and clicks RUN Button")
-	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
-	    
-	    
-	}
-
-	@Then("The displayed in the console should be displayed")
-	public void the_displayed_in_the_console_should_be_displayed() {
-	    
-	    
-	}
-
-	@When("The user enters the Invalid code in text editor and clicks RUN Button")
-	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
-	    
-	    
-	}
-
-	@Then("The nameerror pop up alert message should be displayed")
-	public void the_nameerror_pop_up_alert_message_should_be_displayed() {
-	    
-	    
-	}
 
 	@Given("The user is on the tryEditor Operations for Operations in Stack page")
 	public void the_user_is_on_the_try_editor_operations_for_operations_in_stack_page() {
@@ -120,11 +89,11 @@ public class StacksStepDefinition {
 	    
 	}
 
-	@Given("The user is in the blank Practice page")
-	public void the_user_is_in_the_blank_practice_page() {
-	    
-	    
-	}
+//	@Given("The user is in the blank Practice page")
+//	public void the_user_is_in_the_blank_practice_page() {
+//	    
+//	    
+//	}
 
 	@When("The user select Stack item from the drop down menu")
 	public void the_user_select_stack_item_from_the_drop_down_menu() {
@@ -156,11 +125,6 @@ public class StacksStepDefinition {
 	    
 	}
 
-	@When("The user clicks Try Here>>> button in Implementation page")
-	public void the_user_clicks_try_here_button_in_implementation_page() {
-	    
-	    
-	}
 
 	@Given("The user is on the tryEditor Implementation page")
 	public void the_user_is_on_the_try_editor_implementation_page() {
@@ -180,12 +144,6 @@ public class StacksStepDefinition {
 	    
 	}
 
-	@When("The user clicks Try Here>>> button in Applications page")
-	public void the_user_clicks_try_here_button_in_applications_page() {
-	    
-	    
-	}
-
 	@Given("The user is on the tryEditor Applications page")
 	public void the_user_is_on_the_try_editor_applications_page() {
 	    
@@ -200,12 +158,6 @@ public class StacksStepDefinition {
 
 	@Given("The user is in the Stack page")
 	public void the_user_is_in_the_stack_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Sign out")
-	public void the_user_clicks_sign_out() {
 	    
 	    
 	}

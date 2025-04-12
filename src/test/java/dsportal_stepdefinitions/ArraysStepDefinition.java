@@ -41,11 +41,11 @@ public class ArraysStepDefinition {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("The user enters the Empty in Text Editor and clicks RUN button")
-	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
+//	@When("The user enters the Empty in Text Editor and clicks RUN button")
+//	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
+//		// Write code here that turns the phrase above into concrete actions
+//		throw new io.cucumber.java.PendingException();
+//	}
 
 	@Then("The <message> should be displayed")
 	public void the_message_should_be_displayed() {
@@ -53,17 +53,17 @@ public class ArraysStepDefinition {
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("The user enters the valid code in Text Editor and clicks RUN button")
-	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
+//	@When("The user enters the valid code in Text Editor and clicks RUN button")
+//	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
+//		// Write code here that turns the phrase above into concrete actions
+//		throw new io.cucumber.java.PendingException();
+//	}
 
-	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
-	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
+//	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
+//	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
+//		// Write code here that turns the phrase above into concrete actions
+//		throw new io.cucumber.java.PendingException();
+//	}
 
 	@Given("the user is signed in to dsAlgo Portal and is on the Array page")
 	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_array_page() {

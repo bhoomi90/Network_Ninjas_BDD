@@ -456,11 +456,11 @@ public class TreeStepDefinition {
 	    
 	}
 
-	@Given("The user is in the blank Practice page")
-	public void the_user_is_in_the_blank_practice_page() {
-	    
-	    
-	}
+//	@Given("The user is in the blank Practice page")
+//	public void the_user_is_in_the_blank_practice_page() {
+//	    
+//	    
+//	}
 
 	@Then("The user is redirected to Tree Page")
 	public void the_user_is_redirected_to_tree_page() {
@@ -474,11 +474,11 @@ public class TreeStepDefinition {
 	    
 	}
 
-	@When("The user clicks Sign out")
-	public void the_user_clicks_sign_out() {
-	    
-	    
-	}
+//	@When("The user clicks Sign out")
+//	public void the_user_clicks_sign_out() {
+//	    
+//	    
+//	}
 
 	@Then("The user is directed to Home page with message Logged out successfully")
 	public void the_user_is_directed_to_home_page_with_message_logged_out_successfully() {

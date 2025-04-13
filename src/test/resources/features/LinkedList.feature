@@ -18,7 +18,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
  @tag3
   Scenario: Navigate to "try Editor" page for "Introduction" page
    Given The user is on the Introduction in Linked List page
-   When The user clicks Try Here>>> button in Introduction in Linked List page
+   When The user clicks Try Here>>> button 
    Then Navigate to try Editor window with a Run button to test
   
   @tag4

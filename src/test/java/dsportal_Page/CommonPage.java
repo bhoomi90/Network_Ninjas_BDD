@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CommonPage {
 
-	protected WebDriver driver;
+	public static WebDriver driver;
 	
 	@FindBy (xpath=("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy (xpath=("//*[text()='Sign in']")) WebElement signIn ;
@@ -16,9 +16,13 @@ public class CommonPage {
 	@FindBy (xpath=("//*[@type='submit']")) WebElement login;
 	
 	@FindBy (xpath = ("//a[text()='Try here>>>']")) WebElement tryHereClick;
+	@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
+	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
+	
+	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
 	
 	public CommonPage(WebDriver driver) {
-		 this.driver = driver;
+		 CommonPage.driver = driver;
 		 
 		 if(driver.getTitle().equals("Numpy Ninja")) 
 			 System.out.println("I am on ds-algo App");
@@ -40,5 +44,25 @@ public class CommonPage {
 		tryHereClick.click();
 		System.out.println("I am on tryEditor window from introduction page");
 	}	
+
+	public void emptyCode() {
+		System.out.println("No python code entered");
+		runBttn.click();
+	}
 	
+	public void validCode() {
+		enterCode.sendKeys("print'hello'");
+		System.out.println("Valid python code entered");
+		runBttn.click();
+	}
+	
+	public void invalidCode() {
+		enterCode.sendKeys("prt'hello'");
+		System.out.println("Invalid python code entered");
+		runBttn.click();
+	}
+	
+	public void signOut() {
+		signOut.click();
+	}
 }

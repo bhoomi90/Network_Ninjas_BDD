@@ -10,40 +10,48 @@ import io.cucumber.java.en.When;
 
 public class StacksStepDefinition {
 
-	WebDriver driver;
-	StackPage stack;
+	static WebDriver driver;
+	static StackPage stack;
 	
+	public static void setUpStackPage() {
+		try {
+			StacksStepDefinition.driver = PageDriverFactory.driver;
+			stack = new StackPage(driver);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
-		this.driver = PageDriverFactory.driver;
-		stack = new StackPage(driver);
+		
+		if(stack==null) {
+			System.out.println("Create driver for Stack page");
+			setUpStackPage();
+		}
 	    stack.dropdown_stack_page();
-	    stack.operationInStack_page();
-	    //stack.tryHere_page();
-	    //stack.emptyCode();
-	    //stack.validCode();
-	    if(driver == null) System.out.println("Title 1 driver is null");
-	    if(stack == null) System.out.println("Title 1 stack is null");
+
 	}
 
 	@Then("The user is directed to Stack Data Structure Page")
 	public void the_user_is_directed_to_stack_data_structure_page() {
 	    
-		if(driver == null) System.out.println("Title 2 driver is null");
-		if(stack == null) System.out.println("Title 2 stack is null");
+
 	}
 
 	@Given("The user is in the Stack page after Sign in")
 	public void the_user_is_in_the_stack_page_after_sign_in() {
-		if(driver == null) System.out.println("Title 3 driver is null");
-		if(stack == null) System.out.println("Title 3 stack is null");
+
 	}
 
 	@When("The user clicks Operations in Stack button")
 	public void the_user_clicks_operations_in_stack_button() {
-		if(driver == null) System.out.println("Title 4 driver is null");
-		if(stack == null) System.out.println("Title 4 stack is null");
-	    //stack.operationInStack_page();
+
+		if(stack == null) {
+			System.out.println("Again Create driver for Stack page");
+			setUpStackPage();
+		}
+	    stack.operationInStack_page();
 	}
 
 	@Then("The user should be redirected to Operations in Stack page")
@@ -158,8 +166,8 @@ public class StacksStepDefinition {
 
 	@Given("The user is in the Stack page")
 	public void the_user_is_in_the_stack_page() {
-	    
-	    
+		if(stack==null) setUpStackPage();
+	    driver.navigate().to("https://dsportalapp.herokuapp.com/stack/");
 	}
 
 	@Then("The user should be redirected to home page with message Logged out successfully")

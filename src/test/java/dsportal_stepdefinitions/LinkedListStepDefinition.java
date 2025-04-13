@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 
+import dsportal_DriverFactory.PageDriverFactory;
 import dsportal_Page.LinkedListPage;
 
 import io.cucumber.java.en.Given;
@@ -12,10 +13,18 @@ import io.cucumber.java.en.When;
 
 public class LinkedListStepDefinition {
 
-	WebDriver driver;
-	LinkedListPage linkedList;
+	static WebDriver driver;
+	static LinkedListPage linkedList;
 	
-	
+	public static void setUp_LinkedlistPage() {
+		try {
+			driver = PageDriverFactory.driver;
+			linkedList = new LinkedListPage(driver);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	@When("The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
 	
@@ -30,30 +39,31 @@ public class LinkedListStepDefinition {
 //			linkedList.dropdown_linkedList_page();
 //		}
 
-		if(driver == null) System.out.println("Title 1 driver is null");
-
-	    
+		if(linkedList == null) {
+			System.out.println("Create driver for Linked List Page");
+			setUp_LinkedlistPage();
+		}
+		linkedList.open_linkedList_page();	    
 	}
 
 	@Then("The user be directed to Linked List Data Structure Page")
 	public void the_user_be_directed_to_linked_list_data_structure_page() {
-		if(driver == null) System.out.println("Title 2 driver is null");
+		
 	    
 	}
 
 	@Given("The user is in the Linked List page after Sign in")
 	public void the_user_is_in_the_linked_list_page_after_sign_in() {
-		if(driver == null) System.out.println("Title 3 driver is null");
-
+		
 	    
 	}
 
 	@When("The user clicks Introduction in Linked List page")
 	public void the_user_clicks_introduction_in_linked_list_page() {
-		if(driver == null) System.out.println("Title 4 driver is null");
-		//linkedList.introduction_page();
-
-	    
+		if(linkedList == null) {
+			System.out.println("Again Create driver for Linked List Page");
+		}
+		linkedList.introduction_page();	    
 	}
 
 	@Then("The user should be redirected to Introduction page")
@@ -76,9 +86,6 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is on the tryEditor Introduction page")
 	public void the_user_is_on_the_try_editor_introduction_page() {
-//	    linkedList.emptyCode();
-//	    linkedList.validCode();
-//	    linkedList.invalidCode();
 
 	    
 	}
@@ -325,7 +332,7 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is in the Linked List page")
 	public void the_user_is_in_the_linked_list_page() {
-	    
-	    
+		if(linkedList == null) setUp_LinkedlistPage();
+	    driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/");
 	}
 }

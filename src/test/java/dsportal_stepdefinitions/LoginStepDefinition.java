@@ -1,7 +1,9 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
+import java.time.Duration;
 
+import org.openqa.selenium.WebDriver;
+import dsportal_DriverFactory.PageDriverFactory;
 import dsportal_Page.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,14 +11,29 @@ import io.cucumber.java.en.When;
 
 public class LoginStepDefinition {
 	
-	WebDriver driver;
-    LoginPage clicklogin;
+	static WebDriver driver;
+	static LoginPage login_page;
 	
+	public static void setUpLoginPage() {
+		//this.driver = PageDriverFactory.driver ;
+		login_page = new LoginPage(driver);
+	}
+     
 	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
-		
-	    
+		//this.driver = DriverFactory.getChromeDriver();
+		//driver.get("https://dsportalapp.herokuapp.com/");
+		//driver.manage().window().maximize();
+//		LoginPage.
+//	    GetStartedBtn.click();
+		driver = PageDriverFactory.getChromeDriver();	    	
+   		driver.get("https://dsportalapp.herokuapp.com/");
+   		driver.manage().window().maximize();
+   		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    	   
+   		if(login_page==null) setUpLoginPage();
+   		login_page.get_login();
 	}
 
 	@When("The user should click the Sign in link")

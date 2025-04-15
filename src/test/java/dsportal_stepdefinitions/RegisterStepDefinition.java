@@ -1,12 +1,34 @@
 package dsportal_stepdefinitions;
 
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+
+import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_Page.RegisterPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class RegisterStepDefinition {
+	static WebDriver driver;
+	static RegisterPage Reg_page;
+	
+	public static void setUpRegisterPage() {
+		//this.driver = PageDriverFactory.driver ;
+		Reg_page = new RegisterPage(driver);
+	}
+
+	
 	@Given("The user is on the user registration page")
 	public void the_user_is_on_the_user_registration_page() {
+		driver = PageDriverFactory.getChromeDriver();	    	
+   		driver.get("https://dsportalapp.herokuapp.com/");
+   		driver.manage().window().maximize();
+   		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+   		
+   		if(Reg_page==null) setUpRegisterPage();
+   		Reg_page.clickregister();
 	    
 	}
 

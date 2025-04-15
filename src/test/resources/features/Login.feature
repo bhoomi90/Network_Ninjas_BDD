@@ -56,7 +56,7 @@ Feature: Login page features
     #Given The user is on the DS Algo Sign in Page
     #When The user enter username <username> and password <password>
     #Then The user should land in Data Structure Home Page with message You are logged in
-  
+  #
    #Examples: 
       #| Username         | Password         	| Action
       #| Empty        		|	Empty						 	| Please fill out this field  

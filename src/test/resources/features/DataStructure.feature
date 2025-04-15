@@ -62,7 +62,7 @@ Feature: Data Structure-Introduction  page features
    #Given The user is on the tryEditor Time Complexity page
    #When The user enters the <code> in text editor and clicks RUN Button
    #Then The <alert> should be displayed
-   
+   #
    #Examples: 
       #| code         | alert                             | 
       #| Empty        |     Error message in alert window | 

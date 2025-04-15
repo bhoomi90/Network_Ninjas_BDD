@@ -1,40 +1,38 @@
 package dsportal_Page;
 
-import java.time.Duration;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 	
-	WebDriver driver;
+	static WebDriver driver;
 	
+	@FindBy (xpath=("//*[text()='Get Started']")) WebElement getStarted;
+	@FindBy (xpath=("//*[text()='Sign in']")) WebElement signIn ;
 	@FindBy(id = "id_username") WebElement usernameInput;
 	@FindBy(id = "id_password") WebElement passwordInput;
 	@FindBy (xpath=("//*[@type='submit']")) WebElement login;
 	
 	public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this); 
-    }
-
-	public void clicklogin() {		
+		LoginPage.driver = driver;
+		 
+		 if(driver.getTitle().equals("Numpy Ninja")) 
+			 System.out.println("I am on ds-algo App");
+		 else
+			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
+		 
+		 PageFactory.initElements(driver, this);
+	}
+	
+	public void get_login() {
+		getStarted.click();
+		signIn.click();
 		usernameInput.sendKeys("Network_Ninjas");
 		passwordInput.sendKeys("OrangeS@12");
 		login.click();
-	}
-	
-	public static void main(String[] args) {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.manage().window().maximize();
-		driver.get("https://dsportalapp.herokuapp.com/login");
-		LoginPage obj = new LoginPage(driver);
-		obj.clicklogin();
-		
 	}
 }
 // username by id = id_username

@@ -74,7 +74,7 @@ Feature: Register page features
     #Given The user is on the user registration page
     #When The user clicks Register button after entering username <username>, password <password> and password confirmation <confirme password>
     #Then The user should be redirected to Home Page of DS Algo with message New Account Created. You are logged in as <ID>
-  
+  #
    #Examples: 
       #| Username         | Password         	| Password Confirmation 				| Action
       #| Empty        		|	Empty						 	| Empty													| Please fill out this field  

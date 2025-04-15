@@ -3,6 +3,7 @@ package dsportal_stepdefinitions;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 
 import dsportal_DriverFactory.PageDriverFactory;
@@ -62,8 +63,8 @@ public class CommonStepDefinition {
 		@When("The user enters the Invalid code in text editor and clicks RUN Button")
 		public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() throws IOException {
 			driver.navigate().refresh();
-		    //common.invalidCode();
-		    
+		    common.invalidCode();
+
 		}
 	       @Then("The Error message in alert window should be displayed")
 	       public void the_error_message_in_alert_window_should_be_displayed() {
@@ -80,8 +81,10 @@ public class CommonStepDefinition {
 
        @Then("The nameerror pop up alert message should be displayed")
        public void the_nameerror_pop_up_alert_message_should_be_displayed() {
-
-
+		    Alert alert = driver.switchTo().alert();
+		    System.out.println(alert.getText());
+		    //Thread.sleep(2000);
+		    alert.accept();  //click ok button
        }
 
        @Given("The user is in the blank Practice page")

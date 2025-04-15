@@ -50,7 +50,7 @@ public class CommonPage {
 	
 	public void tryHere_page() {
 		tryHereClick.click();
-		System.out.println("I am on tryEditor window from introduction page");
+		System.out.println("I am on tryEditor window to try Python code");
 	}	
 
 	public void emptyCode() {

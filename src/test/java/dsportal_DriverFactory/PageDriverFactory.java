@@ -11,7 +11,6 @@ public class PageDriverFactory {
 	
 	public static WebDriver getChromeDriver() {
 		driver = new ChromeDriver();
-		System.out.println("1 Created chrome driver");
 		return driver;
 	}
 

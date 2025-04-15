@@ -1,7 +1,5 @@
 package dsportal_stepdefinitions;
 
-import java.util.Random;
-
 import org.openqa.selenium.WebDriver;
 
 import dsportal_DriverFactory.PageDriverFactory;
@@ -27,17 +25,6 @@ public class LinkedListStepDefinition {
 	}
 	@When("The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
-	
-//		Random rand = new Random();
-//		int sel_opt = rand.nextInt(1);
-//		System.out.println("Option no: " +sel_opt);
-//		
-//		if(sel_opt==1) {
-//			linkedList.open_linkedList_page();
-//		}
-//		else {
-//			linkedList.dropdown_linkedList_page();
-//		}
 
 		if(linkedList == null) {
 			System.out.println("Create driver for Linked List Page");
@@ -78,12 +65,6 @@ public class LinkedListStepDefinition {
 	    
 	}
 
-	@When("The user clicks Try Here>>> button in Introduction in Linked List page")
-	public void the_user_clicks_try_here_button_in_introduction_in_linked_list_page() {
-		//linkedList.tryHere_page();
-	    
-	}
-
 	@Given("The user is on the tryEditor Introduction page")
 	public void the_user_is_on_the_try_editor_introduction_page() {
 
@@ -98,7 +79,7 @@ public class LinkedListStepDefinition {
 
 	@When("The user select Linked List item from the drop down menu")
 	public void the_user_select_linked_list_item_from_the_drop_down_menu() {
-	    
+	    linkedList.dropdown_linkedList_page();
 	    
 	}
 
@@ -108,57 +89,33 @@ public class LinkedListStepDefinition {
 	    
 	}
 
-	@Given("The user is in the Linked LIst page after Sign in")
-	public void the_user_is_in_the_linked_l_ist_page_after_sign_in() {
+	@When("The user clicks Creating Linked List button")
+	public void the_user_clicks_creating_linked_list_button() {
+	    linkedList.createLinkedList_page();
+	    
+	}
+
+	@Then("The user should be redirected to Creating Linked List page")
+	public void the_user_should_be_redirected_to_creating_linked_list_page() {
 	    
 	    
 	}
 
-	@When("The user clicks Creating Linked LIst button")
-	public void the_user_clicks_creating_linked_l_ist_button() {
+	@Given("The user is on the Creating Linked List page")
+	public void the_user_is_on_the_creating_linked_list_page() {
 	    
 	    
 	}
 
-	@Then("The user should be redirected to Creating Linked LIst page")
-	public void the_user_should_be_redirected_to_creating_linked_l_ist_page() {
-	    
-	    
-	}
-
-	@Given("The user is on the Creating Linked LIst page")
-	public void the_user_is_on_the_creating_linked_l_ist_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Try Here>>> button in Creating Linked LIst page")
-	public void the_user_clicks_try_here_button_in_creating_linked_l_ist_page() {
-	    
-	    
-	}
-
-	@Given("The user is on the tryEditor Creating Linked LIst page")
-	public void the_user_is_on_the_try_editor_creating_linked_l_ist_page() {
-	    
-	    
-	}
-
-	@When("The user select Linked LIst item from the drop down menu")
-	public void the_user_select_linked_l_ist_item_from_the_drop_down_menu() {
-	    
-	    
-	}
-
-	@Then("The user is redirected to Linked LIst Data Structure Page")
-	public void the_user_is_redirected_to_linked_l_ist_data_structure_page() {
+	@Given("The user is on the tryEditor Creating Linked List page")
+	public void the_user_is_on_the_try_editor_creating_linked_list_page() {
 	    
 	    
 	}
 
 	@When("The user clicks Types of Linked List in Linked List Page")
 	public void the_user_clicks_types_of_linked_list_in_linked_list_page() {
-	    
+	    linkedList.typesLinkedList_page();
 	    
 	}
 
@@ -170,12 +127,6 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is on the Types of Linked List page")
 	public void the_user_is_on_the_types_of_linked_list_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Try Here>>> button in Types of Linked List page")
-	public void the_user_clicks_try_here_button_in_types_of_linked_list_page() {
 	    
 	    
 	}
@@ -194,7 +145,7 @@ public class LinkedListStepDefinition {
 
 	@When("The user clicks Implement Linked List in Python in Linked List Page")
 	public void the_user_clicks_implement_linked_list_in_python_in_linked_list_page() {
-	    
+	    linkedList.implementLinkedList_page();
 	    
 	}
 
@@ -210,12 +161,6 @@ public class LinkedListStepDefinition {
 	    
 	}
 
-	@When("The user clicks Try Here>>> button in Implement Linked List in Python page")
-	public void the_user_clicks_try_here_button_in_implement_linked_list_in_python_page() {
-	    
-	    
-	}
-
 	@Given("The user is on the tryEditor Implement Linked List in Python page")
 	public void the_user_is_on_the_try_editor_implement_linked_list_in_python_page() {
 	    
@@ -224,7 +169,7 @@ public class LinkedListStepDefinition {
 
 	@When("The user clicks Traversal in Linked List Page")
 	public void the_user_clicks_traversal_in_linked_list_page() {
-	    
+	    linkedList.traversal_page();
 	    
 	}
 
@@ -236,12 +181,6 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is on the Traversal page")
 	public void the_user_is_on_the_traversal_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Try Here>>> button in Traversal page")
-	public void the_user_clicks_try_here_button_in_traversal_page() {
 	    
 	    
 	}
@@ -260,7 +199,7 @@ public class LinkedListStepDefinition {
 
 	@When("The user clicks Insertion in Linked List Page")
 	public void the_user_clicks_insertion_in_linked_list_page() {
-	    
+	    linkedList.insertion_page();
 	    
 	}
 
@@ -272,12 +211,6 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is on the Insertion page")
 	public void the_user_is_on_the_insertion_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Try Here>>> button in Insertion page")
-	public void the_user_clicks_try_here_button_in_insertion_page() {
 	    
 	    
 	}
@@ -296,7 +229,7 @@ public class LinkedListStepDefinition {
 
 	@When("The user clicks Deletion in Linked List Page")
 	public void the_user_clicks_deletion_in_linked_list_page() {
-	    
+	    linkedList.deletion_page();
 	    
 	}
 
@@ -308,12 +241,6 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is on the Deletion page")
 	public void the_user_is_on_the_deletion_page() {
-	    
-	    
-	}
-
-	@When("The user clicks Try Here>>> button in Deletion page")
-	public void the_user_clicks_try_here_button_in_deletion_page() {
 	    
 	    
 	}
@@ -332,7 +259,7 @@ public class LinkedListStepDefinition {
 
 	@Given("The user is in the Linked List page")
 	public void the_user_is_in_the_linked_list_page() {
-		if(linkedList == null) setUp_LinkedlistPage();
-	    driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/");
+
+		
 	}
 }

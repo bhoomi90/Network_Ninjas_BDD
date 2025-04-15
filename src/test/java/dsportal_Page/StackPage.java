@@ -17,7 +17,7 @@ public class StackPage {
 	@FindBy (xpath = ("//a[text()='Implementation']")) WebElement implementationStack;
 	@FindBy (xpath = ("//a[text()='Applications']")) WebElement applicationsStack;
 	
-	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;
+
 
 	
 	public StackPage(WebDriver driver) {
@@ -42,11 +42,6 @@ public class StackPage {
 	public void operationInStack_page() {
 		operationStack.click();
 		System.out.println("Directed to Operations in Stack page from Stack");
-	}
-	
-	public void practiceQue_page() {
-		practiceQue.click();
-		System.out.println("I am on practice questions page under Slack");
 	}
 	
 	public void implementation_page() {

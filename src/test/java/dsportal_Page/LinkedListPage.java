@@ -16,6 +16,13 @@ public class LinkedListPage {
 		@FindBy (xpath=("//a[text()='Linked List']")) WebElement dropdownLinkedList;
 		
 		@FindBy (xpath=("//a[text()='Introduction']")) WebElement introductionClick;
+		@FindBy (linkText = ("Creating Linked LIst")) WebElement createLinkedListClick; 
+		@FindBy (linkText = ("Types of Linked List")) WebElement typesLinkedListClick;
+		@FindBy (linkText = ("Implement Linked List in Python")) WebElement implementClick;
+		@FindBy (linkText = ("Traversal")) WebElement traversalClick;
+		@FindBy (linkText = ("Insertion")) WebElement insertionClick;
+		@FindBy (linkText = ("Deletion")) WebElement deletionClick;
+		
 		@FindBy (xpath = ("//a[text()='Try here>>>']")) WebElement tryHereClick;
 		@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
 		@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
@@ -46,5 +53,33 @@ public class LinkedListPage {
 			System.out.println("Directed to Introduction page from Linked List");
 		}
 	
-
+		public void createLinkedList_page() {
+			createLinkedListClick.click();
+			System.out.println("Directed to Creating Linked List page from Linked List");
+		}
+		
+		public void typesLinkedList_page() {
+			typesLinkedListClick.click();
+			System.out.println("Directed to Types of Linked List Page from Linked List");
+		}
+		
+		public void implementLinkedList_page () {
+			implementClick.click();
+			System.out.println("Directed to Implement Linked List Page from Linked List");
+		}
+		
+		public void traversal_page() {
+			traversalClick.click();
+			System.out.println("Directed to Traversal page from Linked List");
+		}
+		
+		public void insertion_page() {
+			insertionClick.click();
+			System.out.println("Directed to from Linked List");
+		}
+		
+		public void deletion_page() {
+			deletionClick.click();
+			System.out.println("Directed to from Linked List");
+		}
 }

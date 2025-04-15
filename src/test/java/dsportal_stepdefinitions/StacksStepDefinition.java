@@ -66,12 +66,6 @@ public class StacksStepDefinition {
 	    
 	}
 
-	@Then("Navigate to try Editor window with a Run button to test")
-	public void navigate_to_try_editor_window_with_a_run_button_to_test() {
-	    
-	    
-	}
-
 	@Given("The user is on the tryEditor Operations in Stack page")
 	public void the_user_is_on_the_try_editor_operations_in_stack_page() {
 	    
@@ -84,24 +78,6 @@ public class StacksStepDefinition {
 	    
 	    
 	}
-
-	@When("The user clicks Practice Questions button following browser back arrow")
-	public void the_user_clicks_practice_questions_button_following_browser_back_arrow() {
-	    driver.navigate().to("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");
-	    stack.practiceQue_page();
-	}
-
-	@Then("The user is navigated to Practice Questions page")
-	public void the_user_is_navigated_to_practice_questions_page() {
-	    
-	    
-	}
-
-//	@Given("The user is in the blank Practice page")
-//	public void the_user_is_in_the_blank_practice_page() {
-//	    
-//	    
-//	}
 
 	@When("The user select Stack item from the drop down menu")
 	public void the_user_select_stack_item_from_the_drop_down_menu() {
@@ -172,13 +148,9 @@ public class StacksStepDefinition {
 
 	@Given("The user is in the Stack page")
 	public void the_user_is_in_the_stack_page() {
-		//if(stack==null) setUpStackPage();
-	    //driver.navigate().to("https://dsportalapp.herokuapp.com/stack/");
+	
+		
 	}
 
-	@Then("The user should be redirected to home page with message Logged out successfully")
-	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-	    
-	    
-	}
+
 }

@@ -25,6 +25,8 @@ public class CommonPage {
 	@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
 	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
 	
+	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;
+	
 	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
 	
 	String validCode, invalidCode;
@@ -93,6 +95,11 @@ public class CommonPage {
 		enterCode.sendKeys(invalidCode);
 		System.out.println("Invalid python code entered");
 		runBttn.click();
+	}
+	
+	public void practiceQue_page() {
+		practiceQue.click();
+		System.out.println("I am on practice questions page");
 	}
 	
 	public void signOut() {

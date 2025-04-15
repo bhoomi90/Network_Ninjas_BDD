@@ -1,5 +1,11 @@
 package dsportal_Page;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +26,8 @@ public class CommonPage {
 	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
 	
 	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
+	
+	String validCode, invalidCode;
 	
 	public CommonPage(WebDriver driver) {
 		 CommonPage.driver = driver;
@@ -50,14 +58,39 @@ public class CommonPage {
 		runBttn.click();
 	}
 	
-	public void validCode() {
-		enterCode.sendKeys("print'hello'");
+	public void readExcelsheet() throws IOException {
+		 String path = System.getProperty("user.dir")+"/src/test/resources/TestCode/pythonCode.xlsx";
+		 File Excelfile = new File(path);
+		 
+		 FileInputStream Fis = new FileInputStream(Excelfile);
+		 XSSFWorkbook workbook = new XSSFWorkbook(Fis);
+		 XSSFSheet sheet = workbook.getSheet("Sheet 1");
+		 
+		 int rows = sheet.getLastRowNum();
+		 System.out.println("Last ROW: "+rows);
+		 int cols = sheet.getRow(0).getLastCellNum();
+		 System.out.println("Last col: " +cols);	
+
+		 validCode = sheet.getRow(0).getCell(0).getStringCellValue();
+		 System.out.print(sheet.getRow(0).getCell(0).getStringCellValue());
+	
+		 invalidCode = sheet.getRow(0).getCell(1).getStringCellValue();
+		 System.out.print(sheet.getRow(0).getCell(1).getStringCellValue());
+		 	
+		 workbook.close();
+		 Fis.close();			
+	}
+	
+	public void validCode() throws IOException {
+		readExcelsheet();
+		enterCode.sendKeys(validCode);
 		System.out.println("Valid python code entered");
 		runBttn.click();
 	}
 	
-	public void invalidCode() {
-		enterCode.sendKeys("prt'hello'");
+	public void invalidCode() throws IOException {
+		readExcelsheet();
+		enterCode.sendKeys(invalidCode);
 		System.out.println("Invalid python code entered");
 		runBttn.click();
 	}

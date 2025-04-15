@@ -87,8 +87,8 @@ public class StacksStepDefinition {
 
 	@When("The user clicks Practice Questions button following browser back arrow")
 	public void the_user_clicks_practice_questions_button_following_browser_back_arrow() {
-	    
-	    
+	    driver.navigate().to("https://dsportalapp.herokuapp.com/stack/operations-in-stack/");
+	    stack.practiceQue_page();
 	}
 
 	@Then("The user is navigated to Practice Questions page")
@@ -105,7 +105,7 @@ public class StacksStepDefinition {
 
 	@When("The user select Stack item from the drop down menu")
 	public void the_user_select_stack_item_from_the_drop_down_menu() {
-	    
+	    stack.dropdown_stack_page();
 	    
 	}
 
@@ -117,7 +117,7 @@ public class StacksStepDefinition {
 
 	@When("The user clicks Implementation button")
 	public void the_user_clicks_implementation_button() {
-	    
+	    stack.implementation_page();
 	    
 	}
 
@@ -140,6 +140,12 @@ public class StacksStepDefinition {
 	    
 	}
 
+	@When("The user clicks Applications button")
+	public void the_user_clicks_Applications_button() {
+	    stack.application_page();
+	    
+	}
+	
 	@Then("The user should be redirected to Applications in Stack page")
 	public void the_user_should_be_redirected_to_applications_in_stack_page() {
 	    
@@ -166,8 +172,8 @@ public class StacksStepDefinition {
 
 	@Given("The user is in the Stack page")
 	public void the_user_is_in_the_stack_page() {
-		if(stack==null) setUpStackPage();
-	    driver.navigate().to("https://dsportalapp.herokuapp.com/stack/");
+		//if(stack==null) setUpStackPage();
+	    //driver.navigate().to("https://dsportalapp.herokuapp.com/stack/");
 	}
 
 	@Then("The user should be redirected to home page with message Logged out successfully")

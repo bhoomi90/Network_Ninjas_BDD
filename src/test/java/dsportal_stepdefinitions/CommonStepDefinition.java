@@ -1,5 +1,6 @@
 package dsportal_stepdefinitions;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -52,16 +53,16 @@ public class CommonStepDefinition {
 
 	   	
 		@When("The user enters the Valid code in text editor and clicks RUN Button")
-		public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
+		public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() throws IOException {
+			driver.navigate().refresh();
 		    common.validCode();
 		    
 		}
 
-
-
 		@When("The user enters the Invalid code in text editor and clicks RUN Button")
-		public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
-		    
+		public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() throws IOException {
+			driver.navigate().refresh();
+		    //common.invalidCode();
 		    
 		}
 	       @Then("The Error message in alert window should be displayed")
@@ -91,9 +92,9 @@ public class CommonStepDefinition {
 
        @When("The user clicks Sign out")
        public void the_user_clicks_sign_out() {
-    	   if(common==null) setUpCommonPage();
-    	   common.signOut();
-    	   if(driver != null) teardown();
+//    	   if(common==null) setUpCommonPage();
+//    	   common.signOut();
+//    	   if(driver != null) teardown();
        }
 
 }

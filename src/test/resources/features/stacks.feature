@@ -92,7 +92,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
   @tag12
  Scenario: Navigate to "Applications" page
    Given The user is in the Stack page after Sign in
-   When The user clicks Operations in Stack button
+   When The user clicks Applications button
    Then The user should be redirected to Applications in Stack page
  @tag13
   Scenario: Navigate to "try Editor" page for "Applications" page

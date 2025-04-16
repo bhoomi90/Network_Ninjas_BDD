@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import dsportal_DriverFactory.PageDriverFactory;
 import dsportal_Page.LinkedListPage;
-
+import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +27,7 @@ public class LinkedListStepDefinition {
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
 
 		if(linkedList == null) {
-			System.out.println("Create driver for Linked List Page");
+			dsAlgoLoggerLoad.info("Create driver for Linked List Page");
 			setUp_LinkedlistPage();
 		}
 		linkedList.open_linkedList_page();	    
@@ -48,7 +48,7 @@ public class LinkedListStepDefinition {
 	@When("The user clicks Introduction in Linked List page")
 	public void the_user_clicks_introduction_in_linked_list_page() {
 		if(linkedList == null) {
-			System.out.println("Again Create driver for Linked List Page");
+			dsAlgoLoggerLoad.info("Again Create driver for Linked List Page");
 		}
 		linkedList.introduction_page();	    
 	}

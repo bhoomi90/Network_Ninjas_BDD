@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 import dsportal_DriverFactory.PageDriverFactory;
 import dsportal_Page.CommonPage;
+import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,7 +37,10 @@ public class CommonStepDefinition {
    		driver.manage().window().maximize();
    		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	    	   
-  		if(common==null) setUpCommonPage();
+  		if(common==null) {
+  			dsAlgoLoggerLoad.info("Create driver for Common page");
+  			setUpCommonPage();
+  		}
   		common.login();
 	   		
 	}

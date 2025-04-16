@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import dsportal_DriverFactory.PageDriverFactory;
 import dsportal_Page.StackPage;
+import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,7 +27,7 @@ public class StacksStepDefinition {
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
 		
 		if(stack==null) {
-			System.out.println("Create driver for Stack page");
+			dsAlgoLoggerLoad.info("Create driver for Stack page");
 			setUpStackPage();
 		}
 	    stack.dropdown_stack_page();
@@ -48,7 +49,7 @@ public class StacksStepDefinition {
 	public void the_user_clicks_operations_in_stack_button() {
 
 		if(stack == null) {
-			System.out.println("Again Create driver for Stack page");
+			dsAlgoLoggerLoad.info("Again Create driver for Stack page");
 			setUpStackPage();
 		}
 	    stack.operationInStack_page();

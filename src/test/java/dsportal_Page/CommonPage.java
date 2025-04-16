@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_utilities.dsAlgoLoggerLoad;
+
 public class CommonPage {
 
 	public static WebDriver driver;
@@ -25,8 +27,7 @@ public class CommonPage {
 	@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
 	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
 	
-	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;
-	
+	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;	
 	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
 	
 	String validCode, invalidCode;
@@ -35,7 +36,7 @@ public class CommonPage {
 		 CommonPage.driver = driver;
 		 
 		 if(driver.getTitle().equals("Numpy Ninja")) 
-			 System.out.println("I am on ds-algo App");
+			 dsAlgoLoggerLoad.info("I am on ds-algo App");
 		 else
 			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		 
@@ -52,12 +53,12 @@ public class CommonPage {
 	
 	public void tryHere_page() {
 		tryHereClick.click();
-		System.out.println("I am on tryEditor window to try Python code");
+		dsAlgoLoggerLoad.info("I am on tryEditor window to try Python code");
 	}	
 
 	public void emptyCode() {
-		System.out.println("No python code entered");
 		runBttn.click();
+		dsAlgoLoggerLoad.info("No python code entered");	
 	}
 	
 	public void readExcelsheet() throws IOException {
@@ -69,9 +70,9 @@ public class CommonPage {
 		 XSSFSheet sheet = workbook.getSheet("Sheet 1");
 		 
 		 int rows = sheet.getLastRowNum();
-		 System.out.println("Last ROW: "+rows);
+		 dsAlgoLoggerLoad.info("Last ROW: "+rows);
 		 int cols = sheet.getRow(0).getLastCellNum();
-		 System.out.println("Last col: " +cols);	
+		 dsAlgoLoggerLoad.info("Last col: " +cols);	
 
 		 validCode = sheet.getRow(0).getCell(0).getStringCellValue();
 		 System.out.print(sheet.getRow(0).getCell(0).getStringCellValue());
@@ -86,20 +87,20 @@ public class CommonPage {
 	public void validCode() throws IOException {
 		readExcelsheet();
 		enterCode.sendKeys(validCode);
-		System.out.println("Valid python code entered");
 		runBttn.click();
+		dsAlgoLoggerLoad.info("Valid python code entered");
 	}
 	
 	public void invalidCode() throws IOException {
 		readExcelsheet();
 		enterCode.sendKeys(invalidCode);
-		System.out.println("Invalid python code entered");
 		runBttn.click();
+		dsAlgoLoggerLoad.info("Invalid python code entered");
 	}
 	
 	public void practiceQue_page() {
 		practiceQue.click();
-		System.out.println("I am on practice questions page");
+		dsAlgoLoggerLoad.info("I am on practice questions page");
 	}
 	
 	public void signOut() {

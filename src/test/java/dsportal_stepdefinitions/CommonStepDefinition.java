@@ -92,7 +92,7 @@ public class CommonStepDefinition {
     @Then("The nameerror pop up alert message should be displayed")
     public void the_nameerror_pop_up_alert_message_should_be_displayed() {
 		Alert alert = driver.switchTo().alert();
-		System.out.println(alert.getText());
+		dsAlgoLoggerLoad.info(alert.getText());
 		//Thread.sleep(2000);
 		alert.accept();  //click ok button
     }
@@ -118,9 +118,9 @@ public class CommonStepDefinition {
 
     @When("The user clicks Sign out")
     public void the_user_clicks_sign_out() {
-//  	if(common==null) setUpCommonPage();
-//    	common.signOut();
-//    	if(driver != null) teardown();
+    	if(common==null) setUpCommonPage();
+    	common.signOut();
+    	if(driver != null) teardown();
     }
        
    	@Then("The user should be redirected to home page with message Logged out successfully")

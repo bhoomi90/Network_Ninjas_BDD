@@ -11,8 +11,8 @@ import io.cucumber.testng.CucumberOptions;
 		@CucumberOptions(
 				plugin = {"pretty", "html:target/dsAlgo.html"}, //reporting purpose
 				monochrome=false,  //console output color
-				
 				features = {"src/test/resources/features"}, //location of feature files
+				//features = {"src/test/resources/features/stacks.feature", "src/test/resources/features/LinkedList.feature"}, //location of feature files
 				glue= "dsportal_stepdefinitions") //location of step definition files
 
 
@@ -24,6 +24,4 @@ import io.cucumber.testng.CucumberOptions;
 						
 				return super.scenarios();
 		    }
-
-
 		}

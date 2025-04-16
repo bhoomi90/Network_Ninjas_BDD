@@ -6,10 +6,12 @@ import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import dsportal_utilities.dsAlgoLoggerLoad;
 
@@ -30,7 +32,7 @@ public class CommonPage {
 	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;	
 	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
 	
-	String validCode, invalidCode;
+	String validCode, invalidCode, loginText, logoutText;
 	
 	public CommonPage(WebDriver driver) {
 		 CommonPage.driver = driver;
@@ -49,6 +51,9 @@ public class CommonPage {
 		userName.sendKeys("Network_Ninjas");
 		password.sendKeys("OrangeS@12");
 		login.click();
+		loginText = driver.findElement(By.xpath("//*[@role='alert']")).getText();
+		Assert.assertEquals(loginText, "You are logged in");
+		dsAlgoLoggerLoad.info("User is logged in");
 	}
 	
 	public void tryHere_page() {
@@ -105,5 +110,8 @@ public class CommonPage {
 	
 	public void signOut() {
 		signOut.click();
+		logoutText = driver.findElement(By.xpath("//*[@role='alert']")).getText();
+		Assert.assertEquals(logoutText, "Logged out successfully");
+		dsAlgoLoggerLoad.info("User is logged out");
 	}
 }

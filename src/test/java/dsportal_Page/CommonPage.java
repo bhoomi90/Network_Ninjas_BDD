@@ -24,6 +24,7 @@ public class CommonPage {
 	@FindBy (id=("id_username")) WebElement userName;
 	@FindBy (id=("id_password")) WebElement password;
 	@FindBy (xpath=("//*[@type='submit']")) WebElement login;
+	@FindBy (xpath=("//*[@role='alert']")) WebElement alertMsg;
 	
 	@FindBy (xpath = ("//a[text()='Try here>>>']")) WebElement tryHereClick;
 	@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
@@ -51,7 +52,7 @@ public class CommonPage {
 		userName.sendKeys("Network_Ninjas");
 		password.sendKeys("OrangeS@12");
 		login.click();
-		loginText = driver.findElement(By.xpath("//*[@role='alert']")).getText();
+		loginText = alertMsg.getText();
 		Assert.assertEquals(loginText, "You are logged in");
 		dsAlgoLoggerLoad.info("User is logged in");
 	}
@@ -110,7 +111,10 @@ public class CommonPage {
 	
 	public void signOut() {
 		signOut.click();
-		logoutText = driver.findElement(By.xpath("//*[@role='alert']")).getText();
+	}
+	
+	public void compareLogoutMsg() {
+		logoutText = alertMsg.getText();
 		Assert.assertEquals(logoutText, "Logged out successfully");
 		dsAlgoLoggerLoad.info("User is logged out");
 	}

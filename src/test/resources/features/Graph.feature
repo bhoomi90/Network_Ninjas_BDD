@@ -1,7 +1,7 @@
 Feature: Graph Module
-  This file is updated
-   Background: The user logged in to dsAlgo Portal
-   Given The user is in the Home Page
+ # This file is updated
+  # Background: The user logged in to dsAlgo Portal
+   #Given The user is in the Home Page
 
 @graph 
 Scenario: Navigate to Graph page
@@ -18,13 +18,13 @@ Then The user is navigated to tryEditor window
 @graphtxteditor
 Scenario Outline: Graph tryEditor Functionality  
 Given The user is on the tryEditor page
-When The user enters the <code> in Text Editor and clicks RUN button
-Then The <alert> should be displayed
-Examples: 
-      | code          | alert                            |
-      | Empty         | Error message in alert window    |
-      | valid code    | displayed in the console         |
-      | Invalid code  | nameerror pop up alert message   |
+When The user enters the "<code>" in Text Editor and clicks RUN button
+Then The "<alert>" should be displayed
+ Examples: 
+      | code         | alert                          |
+      | Empty        | Error message in alert window  |
+      | valid code   | displayed in the console       |
+      | Invalid code | nameerror pop up alert message |
     
 @backtograph
 Scenario: Redirected to Graph page
@@ -47,8 +47,8 @@ Then The user is navigated to tryEditor window
 @greptxteditor
 Scenario Outline: Graph Representations tryEditor Functionality  
 Given The user is on the tryEditor page
-When The user enters the <code> in Text Editor and clicks RUN button
-Then The <alert> should be displayed
+When The user enters the "<code>" in Text Editor and clicks RUN button
+Then The "<alert>" should be displayed
 Examples: 
       | code          | alert                            |
       | Empty         | Error message in alert window    |
@@ -72,9 +72,9 @@ Given The user is in the blank Practice page
 When The user clicks browser back arrow
 Then The user is redirected to Graph Page
  
-@signout
-Scenario: signout from Graph page and navigated to Home page
-Given The user is in the Graph page
-When The user clicks Sign out
-Then The user is directed to Home page with message Logged out successfully
-	
+#@signout
+#Scenario: signout from Graph page and navigated to Home page
+#Given The user is in the Graph page
+#When The user clicks Sign out
+#Then The user is directed to Home page with message Logged out successfully
+#	

@@ -119,13 +119,12 @@ public class CommonStepDefinition {
     @When("The user clicks Sign out")
     public void the_user_clicks_sign_out() {
     	if(common==null) setUpCommonPage();
-    	common.signOut();
-    	if(driver != null) teardown();
+    	common.signOut();   	
     }
        
    	@Then("The user should be redirected to home page with message Logged out successfully")
    	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
    	    common.compareLogoutMsg();
-   	    
+     	//if(driver != null) teardown();
    	}
 }

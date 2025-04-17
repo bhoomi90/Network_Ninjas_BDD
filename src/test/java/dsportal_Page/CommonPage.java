@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -95,6 +95,7 @@ public class CommonPage {
 		enterCode.sendKeys(validCode);
 		runBttn.click();
 		dsAlgoLoggerLoad.info("Valid python code entered");
+		Assert.assertNotEquals(isAlertPresent(CommonPage.driver), true, "Alert displayed for valid python code");
 	}
 	
 	public void invalidCode() throws IOException {
@@ -102,6 +103,7 @@ public class CommonPage {
 		enterCode.sendKeys(invalidCode);
 		runBttn.click();
 		dsAlgoLoggerLoad.info("Invalid python code entered");
+		Assert.assertEquals(isAlertPresent(CommonPage.driver), true, "No alert displayed for invalid python code");		
 	}
 	
 	public void practiceQue_page() {
@@ -117,5 +119,14 @@ public class CommonPage {
 		logoutText = alertMsg.getText();
 		Assert.assertEquals(logoutText, "Logged out successfully");
 		dsAlgoLoggerLoad.info("User is logged out");
+	}
+	
+	public static boolean isAlertPresent(WebDriver driver) {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}
 	}
 }

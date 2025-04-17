@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -109,6 +110,15 @@ public class CommonPage {
 	public void practiceQue_page() {
 		practiceQue.click();
 		dsAlgoLoggerLoad.info("I am on practice questions page");
+	}
+	
+	public static boolean practiceQue_content() {
+		WebElement content = driver.findElement(By.className("container"));
+		dsAlgoLoggerLoad.info("Page content is: " +content.getText());
+		if(content.getText().length()==0)
+			return false;
+		else
+			return true;
 	}
 	
 	public void signOut() {

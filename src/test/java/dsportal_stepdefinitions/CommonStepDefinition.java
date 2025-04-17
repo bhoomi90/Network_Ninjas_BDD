@@ -5,6 +5,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import dsportal_DriverFactory.PageDriverFactory;
 import dsportal_Page.CommonPage;
@@ -106,8 +107,8 @@ public class CommonStepDefinition {
   
 	@Then("The user is navigated to Practice Questions page")
 	public void the_user_is_navigated_to_practice_questions_page() {
-	    
-	    
+	    Assert.assertFalse(common.practiceQue_content(), "No questions on practice que page");
+	    dsAlgoLoggerLoad.error("Test failed: Found the page blank. Expected to navigate to Practice Questions");
 	}
 	
     @Given("The user is in the blank Practice page")

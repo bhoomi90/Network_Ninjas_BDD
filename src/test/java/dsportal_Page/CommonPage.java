@@ -64,8 +64,9 @@ public class CommonPage {
 	}	
 
 	public void emptyCode() {
-		runBttn.click();
-		dsAlgoLoggerLoad.info("No python code entered");	
+		runBttn.click();			
+		Assert.assertFalse(isAlertPresent(CommonPage.driver), "Alert displayed for empty code");
+		dsAlgoLoggerLoad.error("Test failed: No python code entered. Expected to get alert");
 	}
 	
 	public void readExcelsheet() throws IOException {

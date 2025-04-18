@@ -1,25 +1,36 @@
 package dsportal_Page;
 
-import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class DataStructurePage {
+	public static WebDriver driver;
 	
-	public static void main(String[] args) {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.manage().window().maximize();
-		driver.get("https://dsportalapp.herokuapp.com/data-structures-introduction/");
-		
-		// have to give login Credentials and home page access for go below step
-		driver.findElement(By.linkText("time-complexity")).click();
-		driver.findElement(By.linkText("Practice Questions")).click();
 	
+	@FindBy (xpath=("//h5[text()='Data Structures-Introduction']/../a[text()='Get Started']")) WebElement DataStrucIntro;
+	@FindBy (xpath = ("//a[text()='Time Complexity']")) WebElement timecomplex;	
+	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;
 
-	// Time Complexity linktext () ="time-complexity"
-	// Practice Questions linktext()= Practice Questions
+	public DataStructurePage(WebDriver driver) {
+		DataStructurePage.driver = driver;	 
+		 PageFactory.initElements(driver, this);
+	}
+	
+	public void DataStruc_page() {
+		DataStrucIntro.click();
+		System.out.println("I am on DataStructure-Introduction Page");
+	}
+	
+	public void TimecomplexInDataStruc_page() {
+		timecomplex.click();
+		System.out.println("Directed to Time Complexity in Datastructure page");
+	}
+	
+	public void practiceQue_page() {
+		practiceQue.click();
+		System.out.println("I am on practice questions page under Datastructure");
 	}
 }

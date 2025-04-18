@@ -1,5 +1,13 @@
 package dsportal_Page;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,12 +35,48 @@ public class LoginPage {
 		 PageFactory.initElements(driver, this);
 	}
 	
+	public static void WriteExcelSheet() throws IOException {
+		XSSFWorkbook workbook = new XSSFWorkbook();
+		XSSFSheet worksheet = workbook.createSheet("Login");
+		
+		int rowNum =0;
+		
+		for(int i=1;i<=5;i++) {
+			
+			XSSFRow row = worksheet.createRow(rowNum++);
+			int colNum=0;
+			for(int j=1;j<=5;j++) {
+				XSSFCell cell=row.createCell(colNum++);
+				cell.setCellValue("Row"+i+"Column"+j);
+			}
+		}
+		
+		String path = System.getProperty("user.dir")+"/src/test/resources/TestCode/LoginData.xlsx";
+		File Excelfile = new File(path);
+		FileOutputStream Fos = null;
+		try {
+			Fos = new FileOutputStream(Excelfile);
+			workbook.write(Fos);
+			workbook.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+				Fos.close();
+			}
+			
+		}
+	
 	public void get_login() {
 		getStarted.click();
 		signIn.click();
 		usernameInput.sendKeys("Network_Ninjas");
 		passwordInput.sendKeys("OrangeS@12");
 		login.click();
+	}
+	
+	public static void main(String[] args) throws IOException {
+		WriteExcelSheet();
 	}
 }
 // username by id = id_username

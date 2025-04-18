@@ -9,7 +9,7 @@ import dsportal_utilities.dsAlgoLoggerLoad;
 
 public class StackPage {
 
-	public static WebDriver driver;
+	static WebDriver driver;
 
 	@FindBy (xpath=("//h5[text()='Stack']/../a[text()='Get Started']")) WebElement stackClick;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
@@ -18,23 +18,18 @@ public class StackPage {
 	@FindBy (xpath = ("//a[text()='Operations in Stack']")) WebElement operationStack;
 	@FindBy (xpath = ("//a[text()='Implementation']")) WebElement implementationStack;
 	@FindBy (xpath = ("//a[text()='Applications']")) WebElement applicationsStack;
-	
-
-
-	
+		
 	public StackPage(WebDriver driver) {
 		 StackPage.driver = driver;
 		 
-//		 if(driver.getTitle().equals("NumpyNinja")) 
-//			 dsAlgoLoggerLoad.info("I am on ds-algo App");
-//		 else
-//			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
+		 if(driver.getTitle().equals("NumpyNinja")) 
+			 dsAlgoLoggerLoad.info("I am on ds-algo App");
+		 else
+			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		 
 		 PageFactory.initElements(driver, this);
 	}
 
-
-	
 	public void dropdown_stack_page() {
 		dropdown.click();
 		dropdownStack.click();

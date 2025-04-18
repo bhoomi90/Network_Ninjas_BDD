@@ -1,49 +1,33 @@
 package dsportal_stepdefinitions;
 
 import java.io.IOException;
-import java.time.Duration;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_BaseClass.DriverInstance;
 import dsportal_Page.CommonPage;
 import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CommonStepDefinition {
+public class CommonStepDefinition extends DriverInstance {
 	
-	static WebDriver driver;
 	static CommonPage common;
 	
 	public static void setUpCommonPage() {
-		//this.driver = PageDriverFactory.driver ;
 		common = new CommonPage(driver);
-	}
-	
-	public static void teardown() {
-		driver.close();
-		driver.quit();
-	}
-	
+	}	
 	
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {
-
-	  	driver = PageDriverFactory.getChromeDriver();	    	
-		driver.get("https://dsportalapp.herokuapp.com/");
-   		driver.manage().window().maximize();
-   		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	    	   
+ 
   		if(common==null) {
-  			dsAlgoLoggerLoad.info("Create driver for Common page");
+  			dsAlgoLoggerLoad.info("Create constructor for Common page");
   			setUpCommonPage();
   		}
-  		common.login();
-	   		
+  		common.login();	   		
 	}
 
     @When("The user clicks Try Here>>> button")
@@ -107,7 +91,7 @@ public class CommonStepDefinition {
   
 	@Then("The user is navigated to Practice Questions page")
 	public void the_user_is_navigated_to_practice_questions_page() {
-	    Assert.assertFalse(common.practiceQue_content(), "No questions on practice que page");
+	    Assert.assertFalse(CommonPage.practiceQue_content(), "No questions on practice que page");
 	    dsAlgoLoggerLoad.error("Test failed: Found the page blank. Expected to navigate to Practice Questions");
 	}
 	
@@ -126,6 +110,6 @@ public class CommonStepDefinition {
    	@Then("The user should be redirected to home page with message Logged out successfully")
    	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
    	    common.compareLogoutMsg();
-     	//if(driver != null) teardown();
+     	
    	}
 }

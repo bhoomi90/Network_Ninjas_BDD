@@ -1,27 +1,18 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
-
-import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_BaseClass.DriverInstance;
 import dsportal_Page.TreePage;
 import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TreeStepDefinition {
+public class TreeStepDefinition extends DriverInstance {
 
-	static WebDriver driver;
 	static TreePage tree;
 	
 	public static void setUpTreePage() {
-		try {
-			TreeStepDefinition.driver = PageDriverFactory.driver;
 			tree = new TreePage(driver);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	@When("The user clicks the Get Started button in Tree Panel or The user select Tree item from the drop down menu")

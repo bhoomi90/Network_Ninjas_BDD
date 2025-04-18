@@ -1,28 +1,20 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
-
-import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_BaseClass.DriverInstance;
 import dsportal_Page.StackPage;
 import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StacksStepDefinition {
+public class StacksStepDefinition extends DriverInstance {
 
-	static WebDriver driver;
 	static StackPage stack;
 	
 	public static void setUpStackPage() {
-		try {
-			StacksStepDefinition.driver = PageDriverFactory.driver;
 			stack = new StackPage(driver);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
+	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
 		

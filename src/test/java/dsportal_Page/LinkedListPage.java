@@ -11,7 +11,7 @@ import dsportal_utilities.dsAlgoLoggerLoad;
 
 public class LinkedListPage {
 
-		protected WebDriver driver;
+		static WebDriver driver;
 
 		@FindBy (xpath=("//h5[text()='Linked List']/../a[text()='Get Started']")) WebElement linkedListClick;
 		@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;

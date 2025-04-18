@@ -1,13 +1,14 @@
 package dsportal_stepdefinitions;
 
-import dsportal_BaseClass.DriverInstance;
+
+import dsportal_Core.BrowserManager;
 import dsportal_Page.StackPage;
 import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StacksStepDefinition extends DriverInstance {
+public class StacksStepDefinition extends BrowserManager {
 
 	static StackPage stack;
 	

@@ -1,13 +1,13 @@
 package dsportal_stepdefinitions;
 
-import dsportal_BaseClass.DriverInstance;
+import dsportal_Core.BrowserManager;
 import dsportal_Page.LinkedListPage;
 import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LinkedListStepDefinition extends DriverInstance {
+public class LinkedListStepDefinition extends BrowserManager {
 
 	static LinkedListPage linkedList;
 	

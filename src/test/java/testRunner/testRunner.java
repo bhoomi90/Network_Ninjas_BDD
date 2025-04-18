@@ -15,7 +15,7 @@ import io.cucumber.testng.CucumberOptions;
 				features = {"src/test/resources/features/stacks.feature", 
 						"src/test/resources/features/LinkedList.feature",
 						"src/test/resources/features/Tree.feature"}, //location of feature files
-				glue= {"dsportal_stepdefinitions","dsportal_BaseClass"}) //location of step definition files
+				glue= {"dsportal_stepdefinitions","dsportal_Core"}) //location of step definition files
 
 
 		public class testRunner extends AbstractTestNGCucumberTests{

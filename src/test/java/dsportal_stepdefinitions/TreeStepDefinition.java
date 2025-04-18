@@ -1,13 +1,13 @@
 package dsportal_stepdefinitions;
 
-import dsportal_BaseClass.DriverInstance;
+import dsportal_Core.BrowserManager;
 import dsportal_Page.TreePage;
 import dsportal_utilities.dsAlgoLoggerLoad;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TreeStepDefinition extends DriverInstance {
+public class TreeStepDefinition extends BrowserManager {
 
 	static TreePage tree;
 	

@@ -7,7 +7,7 @@ import org.testng.Assert;
 
 import dsportal_Core.BrowserManager;
 import dsportal_Page.CommonPage;
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,7 +24,7 @@ public class CommonStepDefinition extends BrowserManager {
 	public void the_user_is_in_the_home_page_after_sign_in() {
  
   		if(common==null) {
-  			dsAlgoLoggerLoad.info("Create constructor for Common page");
+  			LoggerReader.info("Create constructor for Common page");
   			setUpCommonPage();
   		}
   		common.login();	   		
@@ -77,7 +77,7 @@ public class CommonStepDefinition extends BrowserManager {
     @Then("The nameerror pop up alert message should be displayed")
     public void the_nameerror_pop_up_alert_message_should_be_displayed() {
 		Alert alert = driver.switchTo().alert();
-		dsAlgoLoggerLoad.info(alert.getText());
+		LoggerReader.info(alert.getText());
 		//Thread.sleep(2000);
 		alert.accept();  //click ok button
     }
@@ -92,7 +92,7 @@ public class CommonStepDefinition extends BrowserManager {
 	@Then("The user is navigated to Practice Questions page")
 	public void the_user_is_navigated_to_practice_questions_page() {
 	    Assert.assertFalse(CommonPage.practiceQue_content(), "No questions on practice que page");
-	    dsAlgoLoggerLoad.error("Test failed: Found the page blank. Expected to navigate to Practice Questions");
+	    LoggerReader.error("Test failed: Found the page blank. Expected to navigate to Practice Questions");
 	}
 	
     @Given("The user is in the blank Practice page")

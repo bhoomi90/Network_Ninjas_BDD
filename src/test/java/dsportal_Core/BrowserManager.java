@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -24,7 +24,7 @@ public class BrowserManager {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver(options.getEdgeOptions());
 		}
-		dsAlgoLoggerLoad.info(browserName+ "Browser Started");
+		LoggerReader.info(browserName+ "Browser Started");
 		return driver;		
 	}
 	

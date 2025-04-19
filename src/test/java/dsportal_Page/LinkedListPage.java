@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 
 
 public class LinkedListPage {
@@ -33,7 +33,7 @@ public class LinkedListPage {
 			 this.driver = driver;
 			 
 			 if(driver.getTitle().equals("NumpyNinja")) 
-				 dsAlgoLoggerLoad.info("I am on ds-algo App");
+				 LoggerReader.info("I am on ds-algo App");
 			 else
 				 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 			 
@@ -47,41 +47,41 @@ public class LinkedListPage {
 		public void dropdown_linkedList_page() {
 			dropdown.click();
 			dropdownLinkedList.click();
-			dsAlgoLoggerLoad.info("I am on Linked List Page");
+			LoggerReader.info("I am on Linked List Page");
 		}
 		
 		public void introduction_page() {
 			introductionClick.click();
-			dsAlgoLoggerLoad.info("Directed to Introduction page from Linked List");
+			LoggerReader.info("Directed to Introduction page from Linked List");
 		}
 	
 		public void createLinkedList_page() {
 			createLinkedListClick.click();
-			dsAlgoLoggerLoad.info("Directed to Creating Linked List page from Linked List");
+			LoggerReader.info("Directed to Creating Linked List page from Linked List");
 		}
 		
 		public void typesLinkedList_page() {
 			typesLinkedListClick.click();
-			dsAlgoLoggerLoad.info("Directed to Types of Linked List Page from Linked List");
+			LoggerReader.info("Directed to Types of Linked List Page from Linked List");
 		}
 		
 		public void implementLinkedList_page () {
 			implementClick.click();
-			dsAlgoLoggerLoad.info("Directed to Implement Linked List Page from Linked List");
+			LoggerReader.info("Directed to Implement Linked List Page from Linked List");
 		}
 		
 		public void traversal_page() {
 			traversalClick.click();
-			dsAlgoLoggerLoad.info("Directed to Traversal page from Linked List");
+			LoggerReader.info("Directed to Traversal page from Linked List");
 		}
 		
 		public void insertion_page() {
 			insertionClick.click();
-			dsAlgoLoggerLoad.info("Directed to Insertion page from Linked List");
+			LoggerReader.info("Directed to Insertion page from Linked List");
 		}
 		
 		public void deletion_page() {
 			deletionClick.click();
-			dsAlgoLoggerLoad.info("Directed to Deletion page from Linked List");
+			LoggerReader.info("Directed to Deletion page from Linked List");
 		}
 }

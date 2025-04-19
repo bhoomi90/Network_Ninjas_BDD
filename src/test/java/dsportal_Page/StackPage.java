@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 
 public class StackPage {
 
@@ -23,7 +23,7 @@ public class StackPage {
 		 StackPage.driver = driver;
 		 
 		 if(driver.getTitle().equals("NumpyNinja")) 
-			 dsAlgoLoggerLoad.info("I am on ds-algo App");
+			 LoggerReader.info("I am on ds-algo App");
 		 else
 			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		 
@@ -33,21 +33,21 @@ public class StackPage {
 	public void dropdown_stack_page() {
 		dropdown.click();
 		dropdownStack.click();
-		dsAlgoLoggerLoad.info("I am on Stack Page");
+		LoggerReader.info("I am on Stack Page");
 	}
 	
 	public void operationInStack_page() {
 		operationStack.click();
-		dsAlgoLoggerLoad.info("Directed to Operations in Stack page from Stack");
+		LoggerReader.info("Directed to Operations in Stack page from Stack");
 	}
 	
 	public void implementation_page() {
 		implementationStack.click();
-		dsAlgoLoggerLoad.info("Directed to Implementation page from Stack");
+		LoggerReader.info("Directed to Implementation page from Stack");
 	}
 	
 	public void application_page() {
 		applicationsStack.click();
-		dsAlgoLoggerLoad.info("Directed to Applications page from Stack");
+		LoggerReader.info("Directed to Applications page from Stack");
 	}
 }

@@ -2,7 +2,7 @@ package dsportal_Core;
 
 import java.time.Duration;
 
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 
@@ -12,7 +12,7 @@ public class BaseClass extends BrowserManager {
 	
 	@BeforeAll
 	public static void before_all() {
-		dsAlgoLoggerLoad.info("Setup browser executed");
+		LoggerReader.info("Setup browser executed");
 		browserManager.startbrowser();
 
 		driver.manage().deleteAllCookies();
@@ -24,7 +24,7 @@ public class BaseClass extends BrowserManager {
 	@AfterAll
 	public static void after_all() {		
 		browserManager.quitbrowser();
-		dsAlgoLoggerLoad.info("teardown browser executed");
+		LoggerReader.info("teardown browser executed");
 	}
 	
 }

@@ -3,7 +3,7 @@ package dsportal_stepdefinitions;
 
 import dsportal_Core.BrowserManager;
 import dsportal_Page.StackPage;
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +20,7 @@ public class StacksStepDefinition extends BrowserManager {
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
 		
 		if(stack==null) {
-			dsAlgoLoggerLoad.info("Create driver for Stack page");
+			LoggerReader.info("Create constructor for Stack page");
 			setUpStackPage();
 		}
 	    stack.dropdown_stack_page();
@@ -42,7 +42,7 @@ public class StacksStepDefinition extends BrowserManager {
 	public void the_user_clicks_operations_in_stack_button() {
 
 		if(stack == null) {
-			dsAlgoLoggerLoad.info("Again Create driver for Stack page");
+			LoggerReader.info("Again Create driver for Stack page");
 			setUpStackPage();
 		}
 	    stack.operationInStack_page();

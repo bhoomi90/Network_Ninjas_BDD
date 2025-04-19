@@ -2,7 +2,7 @@ package dsportal_stepdefinitions;
 
 import dsportal_Core.BrowserManager;
 import dsportal_Page.LinkedListPage;
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,7 +19,7 @@ public class LinkedListStepDefinition extends BrowserManager {
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
 
 		if(linkedList == null) {
-			dsAlgoLoggerLoad.info("Create driver for Linked List Page");
+			LoggerReader.info("Create constructor for Linked List Page");
 			setUp_LinkedlistPage();
 		}
 		linkedList.open_linkedList_page();	    
@@ -40,7 +40,7 @@ public class LinkedListStepDefinition extends BrowserManager {
 	@When("The user clicks Introduction in Linked List page")
 	public void the_user_clicks_introduction_in_linked_list_page() {
 		if(linkedList == null) {
-			dsAlgoLoggerLoad.info("Again Create driver for Linked List Page");
+			LoggerReader.info("Again Create driver for Linked List Page");
 		}
 		linkedList.introduction_page();	    
 	}

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import dsportal_utilities.dsAlgoLoggerLoad;
+import dsportal_utilities.LoggerReader;
 
 public class TreePage {
 
@@ -31,7 +31,7 @@ public class TreePage {
 		 TreePage.driver = driver;
 		 
 		 if(driver.getTitle().equals("NumpyNinja")) 
-			 dsAlgoLoggerLoad.info("I am on ds-algo App");
+			 LoggerReader.info("I am on ds-algo App");
 		 else
 			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		 
@@ -41,80 +41,80 @@ public class TreePage {
 	public void dropdown_tree_page() {
 		dropdown.click();
 		dropdownTree.click();
-		dsAlgoLoggerLoad.info("I am on Tree Page");
+		LoggerReader.info("I am on Tree Page");
 	}
 
 	public void overview_tree() {
 		overview_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void Terminology_Link()
 	{
 		termino_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 		
 	}
 	public void TypesOfTree_Link()
 	{
 		types_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 		
 	}
 	public void Traverse_Link()
 	{
 		travers_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	public void TreeIllus_Link()
 	{
 		illus_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	public void BinaryTree_Link()
 	{
 		binary_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	public void TypeBinary_Link()
 	{
 		typebin_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void ImplePython_Link()
 	{
 		implePy_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void  BinTrave_Link()
 	{
 		binTrave_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void ImpleBinary_Link()
 	{
 		impbinary_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void AppBinary_Link()
 	{
 		appbinary_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void BinSearch_Link()
 	{
 		binsearch_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 	
 	public void ImpleBST_Link()
 	{
 		impleBST_Tree.click();
-		dsAlgoLoggerLoad.info("");
+		LoggerReader.info("");
 	}
 }

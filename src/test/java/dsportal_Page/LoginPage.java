@@ -23,6 +23,7 @@ public class LoginPage {
 	@FindBy(id = "id_username") WebElement usernameInput;
 	@FindBy(id = "id_password") WebElement passwordInput;
 	@FindBy (xpath=("//*[@type='submit']")) WebElement login;
+	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signout;
 	
 	public LoginPage(WebDriver driver) {
 		LoginPage.driver = driver;
@@ -74,7 +75,9 @@ public class LoginPage {
 		passwordInput.sendKeys("OrangeS@12");
 		login.click();
 	}
-	
+	public void sign_out() {
+		signout.click();
+	}
 	public static void main(String[] args) throws IOException {
 		WriteExcelSheet();
 	}

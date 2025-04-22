@@ -9,6 +9,23 @@ Feature: Login page features
     When The user should click the Sign in link
     Then The user should be redirected to Sign in page
     
+   #@tagDemo
+  #Scenario Outline: Login with multiple credentials
+    #Given The user is on the DS Algo Sign in Page
+    #When The user enter username <username> and password <password>
+    #Then The user should get <expected_result>
+  #
+   #Examples: 
+      #| username         | password         	| expected_result
+      #| Empty        		 |	Empty						 	| Please fill out this field  
+      #| Empty						 |	Valid Password		|	Please fill out this field
+      #| Valid Username	 |	Empty							|	Please fill out this field
+      #| Invalid Username |	Valid Password 		| Invalid username and password
+      #| Valid Username   |	Invalid Password	|	Invalid username and password
+      #| Invalid Username |	Invalid Password  | Invalid username and password
+      #| Valid Username   |	Valid Password  	|	You are logged in 
+    
+    
    @tag2
   Scenario: Verify that user receives error message for all empty fields during Login
     Given The user is on the DS Algo Sign in Page
@@ -51,15 +68,4 @@ Feature: Login page features
     When The user clicks Sign out
     Then The user should be redirected to home page with message Logged out successfully
     
-     #@tagDemo
-  #Scenario Outline: Login with multiple credentials
-    #Given The user is on the DS Algo Sign in Page
-    #When The user enter username <username> and password <password>
-    #Then The user should land in Data Structure Home Page with message You are logged in
-  #
-   #Examples: 
-      #| Username         | Password         	| Action
-      #| Empty        		|	Empty						 	| Please fill out this field  
-      #| Valid Username   |	Valid Password  	|	You are logged in 
-      #| Invalid Username |	Invalid Password  | Invalid username and password
-    
+     

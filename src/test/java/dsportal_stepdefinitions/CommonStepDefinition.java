@@ -5,14 +5,14 @@ import java.io.IOException;
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 
-import dsportal_Core.BrowserManager;
+import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.CommonPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CommonStepDefinition extends BrowserManager {
+public class CommonStepDefinition extends DriverManager {
 	
 	static CommonPage common;
 	

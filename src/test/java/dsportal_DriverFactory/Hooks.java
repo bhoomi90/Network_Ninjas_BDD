@@ -1,4 +1,4 @@
-package dsportal_Core;
+package dsportal_DriverFactory;
 
 import java.time.Duration;
 
@@ -6,14 +6,14 @@ import dsportal_utilities.LoggerReader;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 
-public class BaseClass extends BrowserManager {
+public class Hooks extends DriverManager {
 	
-	static BrowserManager browserManager = new BrowserManager();
+	static DriverManager driverManager = new DriverManager();
 	
 	@BeforeAll
 	public static void before_all() {
 		LoggerReader.info("Setup browser executed");
-		browserManager.startbrowser();
+		driverManager.startBrowser();
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
@@ -23,7 +23,7 @@ public class BaseClass extends BrowserManager {
 	
 	@AfterAll
 	public static void after_all() {		
-		browserManager.quitbrowser();
+		driverManager.quitBrowser();
 		LoggerReader.info("teardown browser executed");
 	}
 	

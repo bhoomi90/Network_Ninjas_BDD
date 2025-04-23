@@ -21,7 +21,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
 
   @tag4
   Scenario Outline: TryEditor functionality for "Operations in Stack" page
-    Given The user is on the tryEditor Operations in Stack page
+    Given The user is on the tryEditor window in Stack page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -33,7 +33,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
 
   @tag5
   Scenario: Navigate to "Practice Questions" Page for "Operations in Stack" page
-    Given The user is on the tryEditor Operations for Operations in Stack page
+    Given The user is on the tryEditor window in Stack page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -41,7 +41,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
   Scenario: Navigate to "Stack" data structure page
     Given The user is in the blank Practice page
     When The user select Stack item from the drop down menu
-    Then The user is redirected to Stack Data Structure Page
+    Then The user is directed to Stack Data Structure Page
 
   @tag7
   Scenario: Navigate to "Implementation" page
@@ -57,7 +57,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
 
   @tag9
   Scenario Outline: TryEditor functionality for "Implementation" page
-    Given The user is on the tryEditor Implementation page
+    Given The user is on the tryEditor window in Stack page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -69,7 +69,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
 
   @tag10
   Scenario: Navigate to "Practice Questions" Page for "Implementation" page
-    Given The user is on the tryEditor Implementation page
+    Given The user is on the tryEditor window in Stack page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -77,7 +77,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
   Scenario: Navigate to "Stack" data structure page
     Given The user is in the blank Practice page
     When The user select Stack item from the drop down menu
-    Then The user is redirected to Stack Data Structure Page
+    Then The user is directed to Stack Data Structure Page
 
   @tag12
   Scenario: Navigate to "Applications" page
@@ -93,7 +93,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
 
   @tag14
   Scenario Outline: TryEditor functionality for "Applications" page
-    Given The user is on the tryEditor Applications page
+    Given The user is on the tryEditor window in Stack page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -105,7 +105,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
 
   @tag15
   Scenario: Navigate to "Practice Questions" Page for "Applications" page
-    Given The user is on the tryEditor Operations for Applications page
+    Given The user is on the tryEditor window in Stack page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -113,7 +113,7 @@ Feature: Navigation and Functionality for Stacks Data Structures in dsAlgo Porta
   Scenario: Navigate to "Stack" data structure page
     Given The user is in the blank Practice page
     When The user select Stack item from the drop down menu
-    Then The user is redirected to Stack Data Structure Page
+    Then The user is directed to Stack Data Structure Page
 
   @tag17
   Scenario: Signout from Stacks page and navigated to Home page

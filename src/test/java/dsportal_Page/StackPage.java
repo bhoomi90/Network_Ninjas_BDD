@@ -29,7 +29,19 @@ public class StackPage {
 		 
 		 PageFactory.initElements(driver, this);
 	}
-
+	
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
+	public String getCurrentTitle() {
+		return driver.getTitle();
+	}
+	
+	public void getStarted_stack_page() {
+		stackClick.click();
+	}
+	
 	public void dropdown_stack_page() {
 		dropdown.click();
 		dropdownStack.click();

@@ -11,7 +11,8 @@ import dsportal_utilities.LoggerReader;
 public class LoginPage {
 
 	static WebDriver driver;
-
+	public static CommonPage cp;
+	
 	@FindBy(xpath = ("//*[text()='Get Started']"))
 	WebElement getStarted;
 	@FindBy(xpath = ("//*[text()='Sign in']"))
@@ -28,6 +29,10 @@ public class LoginPage {
 	WebElement alertMsg;
 
 	String loginText, logoutText;
+
+	public static void setUpCommonPage() {
+		cp = new CommonPage(driver);
+	}
 	
 	public LoginPage(WebDriver driver) {
 		LoginPage.driver = driver;

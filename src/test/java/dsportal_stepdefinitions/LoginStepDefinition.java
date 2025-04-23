@@ -1,6 +1,7 @@
 package dsportal_stepdefinitions;
 
 import dsportal_DriverFactory.DriverManager;
+import dsportal_Page.CommonPage;
 import dsportal_Page.LoginPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
@@ -9,21 +10,25 @@ import io.cucumber.java.en.When;
 
 public class LoginStepDefinition extends DriverManager {
 	
-	
 	static LoginPage login_page;
 	
 	public static void setUpLoginPage() {
 		login_page = new LoginPage(driver);
 	}
-     
+
+	
 	
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {
- 
+
   		if(login_page==null) {
   			LoggerReader.info("Create constructor for Login page");
   			setUpLoginPage();
   		}
+		if(login_page.cp==null) {
+			LoggerReader.info("Create constructor for Common page");
+			login_page.setUpCommonPage();
+		}
   		login_page.get_login();   		
 	}	
 //	@Given("The user is on the DS Algo Home Page")

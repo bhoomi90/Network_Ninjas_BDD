@@ -5,7 +5,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the Home page after Sign in
     When The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu
-    Then The user be directed to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag2
   Scenario: Navigate to "Introduction" page
@@ -21,7 +21,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag4
   Scenario Outline: TryEditor functionality for "Introduction" page
-    Given The user is on the tryEditor Introduction page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -33,7 +33,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag5
   Scenario: Navigate to "Practice Questions" Page for "Introduction" page
-    Given The user is on the tryEditor Operations for Introduction page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -41,7 +41,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag7
   Scenario: Navigate to "Creating Linked LIst" page
@@ -57,7 +57,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag9
   Scenario Outline: TryEditor functionality for "Creating Linked LIst" page
-    Given The user is on the tryEditor Creating Linked List page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -69,7 +69,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag10
   Scenario: Navigate to "Practice Questions" Page for "Creating Linked LIst" page
-    Given The user is on the tryEditor Creating Linked List page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -77,7 +77,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag12
   Scenario: Navigate to "Types of Linked List" page
@@ -93,7 +93,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag14
   Scenario Outline: TryEditor functionality for "Types of Linked List" page
-    Given The user is on the tryEditor Types of Linked List page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -105,7 +105,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag15
   Scenario: Navigate to "Practice Questions" Page for "Types of Linked List" page
-    Given The user is on the tryEditor Operations for Types of Linked List page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -113,7 +113,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag17
   Scenario: Navigate to "Implement Linked List in Python" page
@@ -129,7 +129,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag19
   Scenario Outline: TryEditor functionality for "Implement Linked List in Python" page
-    Given The user is on the tryEditor Implement Linked List in Python page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -141,7 +141,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag20
   Scenario: Navigate to "Practice Questions" Page for "Implement Linked List in Python" page
-    Given The user is on the tryEditor Operations for Types of Linked List page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -149,7 +149,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag22
   Scenario: Navigate to "Traversal" page
@@ -165,7 +165,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag24
   Scenario Outline: TryEditor functionality for "Traversal" page
-    Given The user is on the tryEditor Traversal page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -177,7 +177,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag25
   Scenario: Navigate to "Practice Questions" Page for "Traversal" page
-    Given The user is on the tryEditor Operations for Traversal page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -185,7 +185,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag27
   Scenario: Navigate to "Insertion" page
@@ -201,7 +201,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag29
   Scenario Outline: TryEditor functionality for "Insertion" page
-    Given The user is on the tryEditor Insertion page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -213,7 +213,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag30
   Scenario: Navigate to "Practice Questions" Page for "Insertion" page
-    Given The user is on the tryEditor Operations for Insertion page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -221,7 +221,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag32
   Scenario: Navigate to "Deletion" page
@@ -237,7 +237,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag34
   Scenario Outline: TryEditor functionality for "Deletion" page
-    Given The user is on the tryEditor Deletion page
+    Given The user is on the tryEditor window in Linked List page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -249,7 +249,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
 
   @tag35
   Scenario: Navigate to "Practice Questions" Page for "Deletion" page
-    Given The user is on the tryEditor Operations for Deletion page
+    Given The user is on the tryEditor window in Linked List page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -257,7 +257,7 @@ Feature: Navigation and Functionality for Linked List Data Structures in dsAlgo 
   Scenario: Navigate to "Linked List" data structure page
     Given The user is in the blank Practice page
     When The user select Linked List item from the drop down menu
-    Then The user is redirected to Linked List Data Structure Page
+    Then The user is directed to Linked List Data Structure Page
 
   @tag37
   Scenario: Signout from Linked List page and navigated to Home page

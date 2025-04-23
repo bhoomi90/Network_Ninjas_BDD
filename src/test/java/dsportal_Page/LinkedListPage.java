@@ -39,6 +39,14 @@ public class LinkedListPage {
 			 
 			 PageFactory.initElements(driver, this);
 		}
+
+		public String getCurrentUrl() {
+			return driver.getCurrentUrl();
+		}
+		
+		public String getCurrentTitle() {
+			return driver.getTitle();
+		}
 		
 		public void open_linkedList_page() {
 			linkedListClick.click();

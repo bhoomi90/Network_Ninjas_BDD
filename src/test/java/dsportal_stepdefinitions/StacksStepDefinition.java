@@ -19,6 +19,11 @@ public class StacksStepDefinition extends DriverManager {
 	static StackPage stack;
 	static CommonPage cp;
 	String pageTitle, currentPageUrl, expectedPageUrl ;
+	String homePageURL = "https://dsportalapp.herokuapp.com/";
+	String stackPageURL = homePageURL+"stack/";
+	String operationInStackURL = stackPageURL+"operations-in-stack/";
+	String implementationURL = stackPageURL+"implementation/";
+	String applicationsURL = stackPageURL+"stack-applications/";
 	
 	public static void setUpStackPage() {
 		stack = new StackPage(driver);			
@@ -51,7 +56,7 @@ public class StacksStepDefinition extends DriverManager {
 	@Then("The user is directed to Stack Data Structure Page")
 	public void the_user_is_directed_to_stack_data_structure_page() {
 		   currentPageUrl = stack.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/stack/";
+		   expectedPageUrl = stackPageURL;
 		   LoggerReader.info("The user is able to directed to stack page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to stack page");
 	}
@@ -71,9 +76,9 @@ public class StacksStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Operations in Stack page")
 	public void the_user_should_be_redirected_to_operations_in_stack_page() {
 		   currentPageUrl = stack.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/stack/operations-in-stack/";
+		   expectedPageUrl = operationInStackURL;
 		   LoggerReader.info("The user is able to directed to Operations in stack page: "+currentPageUrl);
-		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Operations in stack page");
+		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Operations in stack page");
 	}
 
 	@Given("The user is on the Operations in Stack page")
@@ -133,12 +138,12 @@ public class StacksStepDefinition extends DriverManager {
 	
     @Then("The nameerror pop up alert message should be displayed")
     public void the_nameerror_pop_up_alert_message_should_be_displayed() {
+		LoggerReader.info("Invalid python code entered");
+		Assert.assertEquals(cp.isAlertPresent(cp.driver), true, "No alert displayed for invalid python code");	
 		Alert alert = driver.switchTo().alert();
 		LoggerReader.info(alert.getText());
 		//Thread.sleep(2000);
 		alert.accept();  //click ok button
-		LoggerReader.info("Invalid python code entered");
-		Assert.assertEquals(cp.isAlertPresent(cp.driver), true, "No alert displayed for invalid python code");	
     }
 
    	@When("The user clicks Practice Questions button following browser back arrow")
@@ -173,7 +178,7 @@ public class StacksStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Implementation page")
 	public void the_user_should_be_redirected_to_implementation_page() {
 		   currentPageUrl = stack.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/stack/implementation/";
+		   expectedPageUrl = implementationURL;
 		   LoggerReader.info("The user is able to directed to Implementation page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Implementation page");	    	    
 	}
@@ -192,7 +197,7 @@ public class StacksStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Applications in Stack page")
 	public void the_user_should_be_redirected_to_applications_in_stack_page() {
 		   currentPageUrl = stack.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/stack/stack-applications/";
+		   expectedPageUrl = applicationsURL;
 		   LoggerReader.info("The user is able to directed to Applications page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Applications page");		    	    
 	}

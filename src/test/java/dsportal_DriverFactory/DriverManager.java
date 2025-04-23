@@ -58,9 +58,9 @@ public class DriverManager {
     }
     // Quit browser
     public void quitBrowser() {
-//        if (driver != null) {
-//            driver.quit();
-//            LoggerReader.info("Browser Closed");
-//        }
+        if (driver != null) {
+            driver.quit();
+            LoggerReader.info("Browser Closed");
+        }
     }
 }

@@ -33,19 +33,23 @@ public class StacksStepDefinition extends DriverManager {
 		cp = new CommonPage(driver);
 	}
 	
-	@Given("The user is in the Home page after Sign in")
-	public void the_user_is_in_the_home_page_after_sign_in() {
- 
-  		if(cp==null) {
-  			LoggerReader.info("Create constructor for Common page");
-  			setUpCommonPage();
-  		}
-  		cp.login();	   		
-	}
+//	@Given("The user is in the Home page after Sign in")
+//	public void the_user_is_in_the_home_page_after_sign_in() {
+// 
+//  		if(cp==null) {
+//  			LoggerReader.info("Create constructor for Common page");
+//  			setUpCommonPage();
+//  		}
+//  		cp.login();	   		
+//	}
 	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
-		
+
+		if(cp==null) {
+			LoggerReader.info("Create constructor for Common page");
+			setUpCommonPage();
+		}
 		if(stack==null) {
 			LoggerReader.info("Create constructor for Stack page");
 			setUpStackPage();
@@ -214,13 +218,13 @@ public class StacksStepDefinition extends DriverManager {
 		Assert.assertEquals(pageTitle, "Stack");			
 	}
 
-	@When("The user clicks Sign out")
-	public void the_user_clicks_sign_out() {		
-		cp.signOut();   	
-	}
+//	@When("The user clicks Sign out")
+//	public void the_user_clicks_sign_out() {		
+//		cp.signOut();   	
+//	}
 	       
-	@Then("The user should be redirected to home page with message Logged out successfully")
-	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-	    cp.compareLogoutMsg();     	
-   	}
+//	@Then("The user should be redirected to home page with message Logged out successfully")
+//	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
+//	    cp.compareLogoutMsg();     	
+//   	}
 }

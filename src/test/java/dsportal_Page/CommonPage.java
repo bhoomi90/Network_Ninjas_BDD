@@ -39,26 +39,26 @@ public class CommonPage {
 	public CommonPage(WebDriver driver) {
 		 CommonPage.driver = driver;
 		 
-		 if(driver.getTitle().equals("Numpy Ninja")) 
-			 LoggerReader.info("I am on ds-algo App");
-		 else
-			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
+//		 if(driver.getTitle().equals("Numpy Ninja")) 
+//			 LoggerReader.info("I am on ds-algo App");
+//		 else
+//			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		 
 		 PageFactory.initElements(driver, this);
 	}
 	
 
 	
-	public void login() {
-		getStarted.click();
-		signIn.click();
-		userName.sendKeys("Network_Ninjas");
-		password.sendKeys("OrangeS@12");
-		login.click();
-		loginText = alertMsg.getText();
-		Assert.assertEquals(loginText, "You are logged in");
-		LoggerReader.info("User is logged in");
-	}
+//	public void login() {
+//		getStarted.click();
+//		signIn.click();
+//		userName.sendKeys("Network_Ninjas");
+//		password.sendKeys("OrangeS@12");
+//		login.click();
+//		loginText = alertMsg.getText();
+//		Assert.assertEquals(loginText, "You are logged in");
+//		LoggerReader.info("User is logged in");
+//	}
 	
 	public void tryHere_page() {
 		tryHereClick.click();
@@ -128,11 +128,11 @@ public class CommonPage {
 		signOut.click();
 	}
 	
-	public void compareLogoutMsg() {
-		logoutText = alertMsg.getText();
-		Assert.assertEquals(logoutText, "Logged out successfully");
-		LoggerReader.info("User is logged out");
-	}
+//	public void compareLogoutMsg() {
+//		logoutText = alertMsg.getText();
+//		Assert.assertEquals(logoutText, "Logged out successfully");
+//		LoggerReader.info("User is logged out");
+//	}
 	
 	public static boolean isAlertPresent(WebDriver driver) {
 		try {

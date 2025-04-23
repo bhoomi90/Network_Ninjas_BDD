@@ -16,13 +16,23 @@ public class HomePage {
 	@FindBy (xpath=("//a[text()='Queue']")) WebElement dropdownqueue;
 	@FindBy (xpath=("//a[text()='Tree']")) WebElement dropdowntree;
 	@FindBy (xpath=("//a[text()='Graph']")) WebElement dropdowngraph;
-	@FindBy (xpath=("//h5[text()='Data Structures-Introduction']/../a[text()='Get Started']")) WebElement datastructureintro;
-	@FindBy (xpath=("//h5[text()='Array']/../a[text()='Get Started']")) WebElement array;
-	@FindBy (xpath=("//h5[text()='Linked List']/../a[text()='Get Started']")) WebElement linkedlist;
-	@FindBy (xpath=("//h5[text()='Stack']/../a[text()='Get Started']")) WebElement stack;
-	@FindBy (xpath=("//h5[text()='Queue']/../a[text()='Get Started']")) WebElement queue;
-	@FindBy (xpath=("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement tree;
-	@FindBy (xpath=("//h5[text()='Graph']/../a[text()='Get Started']")) WebElement graph;
+	@FindBy (xpath=("//a[@href='data-structures-introduction' and text()='Get Started']")) WebElement datastructureintro;
+	@FindBy (xpath=("//a[@href='array' and text()='Get Started']")) WebElement array;
+	@FindBy (xpath=("//a[@href='linked-list' and text()='Get Started']")) WebElement linkedlist;
+	@FindBy (xpath=("//a[@href='stack' and text()='Get Started']")) WebElement stack;
+	@FindBy (xpath=("//a[@href='queue' and text()='Get Started']")) WebElement queue;
+	@FindBy (xpath=("//a[@href='tree' and text()='Get Started']")) WebElement tree;
+	@FindBy (xpath=("//a[@href='graph' and text()='Get Started']")) WebElement graph;
+	
+	String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
+	String Home_Url =(Dsalgo_url+"home/");
+	String DataStruc_Url =(Dsalgo_url+"data-structures-introduction/");
+	String Array_Url =(Dsalgo_url+"array/");
+	String Linkedlist_Url =(Dsalgo_url+"linked-list/");
+	String Stack_Url =(Dsalgo_url+"stack/");
+	String Queue_Url =(Dsalgo_url+"queue/");
+	String Tree_Url =(Dsalgo_url+"tree/");
+	String Graph_Url =(Dsalgo_url+"graph/");
 	
 	public void getstarted() {
 		GetStartedBtn.click();

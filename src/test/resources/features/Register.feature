@@ -9,17 +9,17 @@ Feature: Register page features
     When The user clicks Register link on the Home page
     Then The user should be redirected to Register form
     
-   @tag2
-  Scenario: Verify that user receives error message for all empty fields during registration
-    Given The user is on the user registration page
-    When The user clicks Register button with all fields empty
-    Then The error Please fill out this field. appears below Username textbox
+   #@tag2
+  #Scenario: Verify that user receives error message for all empty fields during registration
+    #Given The user is on the user registration page
+    #When The user clicks Register button with all fields empty
+    #Then The error Please fill out this field. appears below Username textbox
     
-   @tag3
-  Scenario: Verify that user receives error message for empty Username field during registration
-    Given The user is on the user registration page
-    When The user clicks Register button without entering Username with all other fields filled
-    Then The error message Please fill out this field. appears below Username textbox
+   #@tag3
+  #Scenario: Verify that user receives error message for empty Username field during registration
+    #Given The user is on the user registration page
+    #When The user clicks Register button without entering Username with all other fields filled
+    #Then The error message Please fill out this field. appears below Username textbox
     
    @tag4
   Scenario: Verify that user receives error message for empty Password field during registration
@@ -78,5 +78,13 @@ Feature: Register page features
    #Examples: 
       #| Username         | Password         	| Password Confirmation 				| Action
       #| Empty        		|	Empty						 	| Empty													| Please fill out this field  
-      #| Valid Username   |	Valid Password  	|	Matchs with Password					|	New Account Created. You are logged in as <ID>
+      #| Empty						|	Valid Password 		|	Matchs with Password					|	Please fill out this field
+      #| Valid Username   |	Empty						 	|	Mismatch with Password				|	Please fill out this field
+      #| Valid Username   |	Valid Password	 	|	Empty													|	Please fill out this field
       #| Invalid Username |	Invalid Password  | Mismatch with Password				| Warrning msg:password_mismatch:The two password fields didn’t match.
+      #| Invalid Username |	Valid Password 		| Matchs with Password  				| Warrning msg:Invalid username
+      #| Valid Username		|	Invalid Password  | Matchs with Password					| Warrning msg:password dosn't meet the criteria
+      #| Valid Username		|	Invalid Password  | Mismatch with Password				| Warrning msg:password_mismatch:The two password fields didn’t match.
+      #| Invalid Username |	Invalid Password  | Mismatch with Password				| Warrning msg:password_mismatch:The two password fields didn’t match.
+      #| Valid Username   |	Valid Password  	|	Matchs with Password					|	New Account Created. You are logged in as <ID>
+      

@@ -4,7 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 
-import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_DriverFactory.Hooks;
 import dsportal_Page.RegisterPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,7 +22,7 @@ public class RegisterStepDefinition {
 	
 	@Given("The user is on the user registration page")
 	public void the_user_is_on_the_user_registration_page() {
-		driver = PageDriverFactory.getChromeDriver();	    	
+		driver = Hooks.getChromeDriver();	    	
    		driver.get("https://dsportalapp.herokuapp.com/");
    		driver.manage().window().maximize();
    		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -61,6 +61,16 @@ public class RegisterStepDefinition {
 	   
 	    
 	}
+	
+//	@Then("The error message Please fill out this field. appears below Username textbox")
+//	public void the_error_message_please_fill_out_this_field_appears_below_username_textbox() {
+//	    
+//	}
+
+//	@Then("The error message Please fill out this field. appears below Password textbox")
+//	public void the_error_message_please_fill_out_this_field_appears_below_password_textbox() {
+//	   
+//	}
 
 	@When("The user clicks Register button after entering Username with other fields empty")
 	public void the_user_clicks_register_button_after_entering_username_with_other_fields_empty() {

@@ -1,16 +1,14 @@
 package dsportal_stepdefinitions;
 
-import java.time.Duration;
-import org.openqa.selenium.WebDriver;
-import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStepDefinition {
+public class LoginStepDefinition extends DriverManager {
 	
-	static WebDriver driver;
+	
 	static LoginPage login_page;
 	
 	public static void setUpLoginPage() {
@@ -21,11 +19,7 @@ public class LoginStepDefinition {
 	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
-		driver = PageDriverFactory.getChromeDriver();	    	
-		driver.get("https://dsportalapp.herokuapp.com/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	   
+	  
 		if(login_page==null) setUpLoginPage();
 		login_page.get_login();
 	}
@@ -39,60 +33,60 @@ public class LoginStepDefinition {
 	public void the_user_should_be_redirected_to_sign_in_page() {
 	    
 	}
-
+	
 	@Given("The user is on the DS Algo Sign in Page")
 	public void the_user_is_on_the_ds_algo_sign_in_page() {
 	    
 	}
 
-	@When("The user clicks login button after leaving the Username textbox and Password textbox empty")
-	public void the_user_clicks_login_button_after_leaving_the_username_textbox_and_password_textbox_empty() {
+	@When("The user enter username Empty and password Empty")
+	public void the_user_enter_username_empty_and_password_empty() {
 	    
 	}
 
-	@Then("The error message Please fill out this field. appears below Username textbox")
-	public void the_error_message_please_fill_out_this_field_appears_below_username_textbox() {
+	@Then("The user should get Please fill out this field")
+	public void the_user_should_get_please_fill_out_this_field() {
 	    
 	}
 
-	@When("The user clicks login button after entering the Username and leaves Password textbox empty")
-	public void the_user_clicks_login_button_after_entering_the_username_and_leaves_password_textbox_empty() {
+	@When("The user enter username Empty and password Valid Password")
+	public void the_user_enter_username_empty_and_password_valid_password() {
+	    
+	}
+
+	@When("The user enter username Valid Username and password Empty")
+	public void the_user_enter_username_valid_username_and_password_empty() {
+	    
+	}
+
+	@When("The user enter username Invalid Username and password Valid Password")
+	public void the_user_enter_username_invalid_username_and_password_valid_password() {
 	   
 	}
 
-	@Then("The error message Please fill out this field. appears below Password textbox")
-	public void the_error_message_please_fill_out_this_field_appears_below_password_textbox() {
-	    
-	}
-
-	@When("The user clicks login button after entering the Password only")
-	public void the_user_clicks_login_button_after_entering_the_password_only() {
+	@Then("The user should get Invalid username and password")
+	public void the_user_should_get_invalid_username_and_password() {
 	   
 	}
 
-	@When("The user clicks login button after entering invalid username")
-	public void the_user_clicks_login_button_after_entering_invalid_username() {
+	@When("The user enter username Valid Username and password Invalid Password")
+	public void the_user_enter_username_valid_username_and_password_invalid_password() {
 	    
 	}
 
-	@Then("The user should able to see an error message Invalid username and password.")
-	public void the_user_should_able_to_see_an_error_message_invalid_username_and_password() {
-	    
-	}
-
-	@When("The user clicks login button after entering valid username invalid password")
-	public void the_user_clicks_login_button_after_entering_valid_username_invalid_password() {
+	@When("The user enter username Invalid Username and password Invalid Password")
+	public void the_user_enter_username_invalid_username_and_password_invalid_password() {
 	   
 	}
 
-	@When("The user clicks login button after entering valid username and valid password")
-	public void the_user_clicks_login_button_after_entering_valid_username_and_valid_password() {
-	   
+	@When("The user enter username Valid Username and password Valid Password")
+	public void the_user_enter_username_valid_username_and_password_valid_password() {
+	    
 	}
 
-	@Then("The user should land in Data Structure Home Page with message You are logged in")
-	public void the_user_should_land_in_data_structure_home_page_with_message_you_are_logged_in() {
-	    
+	@Then("The user should get You are logged in and directing to Home page")
+	public void the_user_should_get_you_are_logged_in_and_directing_to_home_page() {
+	   
 	}
 
 	@Given("The user is in the Home page after Sign out")
@@ -103,11 +97,10 @@ public class LoginStepDefinition {
 	@When("The user clicks Sign out")
 	public void the_user_clicks_sign_out() {
 		login_page.sign_out();
-	    
 	}
 
 	@Then("The user should be redirected to home page with message Logged out successfully")
 	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-	    
+	   
 	}
 }

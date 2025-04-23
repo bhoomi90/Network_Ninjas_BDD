@@ -148,7 +148,7 @@ Feature: Home page features
 		Then The user should able to see an warning message You are not logged in
 		
 	@tag25
-	Scenario: Verify that user able to land on Data Structures-Introduction page while clickingGet Started buttons of Data Structures-Introduction on the home page during Log in
+	0Scenario: Verify that user able to land on Data Structures-Introduction page while clickingGet Started buttons of Data Structures-Introduction on the home page during Log in
 		Given The user is on the Home page
 		When The user clicks Get Started buttons of Data Structures-Introduction on the homepage while Log in
 		Then The user should be redirected to Data Structures page
@@ -188,6 +188,7 @@ Feature: Home page features
 		Given The user is on the Home page
 		When The user clicks Get Started buttons of Graph on the homepage while Log in
 		Then The user should be redirected to Graph page
+		
 		
 		#@tag33
 	#Scenario Outline: Verify menu access before and after login  

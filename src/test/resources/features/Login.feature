@@ -1,4 +1,3 @@
-
 @tag
 Feature: User Login
   As a registered user
@@ -11,7 +10,7 @@ Feature: User Login
     When The user should click the Sign in link
     Then The user should be redirected to Sign in page
     
-   @tag_multiple_credensitals
+   @tag_multipleinvalid_credensitals
   Scenario Outline: Login with multiple credentials
     Given The user is on the DS Algo Sign in Page
     When The user enter username <user_name> and password <password>
@@ -25,12 +24,16 @@ Feature: User Login
       | Invalid Username |	Valid Password 		| Invalid username and password									|
       | Valid Username   |	Invalid Password	|	Invalid username and password									|
       | Invalid Username |	Invalid Password  | Invalid username and password									|
-      | Valid Username   |	Valid Password  	|	You are logged in and directing to Home page	|
+      
 
-   @tag8
+	@tag_valid_credensitals
+  Scenario Outline: Login with valid credentials
+    Given The user is on the DS Algo Sign in Page
+    When The user enter valid username  and valid password 
+    Then The user should get You are logged in message
+    And The user is in the Home page after Sign in
+   @tag_signout
   Scenario: Verify that user able to sign out successfully
     Given The user is in the Home page after Sign out
     When The user clicks Sign out
     Then The user should be redirected to home page with message Logged out successfully
-    
-     

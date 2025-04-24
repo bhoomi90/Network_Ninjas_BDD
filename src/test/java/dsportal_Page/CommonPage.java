@@ -124,9 +124,9 @@ public class CommonPage {
 			return true;
 	}
 	
-	public void signOut() {
-		signOut.click();
-	}
+//	public void signOut() {
+//		signOut.click();
+//	}
 	
 //	public void compareLogoutMsg() {
 //		logoutText = alertMsg.getText();

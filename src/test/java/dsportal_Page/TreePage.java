@@ -11,6 +11,7 @@ public class TreePage {
 
 	static WebDriver driver;
 	
+	@FindBy(xpath= ("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement treeLink;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
 	@FindBy (xpath=("//a[text()='Tree']")) WebElement dropdownTree;	
 	@FindBy(xpath="//a[text()='Overview of Trees']") WebElement overview_Tree;	
@@ -36,6 +37,18 @@ public class TreePage {
 			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		 
 		 PageFactory.initElements(driver, this);
+	}
+	
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
+	public String getCurrentTitle() {
+		return driver.getTitle();
+	}
+	
+	public void open_tree_page() {
+		treeLink.click();
 	}
 	
 	public void dropdown_tree_page() {

@@ -4,7 +4,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the Home page after Sign in
     When The user clicks the Get Started button in Tree Panel or The user select Tree item from the drop down menu
-    Then The user is directed to Stack Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @overview @tree1
   Scenario: Navigate to "Overview of Trees" page
@@ -20,7 +20,7 @@ Feature: Tree Module
 
   @viewtxteditor
   Scenario Outline: Overview of Trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -32,7 +32,7 @@ Feature: Tree Module
 
   @backtoview
   Scenario: Navigate to "Practice Questions" Page for "Overview of Trees" page
-    Given The user is on the tryEditor Operations for Overview of Trees page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -40,7 +40,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @terminologies @tree2
   Scenario: Navigate to "Terminologies" page
@@ -56,7 +56,7 @@ Feature: Tree Module
 
   @terminotxteditor
   Scenario Outline: Terminologies tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -68,7 +68,7 @@ Feature: Tree Module
 
   @backtotermino
   Scenario: Navigate to "Practice Questions" Page for "Terminologies" page
-    Given The user is on the tryEditor Operations for Terminologies page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -76,7 +76,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @typetrees @tree3
   Scenario: Navigate to "Types of Trees" page
@@ -92,7 +92,7 @@ Feature: Tree Module
 
   @typtreestxteditor
   Scenario Outline: Types of Trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -104,7 +104,7 @@ Feature: Tree Module
 
   @backtotyptrees
   Scenario: Navigate to "Practice Questions" Page for "Types of Trees" page
-    Given The user is on the tryEditor Operations for Types of Trees page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -112,7 +112,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @traversals @tree4
   Scenario: Navigate to "Tree Traversals" page
@@ -128,7 +128,7 @@ Feature: Tree Module
 
   @traverstxteditor
   Scenario Outline: Tree Traversals tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -140,7 +140,7 @@ Feature: Tree Module
 
   @backtotravers
   Scenario: Navigate to "Practice Questions" Page for "Tree Traversals" page
-    Given The user is on the tryEditor Operations for Tree Traversals page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -148,7 +148,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @illustrations @tree5
   Scenario: Navigate to "Traversals Illustration" page
@@ -164,7 +164,7 @@ Feature: Tree Module
 
   @illustxteditor
   Scenario Outline: Traversals Illustration tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -176,7 +176,7 @@ Feature: Tree Module
 
   @backtoillus
   Scenario: Navigate to "Practice Questions" Page for "Traversals-Illustration" page
-    Given The user is on the tryEditor Operations for Traversals-Illustration page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -184,7 +184,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @binarytrees @tree6
   Scenario: Navigate to "Binary Trees" page
@@ -200,7 +200,7 @@ Feature: Tree Module
 
   @binarytxteditor
   Scenario Outline: Binary Trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -212,7 +212,7 @@ Feature: Tree Module
 
   @backtobinary
   Scenario: Navigate to "Practice Questions" Page for "Binary Trees" page
-    Given The user is on the tryEditor Operations for Binary Trees page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -220,7 +220,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @typebintree @tree7
   Scenario: Navigate to "Types of Binary Trees" page
@@ -236,7 +236,7 @@ Feature: Tree Module
 
   @typbintxteditor
   Scenario Outline: Types of Binary Trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -248,7 +248,7 @@ Feature: Tree Module
 
   @backtotypbin
   Scenario: Navigate to "Practice Questions" Page for "Types of Binary Trees" page
-    Given The user is on the tryEditor Operations for Types of Binary Trees page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -256,7 +256,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @implepython @tree8
   Scenario: Navigate to "Implementation in Python" page
@@ -272,7 +272,7 @@ Feature: Tree Module
 
   @pythontxteditor
   Scenario Outline: Implementation in Python tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -284,7 +284,7 @@ Feature: Tree Module
 
   @backtopython
   Scenario: Navigate to "Practice Questions" Page for "Implementation in Python" page
-    Given The user is on the tryEditor Operations for Implementation in Python page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -292,7 +292,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @bintraversals @tree9
   Scenario: Navigate to "Binary Tree Traversals" page
@@ -308,7 +308,7 @@ Feature: Tree Module
 
   @bintravtxteditor
   Scenario Outline: Binary Tree Traversals tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -320,7 +320,7 @@ Feature: Tree Module
 
   @backtobintra
   Scenario: Navigate to "Practice Questions" Page for "Binary Tree Traversals" page
-    Given The user is on the tryEditor Operations for Binary Tree Traversals page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -328,7 +328,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @impbintree @tree10
   Scenario: Navigate to "Implementation of Binary Trees" page
@@ -344,7 +344,7 @@ Feature: Tree Module
 
   @impbintxteditor
   Scenario Outline: Implementation of Binary Trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -356,7 +356,7 @@ Feature: Tree Module
 
   @backtoimpbin
   Scenario: Navigate to "Practice Questions" Page for "Implementation of Binary Trees" page
-    Given The user is on the tryEditor Operations for Implementation of Binary Trees page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -364,7 +364,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @appbinary @tree11
   Scenario: Navigate to "Applications of Binary trees" page
@@ -380,7 +380,7 @@ Feature: Tree Module
 
   @appbintxteditor
   Scenario Outline: Applications of Binary trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -392,7 +392,7 @@ Feature: Tree Module
 
   @backtoappbin
   Scenario: Navigate to "Practice Questions" Page for "Binary Tree Traversals" page
-    Given The user is on the tryEditor Operations for Binary Tree Traversals page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -400,7 +400,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @binsearch @tree12
   Scenario: Navigate to "Binary Search Trees" page
@@ -416,7 +416,7 @@ Feature: Tree Module
 
   @binseatxteditor
   Scenario Outline: Binary Search Trees tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -428,7 +428,7 @@ Feature: Tree Module
 
   @backtobinsea
   Scenario: Navigate to "Practice Questions" Page for "Implementation of Binary Trees" page
-    Given The user is on the tryEditor Operations for Implementation of Binary Trees page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -436,7 +436,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @implebst @tree13
   Scenario: Navigate to "Implementation Of BST" page
@@ -452,7 +452,7 @@ Feature: Tree Module
 
   @bsttxteditor
   Scenario Outline: Implementation Of BST tryEditor Functionality
-    Given The user is on the tryEditor page
+    Given The user is on the tryEditor window in Tree page
     When The user enters the <code> in text editor and clicks RUN Button
     Then The <alert> should be displayed
 
@@ -464,7 +464,7 @@ Feature: Tree Module
 
   @backtobst
   Scenario: Navigate to "Practice Questions" Page for "Implementation Of BST" page
-    Given The user is on the tryEditor Operations for Implementation Of BST page
+    Given The user is on the tryEditor window in Tree page
     When The user clicks Practice Questions button following browser back arrow
     Then The user is navigated to Practice Questions page
 
@@ -472,7 +472,7 @@ Feature: Tree Module
   Scenario: Navigate to "Tree" data structure page
     Given The user is in the blank Practice page
     When The user select Tree item from the drop down menu
-    Then The user is redirected to Tree Data Structure Page
+    Then The user is directed to Tree Data Structure Page
 
   @signout
   Scenario: Signout from Tree page and navigated to Home page

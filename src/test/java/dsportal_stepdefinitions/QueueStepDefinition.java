@@ -2,7 +2,7 @@ package dsportal_stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
 
-import dsportal_DriverFactory.PageDriverFactory;
+import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.QueuePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,7 +14,7 @@ public class QueueStepDefinition {
 
 	public static void setUpQueuePage() {
 		try {
-			QueueStepDefinition.driver = PageDriverFactory.driver;
+			QueueStepDefinition.driver = DriverManager.driver;
 			queue = new QueuePage(driver);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -61,11 +61,7 @@ public class QueueStepDefinition {
 
 	}
 
-	@When("The user clicks Try Here>>> button in Queue Operations page")
-	public void the_user_clicks_try_here_button_in_queue_operations_page() {
-
-	}
-
+	
 	@Given("The user is in the tryEditor Implementation of Queue in Python page")
 	public void the_user_is_in_the_try_editor_implementation_of_queue_in_python_page() {
 

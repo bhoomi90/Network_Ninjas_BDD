@@ -1,7 +1,5 @@
 package dsportal_Page;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,8 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 import dsportal_utilities.LoggerReader;
 
 public class GraphPage {
-	public static WebDriver driver;
-	String URL = "https://dsportalapp.herokuapp.com/";
+	//public static WebDriver driver;
+	static WebDriver driver;
+	public String homePageURL = "https://dsportalapp.herokuapp.com/";
+	public String graphPageURL = homePageURL+"graph/";
 
 	@FindBy(id = "id_username")
 	WebElement userName;
@@ -41,16 +41,17 @@ public class GraphPage {
 	WebElement tryEditorButton;
 
 	public GraphPage(WebDriver driver) {
-		GraphPage.driver = driver;
-		if(driver.getTitle().equals("NumpyNinja")) 
-			 LoggerReader.info("I am on ds-algo App");
-		 else
-			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
+	//GraphPage.driver = driver;
+	this.driver = driver;
+	
+//		if(driver.getTitle().equals("NumpyNinja")) 
+//			 LoggerReader.info("I am on ds-algo App");
+//		 else
+//			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		PageFactory.initElements(driver, this);
 	}
 	
-	 
-
+	
 	public void GraphIntro() {
 		graphIntro.click();
 		LoggerReader.info("");
@@ -77,15 +78,6 @@ public class GraphPage {
 		LoggerReader.info("");
 	}
 
-	public static void main(String[] args) {
-		driver = new EdgeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.manage().window().maximize();
-
-		GraphPage obj = new GraphPage(driver);
-		obj.clickGetStarted();
-
-	}
 
 	private void clickGetStarted() {
 		getStarted.click();

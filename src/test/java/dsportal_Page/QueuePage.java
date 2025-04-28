@@ -63,15 +63,7 @@ public class QueuePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public static void main(String[] args) {
-		driver = new EdgeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.manage().window().maximize();
 
-		QueuePage obj = new QueuePage(driver);
-		obj.clickGetStarted();
-
-	}
 
 	// Methods
 

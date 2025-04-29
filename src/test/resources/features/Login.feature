@@ -34,8 +34,4 @@ Feature: User Login
     When The user enter Valid username and Valid password 
     Then The user should get expected_msg "You are logged in"
     
-   @tag8
-  Scenario: Verify that user able to sign out successfully
-    Given The user is in the Home page after Sign in
-    When The user clicks Sign out
-    Then The user should be redirected to home page with message Logged out successfully
+  

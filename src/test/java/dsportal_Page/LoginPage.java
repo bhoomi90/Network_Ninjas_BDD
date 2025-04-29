@@ -61,17 +61,7 @@ public class LoginPage {
 	public void clickSignin() {
 		signIn.click();
 	}
-	
-	public void get_login() {
-		getStarted.click();
-		signIn.click();
-		usernameInput.sendKeys("Network_Ninjas");
-		passwordInput.sendKeys("OrangeS@12");
-		login.click();
-		loginText = alertMsg.getText();
-		Assert.assertEquals(loginText, "You are logged in");
-		LoggerReader.info("User is logged in");
-	}
+
 	
 	public String compareLoginText() {
 		loginText = alertMsg.getText();
@@ -131,16 +121,6 @@ public class LoginPage {
 		usernameInput.sendKeys("Network_Ninjas");
 		passwordInput.sendKeys("OrangeS@12");
 		login.click();
-	}
-	
-	public void sign_out() {
-		signout.click();
-	}
-	
-	public void compareLogoutMsg() {
-		logoutText = alertMsg.getText();
-		Assert.assertEquals(logoutText, "Logged out successfully");
-		LoggerReader.info("User is logged out");
 	}
 	
 	public String compareAlertText() {

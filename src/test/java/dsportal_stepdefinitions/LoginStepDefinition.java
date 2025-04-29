@@ -122,33 +122,9 @@ public class LoginStepDefinition extends DriverManager {
 	public void the_user_should_get_expected_msg(String expectedMSG) {
 		String actualMSG = login_page.compareLoginText();
 		LoggerReader.info(actualMSG);
-		Assert.assertEquals(actualMSG, expectedMSG, "Error message is not appeared");
-	}
-
-	
-	@Given("The user is in the Home page after Sign in")
-	public void the_user_is_in_the_home_page_after_sign_in() {
-
-//  		if(login_page==null) {
-//  			LoggerReader.info("Create constructor for Login page");
-//  			setUpLoginPage();
-//  		}
-//		if(login_page.cp==null) {
-//			LoggerReader.info("Create constructor for Common page");
-//			login_page.setUpCommonPage();
-//		}
-//  		login_page.get_login();   	
+		Assert.assertEquals(actualMSG, expectedMSG, "Login info message is not appeared");
 		pageTitle =login_page.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "NumpyNinja");
-	}	
-	
-	@When("The user clicks Sign out")
-	public void the_user_clicks_sign_out() {
-		login_page.sign_out();
 	}
 
-	@Then("The user should be redirected to home page with message Logged out successfully")
-	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-	   login_page.compareLogoutMsg();
-	}
 }

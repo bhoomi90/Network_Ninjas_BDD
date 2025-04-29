@@ -8,7 +8,6 @@ import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.CommonPage;
-import dsportal_Page.LoginPage;
 import dsportal_Page.StackPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
@@ -18,8 +17,7 @@ import io.cucumber.java.en.When;
 public class StacksStepDefinition extends DriverManager {
 
 	static StackPage stack;
-	static LoginPage lp;
-//	static CommonPage cp;
+	static CommonPage cp;
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String stackPageURL = homePageURL+"stack/";
@@ -31,27 +29,23 @@ public class StacksStepDefinition extends DriverManager {
 		stack = new StackPage(driver);			
 	}
 	
-//	public static void setUpCommonPage() {
-//		cp = new CommonPage(driver);
-//	}
+	public static void setUpCommonPage() {
+		cp = new CommonPage(driver);
+	}
 	
-//	@Given("The user is in the Home page after Sign in")
-//	public void the_user_is_in_the_home_page_after_sign_in() {
-// 
-//  		if(cp==null) {
-//  			LoggerReader.info("Create constructor for Common page");
-//  			setUpCommonPage();
-//  		}
-//  		cp.login();	   		
-//	}
+	@Given("The user is in the Home page after Sign in")
+	public void the_user_is_in_the_home_page_after_sign_in() {
+ 
+  		if(cp==null) {
+  			LoggerReader.info("Create constructor for Common page");
+  			setUpCommonPage();
+  		}
+
+  		cp.login();	   		
+	}
 	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
-
-//		if(cp==null) {
-//			LoggerReader.info("Create constructor for Common page");
-//			setUpCommonPage();
-//		}
 		if(stack==null) {
 			LoggerReader.info("Create constructor for Stack page");
 			setUpStackPage();
@@ -77,6 +71,7 @@ public class StacksStepDefinition extends DriverManager {
 	public void the_user_clicks_operations_in_stack_button() {
 		
 	    stack.operationInStack_page();
+	    LoggerReader.info("Clicked Operations in Stack button");
 	}
 
 	@Then("The user should be redirected to Operations in Stack page")
@@ -96,7 +91,7 @@ public class StacksStepDefinition extends DriverManager {
 
     @When("The user clicks Try Here>>> button")
     public void the_user_clicks_try_here_button() {
-       lp.cp.tryHere_page();
+       cp.tryHere_page();
     }
     
    	@Then("Navigate to try Editor window with a Run button to test")
@@ -115,37 +110,37 @@ public class StacksStepDefinition extends DriverManager {
 
    	@When("The user enters the Empty in text editor and clicks RUN Button")
 	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
-	    lp.cp.emptyCode();		    
+	    cp.emptyCode();		    
 	}
    	
 	@Then("The Error message in alert window should be displayed")
 	public void the_error_message_in_alert_window_should_be_displayed() {
-		Assert.assertFalse(lp.cp.isAlertPresent(lp.cp.driver), "Alert displayed for empty code");
+		Assert.assertFalse(cp.isAlertPresent(cp.driver), "Alert displayed for empty code");
 		LoggerReader.error("Test failed: No python code entered. Expected to get alert");	       	       
 	}
 	
 	@When("The user enters the Valid code in text editor and clicks RUN Button")
 	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() throws IOException {
 		driver.navigate().refresh();
-	    lp.cp.validCode();		    
+	    cp.validCode();		    
 	}
 	
 	@Then("The displayed in the console should be displayed")
 	public void the_displayed_in_the_console_should_be_displayed() {
 		LoggerReader.info("Valid python code entered");
-		Assert.assertNotEquals(lp.cp.isAlertPresent(lp.cp.driver), true, "Alert displayed for valid python code");    	       
+		Assert.assertNotEquals(cp.isAlertPresent(cp.driver), true, "Alert displayed for valid python code");    	       
 	}
 	
 	@When("The user enters the Invalid code in text editor and clicks RUN Button")
 	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() throws IOException {
 		driver.navigate().refresh();
-	    lp.cp.invalidCode();    
+	    cp.invalidCode();    
 	}
 	
     @Then("The nameerror pop up alert message should be displayed")
     public void the_nameerror_pop_up_alert_message_should_be_displayed() {
 		LoggerReader.info("Invalid python code entered");
-		Assert.assertEquals(lp.cp.isAlertPresent(lp.cp.driver), true, "No alert displayed for invalid python code");	
+		Assert.assertEquals(cp.isAlertPresent(cp.driver), true, "No alert displayed for invalid python code");	
 		Alert alert = driver.switchTo().alert();
 		LoggerReader.info(alert.getText());
 		//Thread.sleep(2000);
@@ -156,12 +151,12 @@ public class StacksStepDefinition extends DriverManager {
    	public void the_user_clicks_practice_questions_button_following_browser_back_arrow() {
    	    driver.navigate().back();
    	    //Thread.sleep(1000);
-   	    lp.cp.practiceQue_page();
+   	    cp.practiceQue_page();
    	}
   
 	@Then("The user is navigated to Practice Questions page")
 	public void the_user_is_navigated_to_practice_questions_page() {
-	    Assert.assertFalse(lp.cp.practiceQue_content(), "No questions on practice que page");
+	    Assert.assertFalse(cp.practiceQue_content(), "No questions on practice que page");
 	    LoggerReader.error("Test failed: Found the page blank. Expected to navigate to Practice Questions");
 	}
 	
@@ -220,13 +215,13 @@ public class StacksStepDefinition extends DriverManager {
 		Assert.assertEquals(pageTitle, "Stack");			
 	}
 
-//	@When("The user clicks Sign out")
-//	public void the_user_clicks_sign_out() {		
-//		cp.signOut();   	
-//	}
+	@When("The user clicks Sign out")
+	public void the_user_clicks_sign_out() {		
+		cp.signOut();   	
+	}
 	       
-//	@Then("The user should be redirected to home page with message Logged out successfully")
-//	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-//	    cp.compareLogoutMsg();     	
-//   	}
+	@Then("The user should be redirected to home page with message Logged out successfully")
+	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
+	    cp.compareLogoutMsg();     	
+   	}
 }

@@ -2,7 +2,6 @@ package dsportal_Page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -61,45 +60,32 @@ public class GraphPage {
 	
 	public void GraphIntro() {
 		graphIntro.click();
-		LoggerReader.info("");
+		LoggerReader.info("Directed to Graph Introduction page");
 	}
 
 	public void dropdown_graph_page() {
 		dropdown.click();
 		dropdowngraph.click();
-		LoggerReader.info("I am on Graph Page");
+		LoggerReader.info("Directed to Graph Page from dropdown button");
 	}
 
 	public void GraphRepresentations() {
 		graphRep.click();
-		LoggerReader.info("");
+		LoggerReader.info("Directed to Graph Representation page");
 	}
 
 	public void GraphElementPage() {
 		graphPage.click();
-		LoggerReader.info("");
+		LoggerReader.info("Directed to Graph page");
 	}
 
-	public void clickTryEditor() {
-		tryEditorButton.click();
-		LoggerReader.info("");
-	}
+//	public void clickTryEditor() {
+//		tryEditorButton.click();
+//		LoggerReader.info("");
+//	}
 
-
-	private void clickGetStarted() {
-		getStarted.click();
-		LoggerReader.info("");
-	}
-
-	// Methods
-
-	public void clickLoginIn() {
-
-		WebDriver driver = new EdgeDriver();
-		driver.get("https://dsportalapp.herokuapp.com/login");
-		userName.sendKeys("Network_Ninjas");
-		password.sendKeys("OrangeS@12");
-		loginButton.click();
-	}
-
+//	public void clickGetStarted() {
+//		getStarted.click();
+//		LoggerReader.info("Directed to Graph Introduction page");
+//	}
 }

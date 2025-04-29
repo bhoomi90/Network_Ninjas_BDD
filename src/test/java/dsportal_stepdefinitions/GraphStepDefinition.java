@@ -28,7 +28,7 @@ public class GraphStepDefinition extends DriverManager  {
 			LoggerReader.info("Create constructor for Graph Page");
 			setUpGraphPage();
 		}
-		graph.dropdown_graph_page();
+		graph.GraphIntro();
 	}
 
 	@Then("The user is directed to Graph Data Structure Page")
@@ -42,9 +42,7 @@ public class GraphStepDefinition extends DriverManager  {
 	@Given("The user is in the Graph Introduction Page after Sign in")
 	public void the_user_is_in_the_graph_introduction_page_after_sign_in() {
 		pageTitle =graph.getCurrentTitle();
-		Assert.assertEquals(pageTitle, "Graph");
-
-	    
+		Assert.assertEquals(pageTitle, "Graph");    
 	}
 
 	@When("The user clicks the Graph link in Graph Introduction page")
@@ -58,8 +56,7 @@ public class GraphStepDefinition extends DriverManager  {
 		   currentPageUrl = graph.getCurrentUrl();
 		   expectedPageUrl = "https://dsportalapp.herokuapp.com/graph/graph/";
 		   LoggerReader.info("The user is able to directed to graph page: "+currentPageUrl);
-		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph page");    	    
-	    
+		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph page");    	    	    
 	}
 
 	@Given("The user is in the Graph page")
@@ -93,9 +90,9 @@ public class GraphStepDefinition extends DriverManager  {
 	@Then("The user be directed to Graph Representations Page")
 	public void the_user_be_directed_to_graph_representations_page() {
 		   currentPageUrl = graph.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/graph/graph/";
-		   LoggerReader.info("The user is able to directed to graph page: "+currentPageUrl);
-		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph page");    	        
+		   expectedPageUrl = "https://dsportalapp.herokuapp.com/graph/graph-representations/";
+		   LoggerReader.info("The user is able to directed to graph Representations page: "+currentPageUrl);
+		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph Representations page");    	        
 	    
 	}
 

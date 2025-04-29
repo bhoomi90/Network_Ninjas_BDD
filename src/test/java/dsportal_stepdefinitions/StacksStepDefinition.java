@@ -214,14 +214,4 @@ public class StacksStepDefinition extends DriverManager {
 		pageTitle =stack.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "Stack");			
 	}
-
-	@When("The user clicks Sign out")
-	public void the_user_clicks_sign_out() {		
-		cp.signOut();   	
-	}
-	       
-	@Then("The user should be redirected to home page with message Logged out successfully")
-	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-	    cp.compareLogoutMsg();     	
-   	}
 }

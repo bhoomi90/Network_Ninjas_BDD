@@ -1,7 +1,5 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -15,12 +13,16 @@ import io.cucumber.java.en.When;
 public class LoginStepDefinition extends DriverManager {
 	
 	static LoginPage login_page;
+	static CommonPage cp;
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	
 	public static void setUpLoginPage() {
 		login_page = new LoginPage(driver);
 	}
 
+	public static void setUpCommonPage() {
+		cp = new CommonPage(driver);
+	}
 	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
@@ -126,5 +128,28 @@ public class LoginStepDefinition extends DriverManager {
 		pageTitle =login_page.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "NumpyNinja");
 	}
+	
+	@Given("The user is in the Home page")
+	public void the_user_is_in_the_home_page() {
+		   currentPageUrl = login_page.getCurrentUrl();
+		   expectedPageUrl = "https://dsportalapp.herokuapp.com/home";
+		   LoggerReader.info("The user is able to directed to home page: "+currentPageUrl);
+		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to home page");
+	}
+	
+	@When("The user clicks Sign out")
+	public void the_user_clicks_sign_out() throws InterruptedException {	
+		if(cp==null) {
+  			LoggerReader.info("Create constructor for Common page");
+  			setUpCommonPage();
+  		}
+		cp.signOut();   
+		Thread.sleep(2000);
+	}
+	       
+	@Then("The user should be redirected to home page with message Logged out successfully")
+	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
+	    cp.compareLogoutMsg();     	
+   	}
 
 }

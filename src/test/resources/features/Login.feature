@@ -34,4 +34,7 @@ Feature: User Login
     When The user enter Valid username and Valid password 
     Then The user should get expected_msg "You are logged in"
     
-  
+  Scenario: Navigate to home page after Sign out 
+  	Given The user is in the Home page
+  	When The user clicks Sign out
+    Then The user should be redirected to home page with message Logged out successfully

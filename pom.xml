@@ -84,6 +84,13 @@
     <version>2.20.1</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.1.2</version>
+</dependency>
+
 <!-- https://mvnrepository.com/artifact/tech.grasshopper/extentreports-cucumber7-adapter -->
 <dependency>
     <groupId>tech.grasshopper</groupId>
@@ -103,14 +110,6 @@
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>
     <version>5.4.0</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-failsafe-plugin -->
-<dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-failsafe-plugin</artifactId>
-    <version>3.5.3</version>
-    <scope>test</scope>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->

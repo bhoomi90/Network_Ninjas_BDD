@@ -124,4 +124,15 @@ public class QueuePage {
 	public void clickSignOut() {
 		signOutButton.click();
 	}
+
+
+
+
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
+	public String getCurrentTitle() {
+		return driver.getTitle();
+	}
 }

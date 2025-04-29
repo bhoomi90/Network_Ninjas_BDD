@@ -28,7 +28,8 @@ public class LoginPage {
 	@FindBy (xpath=("//*[@role='alert']")) 
 	WebElement alertMsg;
 
-	String loginText, logoutText;
+	String loginText, logoutText, errorText;
+	private String mSG;
 
 	public static void setUpCommonPage() {
 		cp = new CommonPage(driver);
@@ -45,6 +46,22 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
+	public String getCurrentTitle() {
+		return driver.getTitle();
+	}
+	
+	public void getStarted() {
+		getStarted.click();
+	}	
+	
+	public void clickSignin() {
+		signIn.click();
+	}
+	
 	public void get_login() {
 		getStarted.click();
 		signIn.click();
@@ -55,7 +72,67 @@ public class LoginPage {
 		Assert.assertEquals(loginText, "You are logged in");
 		LoggerReader.info("User is logged in");
 	}
+	
+	public String compareLoginText() {
+		loginText = alertMsg.getText();
+		LoggerReader.info("User is logged in");
+		return loginText;
+	}
 
+	public void empty_fields() {
+		usernameInput.sendKeys("");
+		passwordInput.sendKeys("");
+		login.click();
+	}
+	
+	public String getValidationMessage_username() {
+		String msg = usernameInput.getAttribute("validationMessage");
+		LoggerReader.info(msg);
+		return msg;
+	}
+	
+	public String getValidationMessage_password() {
+		String msg = passwordInput.getAttribute("validationMessage");
+		LoggerReader.info(msg);
+		return msg;
+	}
+	
+	public void empty_valid_field() {
+		usernameInput.sendKeys("");
+		passwordInput.sendKeys("OrangeS@12");
+		login.click();
+	}
+	
+	public void valid_empty_field() {
+		usernameInput.sendKeys("Network_Ninjas");
+		passwordInput.sendKeys("");
+		login.click();
+	}
+	
+	public void invalid_valid_field() {
+		usernameInput.sendKeys("bhoomi_k");
+		passwordInput.sendKeys("OrangeS@12");
+		login.click();
+	}
+	
+	public void valid_invalid_field() {
+		usernameInput.sendKeys("Network_Ninjas");
+		passwordInput.sendKeys("896382");
+		login.click();
+	}
+	
+	public void invalid_invalid_field() {
+		usernameInput.sendKeys("chak_k");
+		passwordInput.sendKeys("yell$345");
+		login.click();
+	}
+	
+	public void valid_valid_field() {
+		usernameInput.sendKeys("Network_Ninjas");
+		passwordInput.sendKeys("OrangeS@12");
+		login.click();
+	}
+	
 	public void sign_out() {
 		signout.click();
 	}
@@ -64,5 +141,10 @@ public class LoginPage {
 		logoutText = alertMsg.getText();
 		Assert.assertEquals(logoutText, "Logged out successfully");
 		LoggerReader.info("User is logged out");
+	}
+	
+	public String compareAlertText() {
+		errorText = alertMsg.getText();
+		return errorText;
 	}
 }

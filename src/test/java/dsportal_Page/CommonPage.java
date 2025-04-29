@@ -49,16 +49,16 @@ public class CommonPage {
 	
 
 	
-//	public void login() {
-//		getStarted.click();
-//		signIn.click();
-//		userName.sendKeys("Network_Ninjas");
-//		password.sendKeys("OrangeS@12");
-//		login.click();
-//		loginText = alertMsg.getText();
-//		Assert.assertEquals(loginText, "You are logged in");
-//		LoggerReader.info("User is logged in");
-//	}
+	public void login() {
+		getStarted.click();
+		signIn.click();
+		userName.sendKeys("Network_Ninjas");
+		password.sendKeys("OrangeS@12");
+		login.click();
+		loginText = alertMsg.getText();
+		Assert.assertEquals(loginText, "You are logged in");
+		LoggerReader.info("User is logged in");
+	}
 	
 	public void tryHere_page() {
 		tryHereClick.click();
@@ -124,15 +124,15 @@ public class CommonPage {
 			return true;
 	}
 	
-//	public void signOut() {
-//		signOut.click();
-//	}
+	public void signOut() {
+		signOut.click();
+	}
 	
-//	public void compareLogoutMsg() {
-//		logoutText = alertMsg.getText();
-//		Assert.assertEquals(logoutText, "Logged out successfully");
-//		LoggerReader.info("User is logged out");
-//	}
+	public void compareLogoutMsg() {
+		logoutText = alertMsg.getText();
+		Assert.assertEquals(logoutText, "Logged out successfully");
+		LoggerReader.info("User is logged out");
+	}
 	
 	public static boolean isAlertPresent(WebDriver driver) {
 		try {

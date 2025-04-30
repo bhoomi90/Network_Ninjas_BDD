@@ -2,12 +2,16 @@
 @tag
 Feature: Register page features
   I want to use this template for my feature file
-
   @tag1
-  Scenario: Verify that user is able to land on Register Page
-    Given The user is on the user registration page
+  Scenario: Verify that user is able to navigate to "home"  page
+    Given The user is on the ds portal  page
+    When The user clicks get started on the Home page
+    Then The user should be redirected to home page
+  @tag1
+  Scenario: Verify that user is able to navigate to "Register"  page
+    Given The user is on the ds portal home page
     When The user clicks Register link on the Home page
-    Then The user should be redirected to Register form
+    Then The user should be redirected to Register page
     
    @tag2
   Scenario: Verify that user receives error message for all empty fields during registration
@@ -74,7 +78,7 @@ Feature: Register page features
     #Given The user is on the user registration page
     #When The user clicks Register button after entering username <username>, password <password> and password confirmation <confirme password>
     #Then The user should be redirected to Home Page of DS Algo with message New Account Created. You are logged in as <ID>
-  
+  #
    #Examples: 
       #| Username         | Password         	| Password Confirmation 				| Action
       #| Empty        		|	Empty						 	| Empty													| Please fill out this field  

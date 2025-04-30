@@ -38,7 +38,7 @@ public class LoginPage {
 	public LoginPage(WebDriver driver) {
 		LoginPage.driver = driver;
 
-		if (driver.getTitle().equals("Numpy Ninja"))
+		if (driver.getTitle().equals("NumpyNinja"))
 			System.out.println("I am on ds-algo App");
 		else
 			throw new IllegalStateException("This is not ds-algo app. The current page is: " + driver.getCurrentUrl());

@@ -138,13 +138,12 @@ public class LoginStepDefinition extends DriverManager {
 	}
 	
 	@When("The user clicks Sign out")
-	public void the_user_clicks_sign_out() throws InterruptedException {	
+	public void the_user_clicks_sign_out() {	
 		if(cp==null) {
   			LoggerReader.info("Create constructor for Common page");
   			setUpCommonPage();
   		}
 		cp.signOut();   
-		Thread.sleep(2000);
 	}
 	       
 	@Then("The user should be redirected to home page with message Logged out successfully")

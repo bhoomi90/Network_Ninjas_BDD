@@ -43,10 +43,10 @@ public class GraphPage {
 	//GraphPage.driver = driver;
 	this.driver = driver;
 	
-//		if(driver.getTitle().equals("NumpyNinja")) 
-//			 LoggerReader.info("I am on ds-algo App");
-//		 else
-//			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
+		if(driver.getTitle().equals("NumpyNinja")) 
+			 LoggerReader.info("I am on ds-algo App");
+		 else
+			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
 		PageFactory.initElements(driver, this);
 	}
 	

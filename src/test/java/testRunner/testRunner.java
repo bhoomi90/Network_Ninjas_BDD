@@ -1,10 +1,6 @@
 package testRunner;
 
 import org.testng.annotations.DataProvider;
-//import org.testng.annotations.Listeners;
-
-//import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 	
@@ -14,8 +10,9 @@ import io.cucumber.testng.CucumberOptions;
 				plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 						"pretty", "html:target/cucumber/cucumber-reports.html",
 						"json:target/cucumber/Cucumber.json",
-						"com.aventstack.chaintest.plugins.ChainTestCucumberListener:"},
-						//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+						"com.aventstack.chaintest.plugins.ChainTestCucumberListener:",
+						"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+				},
 						
 				monochrome=true,  //console output color
 				//features = {"src/test/resources/features"}, //location of feature files
@@ -24,7 +21,8 @@ import io.cucumber.testng.CucumberOptions;
 						"src/test/resources/features/stacks.feature",
 						"src/test/resources/features/Tree.feature",
 						"src/test/resources/features/Graph.feature",
-						}, //location of feature files
+						"src/test/resources/features/DataStructure.feature",
+						}, 
 				glue= {"dsportal_stepdefinitions","dsportal_DriverFactory"}) //location of step definition files
 
 		public class testRunner extends AbstractTestNGCucumberTests{	

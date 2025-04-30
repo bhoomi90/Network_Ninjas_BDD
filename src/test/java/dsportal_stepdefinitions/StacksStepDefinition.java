@@ -40,7 +40,6 @@ public class StacksStepDefinition extends DriverManager {
   			LoggerReader.info("Create constructor for Common page");
   			setUpCommonPage();
   		}
-
   		cp.login();	   		
 	}
 	

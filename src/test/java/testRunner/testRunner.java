@@ -23,6 +23,7 @@ import io.cucumber.testng.CucumberOptions;
 						"src/test/resources/features/Tree.feature",
 						"src/test/resources/features/Graph.feature",
 						"src/test/resources/features/DataStructure.feature",
+						"src/test/resources/features/Queue.feature",
 						}, 
 				glue= {"dsportal_stepdefinitions","dsportal_DriverFactory"}) //location of step definition files
 

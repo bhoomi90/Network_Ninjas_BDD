@@ -1,6 +1,5 @@
 package dsportal_DriverFactory;
 
-import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.OutputType;
@@ -10,6 +9,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
 
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -21,14 +21,23 @@ public class Hooks extends DriverManager {
 	static DriverManager driverManager = new DriverManager();
 	
 	@BeforeAll
-	public static void before_all() {
+	public static void before_all() throws Throwable {
+		LoggerReader.info("Loading Config file");
+		ConfigReader.loadConfig();
+		String browser = ConfigReader.getBrowserType();
+		String url = ConfigReader.getURL();
+		
+		if(browser==null) {
+			browser = ConfigReader.getBrowser();
+		}
 		LoggerReader.info("Setup browser executed");
-		driverManager.startBrowser();
+		LoggerReader.info("Initializing driver for : "+browser);
+		driverManager.startBrowser(browser);
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get("https://dsportalapp.herokuapp.com/");
+		driver.get(url);
 	}
 	
 	@AfterAll

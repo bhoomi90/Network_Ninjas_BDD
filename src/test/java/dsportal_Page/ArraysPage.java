@@ -4,6 +4,7 @@ package dsportal_Page;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,11 +13,15 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import dsportal_utilities.LoggerReader;
 
@@ -24,15 +29,20 @@ public class ArraysPage {
 
 //private static final CharSequence validCode = null;
 	// public static WebDriver driver;
-	static WebDriver driver;
+
+//	private WebDriver driver;
+	public WebDriverWait wait;
+	public static WebDriver driver;
 	@FindBy(xpath = ("//h5[text()='Array']/../a[text()='Get Started']"))
 	WebElement arrayGetStarted;
 	@FindBy(xpath = ("//*[@data-toggle='dropdown']"))
 	WebElement dropdown;
 	@FindBy(xpath = ("//a[text()='Arrays']"))
 	WebElement dropdownArray;
-	@FindBy(className = " CodeMirror-line ")
+	@FindBy(xpath = ("*//type[text()=' CodeMirror-line ']"))
 	WebElement enterCode;
+	//@FindBy(id = "editor")
+
 
 	@FindBy(xpath = ("//button[text()='Run']"))
 	public WebElement queRunButton;
@@ -58,11 +68,13 @@ public class ArraysPage {
 	WebElement findNumbersWithEvenNumberOfDigits;
 	@FindBy(xpath = ("//a[text()='Squares of  a Sorted Array']"))
 	WebElement squaresOfASortedArray;
+	
 
+	
 	public ArraysPage(WebDriver driver) {
 
 		this.driver = driver;
-
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		if (driver.getTitle().equals("NumpyNinja"))
 			LoggerReader.info("I am on ds-algo App");
 		else
@@ -79,6 +91,24 @@ public class ArraysPage {
 		PracticeQuesOfArray.click();
 	}
 
+	public static boolean practiceQue_content() {
+		WebElement content = driver.findElement(By.className("container"));
+		LoggerReader.info("Page content is: " +content.getText());
+		if(content.getText().length()==0)
+			return false;
+		else
+			return true;
+	}
+	
+	
+	public static boolean isAlertPresent(WebDriver driver) {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} catch (NoAlertPresentException e) {
+			return false;
+		}
+	}
 	public void dropdown_array_page() {
 		dropdown.click();
 		dropdownArray.click();
@@ -139,7 +169,7 @@ public class ArraysPage {
 
 		// Click submit and run
 		try {
-			submitButton.click();
+			//submitButton.click();
 			queRunButton.click();
 			System.out.println("Code submitted and run.");
 		} catch (Exception e) {
@@ -188,10 +218,11 @@ public class ArraysPage {
 
 	public void invalidCode() throws IOException {
 		readExcelFile();
-		// enterCode.sendKeys(invalidCode);
+		enterCode.clear();
+		enterCode.sendKeys("cp");
 		System.out.println("Invalid python code entered");
 		System.out.println("Element Not found in search the Array");
-		submitButton.click();
+		//submitButton.click();
 		queRunButton.click();
 	}
 

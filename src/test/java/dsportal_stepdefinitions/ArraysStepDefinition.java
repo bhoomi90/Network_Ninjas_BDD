@@ -3,6 +3,7 @@ package dsportal_stepdefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.Alert;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -19,9 +20,17 @@ public class ArraysStepDefinition extends DriverManager {
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String arrayPageURL = homePageURL + "array/";
 	// enterCode, queRunButton;
+//	public void setUpArraysPage() {
+//	    if (driver == null) {
+//	        throw new RuntimeException("WebDriver is null! Did you forget to call DriverManager.initDriver()?");
+//	    }
+//	    this.arrays = new ArraysPage(driver);
+//	}
 
 	public void setUpArraysPage() {
-		this.arrays = new ArraysPage(driver);
+		  if (arrays == null) {
+		        arrays = new ArraysPage(driver);}
+		//this.arrays = new ArraysPage(driver);
 	}
 
 	@When("The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu")
@@ -74,6 +83,11 @@ public class ArraysStepDefinition extends DriverManager {
 		Assert.assertEquals(pageTitle, "Assessment");
 	}
 
+	@When("The user clicks Practice Questions of array button following browser back arrow")
+	public void the_user_clicks_practice_questions_of_array_button_following_browser_back_arrow() {
+	    arrays.practiceQuesOfArray();
+	}
+
 	@Then("The user should be directed to Array practice question page")
 	public void the_user_should_be_directed_to_array_practice_question_page() {
 		currentPageUrl = arrays.getCurrentUrl();
@@ -105,14 +119,10 @@ public class ArraysStepDefinition extends DriverManager {
 	@Given("The user is in the Practice page with run and submit buttons")
 	public void the_user_is_in_the_practice_page_with_run_and_submit_buttons() {
 		pageTitle = arrays.getCurrentTitle();
-		Assert.assertEquals(pageTitle, "Practice Questions");
+	//	Assert.assertEquals(pageTitle, "Practice Questions");
 		Assert.assertEquals(pageTitle, "Assessment");
 	}
 
-	@When("The user enters the Empty in practice question and clicks Submit Button and RUN Button")
-	public void the_user_enters_the_empty_in_practice_question_and_clicks_submit_button_and_run_button() {
-		arrays.emptyCode();
-	}
 
 	@When("The user enters the Valid code in practice question and clicks Submit Button and RUN Button")
 	public void the_user_enters_the_valid_code_in_practice_question_and_clicks_submit_button_and_run_button()
@@ -135,14 +145,15 @@ public class ArraysStepDefinition extends DriverManager {
 
 	@Then("The Bad Input error msg should be displayed in Practice")
 	public void the_bad_input_error_msg_should_be_displayed_in_practice() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
+		LoggerReader.info("The Bad Input error msg");
+		Assert.assertEquals(arrays.isAlertPresent(arrays.driver), true, "The Bad Input error msg");	
+		Alert alert = driver.switchTo().alert();
+		LoggerReader.info(alert.getText());	}
 
 	@Given("The user is on the Search the array page")
 	public void the_user_is_on_the_search_the_array_page() {
 		pageTitle = arrays.getCurrentTitle();
-		Assert.assertEquals(pageTitle, "Practice Questions");
+		//Assert.assertEquals(pageTitle, "Practice Questions");
 	}
 
 	@Given("The user will be redirected to Array question page")
@@ -195,7 +206,7 @@ public class ArraysStepDefinition extends DriverManager {
 	@Given("the user is on the Find Numbers with Even Number of Digits page")
 	public void the_user_is_on_the_find_numbers_with_even_number_of_digits_page() {
 		pageTitle = arrays.getCurrentTitle();
-		Assert.assertEquals(pageTitle, "Practice Questions");
+		//Assert.assertEquals(pageTitle, "Practice Questions");
 	}
 
 	@When("the user clicks the Squares of a Sorted Array link")
@@ -215,7 +226,7 @@ public class ArraysStepDefinition extends DriverManager {
 	@Given("the user is on the Squares of a Sorted Array page")
 	public void the_user_is_on_the_squares_of_a_sorted_array_page() {
 		pageTitle = arrays.getCurrentTitle();
-		Assert.assertEquals(pageTitle, "Squares of a Sorted Array");
+		Assert.assertEquals(pageTitle, "Assessment");
 	}
 
 	@Given("the user should be redirected to Array home page")

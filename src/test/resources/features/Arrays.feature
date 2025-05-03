@@ -34,7 +34,7 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
   @Arraytag5
   Scenario: Navigate to "Practice Questions" page for Arrays in Python
     Given The user is on the tryEditor window in Arrays page
-    When The user clicks Practice Questions button following browser back arrow
+    When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
   @tag5
@@ -135,7 +135,7 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
   @tag17
   Scenario: Navigate to "Practice Questions" page for "Arrays Using List"
     Given The user is on the tryEditor window in Arrays page
-    When The user clicks Practice Questions button following browser back arrow
+    When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
   @tag5
@@ -237,7 +237,7 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
   @tag32
   Scenario: Navigate to "Practice Questions" page for Basic Operations in Lists
     Given The user is on the tryEditor window in Arrays page
-    When The user clicks Practice Questions button following browser back arrow
+    When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
   @tag5
@@ -339,7 +339,7 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
   @tag52
   Scenario: Navigate to "Practice Questions" page for Applications of Array
     Given The user is on the tryEditor window in Arrays page
-    When The user clicks Practice Questions button following browser back arrow
+    When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
   @tag5

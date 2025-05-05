@@ -37,18 +37,17 @@ public class CommonPage {
 	String validCode, invalidCode, loginText, logoutText;
 	
 	public CommonPage(WebDriver driver) {
-		 CommonPage.driver = driver;
-		 
-//		 if(driver.getTitle().equals("Numpy Ninja")) 
-//			 LoggerReader.info("I am on ds-algo App");
-//		 else
-//			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
-		 
+		 CommonPage.driver = driver;		 
 		 PageFactory.initElements(driver, this);
 	}
 	
 	public String getCurrentTitle() {
-		return driver.getTitle();
+		return driver.getTitle();	
+//		if (driver != null && ((RemoteWebDriver) driver).getSessionId() != null) {
+//		    return driver.getTitle(); // or other actions
+//		} else {
+//		    throw new IllegalStateException("WebDriver session is not active.");
+//		}		
 	}
 	public void getStarted() {
 		getStarted.click();
@@ -71,8 +70,6 @@ public class CommonPage {
 
 	public void emptyCode() {
 		runBttn.click();			
-//		Assert.assertFalse(isAlertPresent(CommonPage.driver), "Alert displayed for empty code");
-//		LoggerReader.error("Test failed: No python code entered. Expected to get alert");
 	}
 	
 	public void readExcelsheet() throws IOException {
@@ -99,19 +96,17 @@ public class CommonPage {
 	}
 	
 	public void validCode() throws IOException {
+		//ExcelReader.readExcelSheet();
 		readExcelsheet();
 		enterCode.sendKeys(validCode);
 		runBttn.click();
-//		LoggerReader.info("Valid python code entered");
-//		Assert.assertNotEquals(isAlertPresent(CommonPage.driver), true, "Alert displayed for valid python code");
 	}
 	
 	public void invalidCode() throws IOException {
+		//ExcelReader.readExcelSheet();
 		readExcelsheet();
 		enterCode.sendKeys(invalidCode);
 		runBttn.click();
-//		LoggerReader.info("Invalid python code entered");
-//		Assert.assertEquals(isAlertPresent(CommonPage.driver), true, "No alert displayed for invalid python code");		
 	}
 	
 	public void practiceQue_page() {

@@ -1,250 +1,289 @@
 package dsportal_stepdefinitions;
 
+import java.io.IOException;
+
+import org.testng.Assert;
+
+import dsportal_DriverFactory.DriverManager;
+import dsportal_Page.ArraysPage;
+import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ArraysStepDefinition {
-	@Given("the user is signed in to dsAlgo Portal and is on the {string} page")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+public class ArraysStepDefinition extends DriverManager {
+
+	static ArraysPage arrays;
+	String pageTitle, currentPageUrl, expectedPageUrl;
+	String homePageURL = "https://dsportalapp.herokuapp.com/";
+	String arrayPageURL = homePageURL + "array/";
+	// enterCode, queRunButton;
+
+	public void setUpArraysPage() {
+		this.arrays = new ArraysPage(driver);
 	}
 
-	@When("the user clicks the {string} button")
-	public void the_user_clicks_the_button(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu")
+	public void the_user_clicks_the_get_started_button_in_Array_panel_or_the_user_select_Array_item_from_the_drop_down_menu() {
+
+		if (arrays == null) {
+			LoggerReader.info("Create driver for Arrays page");
+			setUpArraysPage();
+		}
+		// arrays.dropdown_array_page();
+		arrays.arrayGetStarted();
 	}
 
-	@Then("the user should be redirected to the {string} page")
-	public void the_user_should_be_redirected_to_the_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("The user is directed to Array Data Structure Page")
+	public void the_user_is_directed_to_Array_data_structure_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = arrayPageURL;
+		LoggerReader.info("The user is able to directed to linked list page: " + currentPageUrl);
+		Assert.assertEquals(expectedPageUrl, currentPageUrl, "The user is not directed to Linked List page");
 	}
 
-	@When("the user clicks the {string} button in the Arrays in Python page")
-	public void the_user_clicks_the_button_in_the_arrays_in_python_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("the user should be redirected to a page having a Try Editor with a Run button to test code")
-	public void the_user_should_be_redirected_to_a_page_having_a_try_editor_with_a_run_button_to_test_code() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Given("The user is on the Try Editor Array page")
-	public void the_user_is_on_the_try_editor_array_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@When("The user enters the Empty in Text Editor and clicks RUN button")
-	public void the_user_enters_the_empty_in_text_editor_and_clicks_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("The <message> should be displayed")
-	public void the_message_should_be_displayed() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@When("The user enters the valid code in Text Editor and clicks RUN button")
-	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@When("The user enters the Invalid code in Text Editor and clicks RUN button")
-	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Given("the user is signed in to dsAlgo Portal and is on the Array page")
+	@Given("The user is signed in to dsAlgo Portal and is on the Array page")
 	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Array");
+	}
+
+	@When("The user clicks the Arrays in Python button")
+	public void the_user_clicks_the_arrays_in_python_button() {
+		arrays.clickArraysInPython();
+	}
+
+	@Then("The user should be redirected to the Arrays in Python page")
+	public void the_user_should_be_redirected_to_the_arrays_in_python_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/array/arrays-in-python/";
+		LoggerReader.info("The user is able to directed to Arrays in Python page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Arrays in Python page");
+	}
+
+	@Given("the user is on the Arrays in Python page")
+	public void the_user_is_on_the_arrays_in_python_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Arrays in Python");
+	}
+
+	@Given("The user is on the tryEditor window in Arrays page")
+	public void the_user_is_on_the_try_editor_window_in_arrays_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Assessment");
+	}
+
+	@Then("The user should be directed to Array practice question page")
+	public void the_user_should_be_directed_to_array_practice_question_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/array/practice";
+		LoggerReader.info("The user is able to directed to Array practice question page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl,
+				"The user is not directed to Array practice question page");
+	}
+
+	@Given("The user is in the Practice Questions of array page")
+	public void the_user_is_in_the_practice_questions_of_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Practice Questions");
+	}
+
+	@When("The user clicks Search the Array link")
+	public void the_user_clicks_search_the_array_link() {
+		arrays.clickSearchTheArray();
+	}
+
+	@Then("The user should be redirected to Search the Array Question page")
+	public void the_user_should_be_redirected_to_search_the_array_question_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/question/1";
+		LoggerReader.info("The user is able to directed to Search the Array Question page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Search the Array Question");
+	}
+
+	@Given("The user is in the Practice page with run and submit buttons")
+	public void the_user_is_in_the_practice_page_with_run_and_submit_buttons() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Practice Questions");
+		Assert.assertEquals(pageTitle, "Assessment");
+	}
+
+	@When("The user enters the Empty in practice question and clicks Submit Button and RUN Button")
+	public void the_user_enters_the_empty_in_practice_question_and_clicks_submit_button_and_run_button() {
+		arrays.emptyCode();
+	}
+
+	@When("The user enters the Valid code in practice question and clicks Submit Button and RUN Button")
+	public void the_user_enters_the_valid_code_in_practice_question_and_clicks_submit_button_and_run_button()
+			throws IOException {
+		arrays.validCode();
+
+	}
+
+	@Then("The Output displayed in the console should be displayed in Practice")
+	public void the_output_displayed_in_the_console_should_be_displayed_in_practice() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@Given("the user is signed in to dsAlgo Portal and is on the Arrays in Python page")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_arrays_in_python_page() {
+	@When("The user enters the Invalid code in practice question and clicks Submit Button and RUN Button")
+	public void the_user_enters_the_invalid_code_in_practice_question_and_clicks_submit_button_and_run_button()
+			throws IOException {
+		arrays.invalidCode();
+	}
+
+	@Then("The Bad Input error msg should be displayed in Practice")
+	public void the_bad_input_error_msg_should_be_displayed_in_practice() {
 		// Write code here that turns the phrase above into concrete actions
 		throw new io.cucumber.java.PendingException();
 	}
 
-	@When("the user clicks the {string} link")
-	public void the_user_clicks_the_link(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("The user is on the Search the array page")
+	public void the_user_is_on_the_search_the_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Practice Questions");
 	}
 
-	@Then("the user should be redirected to a {string} page containing a question and a Try Editor with Run and Submit buttons")
-	public void the_user_should_be_redirected_to_a_page_containing_a_question_and_a_try_editor_with_run_and_submit_buttons(
-			String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("The user will be redirected to Array question page")
+	public void the_user_will_be_redirected_to_array_question_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Array question page");
 	}
 
-	@Given("The user is on the practice question editor page")
-	public void the_user_is_on_the_practice_question_editor_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("The user clicks Max Consecutive Ones link")
+	public void the_user_clicks_max_consecutive_ones_link() {
+		arrays.clickMaxConsecutiveOnes();
 	}
 
-	@Then("The Output displayed in the console should be displayed")
-	public void the_output_displayed_in_the_console_should_be_displayed() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("The user should be directed to Max Consecutive Ones Question page")
+	public void the_user_should_be_directed_to_max_consecutive_ones_question_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/question/2";
+		LoggerReader.info("The user is able to directed to Max Consecutive Ones Question page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl,
+				"The user is not directed to Max Consecutive Ones Question page");
 	}
 
-	@Then("The error message pop in the window should be displayed")
-	public void the_error_message_pop_in_the_window_should_be_displayed() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user is on the Max Consecutive Ones page")
+	public void the_user_is_on_the_max_consecutive_ones_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Practice Questions");
 	}
 
-	@Then("the user should be redirected to the {string} page containing a question and a Try Editor with Run and Submit buttons")
-	public void the_user_should_be_redirected_to_the_page_containing_a_question_and_a_try_editor_with_run_and_submit_buttons(
-			String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user will be redirected to Array page")
+	public void the_user_will_be_redirected_to_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Array");
 	}
 
-	@Given("the user will be redirected to {string} page")
-	public void the_user_will_be_redirected_to_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Find Numbers with Even Number of Digits link")
+	public void the_user_clicks_the_find_numbers_with_even_number_of_digits_link() {
+		arrays.clickFindNumbersWithEvenNumberOfDigits();
 	}
 
-	@Given("the user is signed in to dsAlgo Portal and is on the practice question editor")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_practice_question_editor() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("the user should be directed to Find Numbers with Even Number of Digits Question page")
+	public void the_user_should_be_directed_to_find_numbers_with_even_number_of_digits_question_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/question/3";
+		LoggerReader.info(
+				"The user is able to directed to Find Numbers with Even Number of Digits page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl,
+				"The user is not directed to Find Numbers with Even Number of Digits Question page");
 	}
 
-	@When("the user enters invalid Python code and clicks the Run button")
-	public void the_user_enters_invalid_python_code_and_clicks_the_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user is on the Find Numbers with Even Number of Digits page")
+	public void the_user_is_on_the_find_numbers_with_even_number_of_digits_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Practice Questions");
 	}
 
-	@Then("an error message should be displayed in an alert window")
-	public void an_error_message_should_be_displayed_in_an_alert_window() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Squares of a Sorted Array link")
+	public void the_user_clicks_the_squares_of_a_sorted_array_link() {
+		arrays.clickSquaresOfASortedArray();
 	}
 
-	@When("the user enters valid Python code and clicks the Run button")
-	public void the_user_enters_valid_python_code_and_clicks_the_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to Squares of a Sorted Array Question page")
+	public void the_user_should_be_redirected_to_squares_of_a_sorted_array_question_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/question/4";
+		LoggerReader.info("The user is able to directed to Squares of a Sorted Array page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl,
+				"The user is not directed to Squares of a Sorted Array page");
 	}
 
-	@Then("the output should be displayed in the console")
-	public void the_output_should_be_displayed_in_the_console() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user is on the Squares of a Sorted Array page")
+	public void the_user_is_on_the_squares_of_a_sorted_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Squares of a Sorted Array");
 	}
 
-	@Given("the user should be redirected to {string} home page")
-	public void the_user_should_be_redirected_to_home_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user should be redirected to Array home page")
+	public void the_user_should_be_redirected_to_array_home_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Array");
 	}
 
-	@Then("the user should be redirected to a page containing a Try Editor with a Run button")
-	public void the_user_should_be_redirected_to_a_page_containing_a_try_editor_with_a_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Arrays Using List button")
+	public void the_user_clicks_the_arrays_using_list_button() {
+		arrays.clickArraysUsingList();
 	}
 
-	@Given("the user is signed in to dsAlgo Portal and is on the {string} page after signing in")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_page_after_signing_in(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to the Arrays Using List page")
+	public void the_user_should_be_redirected_to_the_arrays_using_list_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/array/arrays-using-list/";
+		LoggerReader.info("The user is able to directed to Arrays Using List page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Arrays Using List page");
 	}
 
-	@When("the user enters invalid Python code in the Editor and clicks the Run button")
-	public void the_user_enters_invalid_python_code_in_the_editor_and_clicks_the_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user is on the Arrays Using List page")
+	public void the_user_is_on_the_arrays_using_list_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Arrays Using List");
 	}
 
-	@Then("the user should see an error message in an alert window")
-	public void the_user_should_see_an_error_message_in_an_alert_window() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Basic Operations in Lists button")
+	public void the_user_clicks_the_basic_operations_in_lists_button() {
+		arrays.clickBasicOperationsInLists();
 	}
 
-	@When("the user enters valid Python code in the Editor and clicks the Run button")
-	public void the_user_enters_valid_python_code_in_the_editor_and_clicks_the_run_button() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to the Basic Operations in Lists page")
+	public void the_user_should_be_redirected_to_the_basic_operations_in_lists_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/array/basic-operations-in-lists/";
+		LoggerReader.info("The user is able to directed to Basic Operations in Lists page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl,
+				"The user is not directed to Basic Operations in Lists page");
 	}
 
-	@Then("the user should see the output in the console")
-	public void the_user_should_see_the_output_in_the_console() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user is on the Basic Operations in Lists page")
+	public void the_user_is_on_the_basic_operations_in_lists_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Basic Operations in Lists");
 	}
 
-	@When("the user clicks the {string} button in the Basic Operations in Lists page")
-	public void the_user_clicks_the_button_in_the_basic_operations_in_lists_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@When("the user clicks the Applications of Array button")
+	public void the_user_clicks_the_applications_of_array_button() {
+		arrays.clickApplicationsOfArray();
 	}
 
-	@Given("the user is signed in to dsAlgo Portal and is on the Basic Operations in Lists page")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_basic_operations_in_lists_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Then("the user should be redirected to the Applications of Array page")
+	public void the_user_should_be_redirected_to_the_applications_of_array_page() {
+		currentPageUrl = arrays.getCurrentUrl();
+		expectedPageUrl = "https://dsportalapp.herokuapp.com/array/applications-of-array/";
+		LoggerReader.info("The user is able to directed to Applications of Array page: " + currentPageUrl);
+		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Applications of Array page");
 	}
 
-	@When("the user clicks the {string} button in the Applications of Array page")
-	public void the_user_clicks_the_button_in_the_applications_of_array_page(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("The user is in the Array page")
+	public void the_user_is_in_the_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Assessment");
 	}
 
-	@Given("the user is signed in to dsAlgo Portal and is on the Try Editor page")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_try_editor_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	@Given("the user is on the Applications of Array page")
+	public void the_user_is_on_the_applications_of_array_page() {
+		pageTitle = arrays.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Applications of Array");
 	}
-
-	@When("the user clicks the Run button without entering any code in the Editor")
-	public void the_user_clicks_the_run_button_without_entering_any_code_in_the_editor() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Given("the user is signed in to dsAlgo Portal and is on the Applications of Array page")
-	public void the_user_is_signed_in_to_ds_algo_portal_and_is_on_the_applications_of_array_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Given("The user is in the Queue page")
-	public void the_user_is_in_the_queue_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@When("The user clicks {string}")
-	public void the_user_clicks(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("The user should be redirected to home page with message {string}")
-	public void the_user_should_be_redirected_to_home_page_with_message(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
-	}
-
 }

@@ -1,430 +1,420 @@
 @tag
 Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
 
-  @tag1
-  Scenario: Navigate to "Arrays in Python" page
-    Given the user is signed in to dsAlgo Portal and is on the "Array" page
-    When the user clicks the "Arrays in Python" button
-    Then the user should be redirected to the "Arrays in Python" page
+  @arraytag1
+  Scenario: Verify that user is able to navigate to "Arrays" data structure page
+    Given The user is in the Home page after Sign in
+    When The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu
+    Then The user is directed to Array Data Structure Page
 
-  @tag2
-  Scenario: Access "Try Editor" page for "Arrays in Python"
-    Given the user is signed in to dsAlgo Portal and is on the "Arrays in Python" page
-    When the user clicks the "Try Here" button in the Arrays in Python page
-    Then the user should be redirected to a page having a Try Editor with a Run button to test code
+  @Arraytag2
+  Scenario: Verify that user is able to navigate to Arrays in Python page
+    Given The user is signed in to dsAlgo Portal and is on the Array page
+    When The user clicks the Arrays in Python button
+    Then The user should be redirected to the Arrays in Python page
 
-  @tag3
-  Scenario Outline: "Arrays in Python" TryEditor Functionality
-    Given The user is on the Try Editor Array page
-    When The user enters the <code> in Text Editor and clicks RUN button
-    Then The <message> should be displayed
+  @Arraytag3
+  Scenario: Navigate to "try Editor" page for "Arrays in Python" page
+    Given the user is on the Arrays in Python page
+    When The user clicks Try Here>>> button
+    Then Navigate to try Editor window with a Run button to test
+
+  @Arraytag4
+  Scenario Outline: Verify TryEditor functionality for Arrays in Python page
+    Given The user is on the tryEditor window in Arrays page
+    When The user enters the <code> in text editor and clicks RUN Button
+    Then The <alert> should be displayed
 
     Examples: 
-      | code         | Message                         |
-      | Empty        | Error message in the window     |
-      | valid code   | Output displayed in the console |
-      | Invalid code | nameerror pop up alert message  |
+      | code         | alert                          |
+      | Empty        | Error message in alert window  |
+      | Valid code   | displayed in the console       |
+      | Invalid code | nameerror pop up alert message |
 
-  @tag4
+  @Arraytag5
   Scenario: Navigate to "Practice Questions" page for Arrays in Python
-    Given the user is signed in to dsAlgo Portal and is on the Array page
-    When the user clicks the "Practice Questions" button
-    Then the user should be redirected to the "Practice" page
+    Given The user is on the tryEditor window in Arrays page
+    When The user clicks Practice Questions button following browser back arrow
+    Then The user should be directed to Array practice question page
 
   @tag5
   Scenario: Navigate to "Search the Array" question from Practice Questions page
-    Given the user is signed in to dsAlgo Portal and is on the Arrays in Python page
-    When the user clicks the "Search the Array" link
-    Then the user should be redirected to a "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given The user is in the Practice Questions of array page
+    When The user clicks Search the Array link
+    Then The user should be redirected to Search the Array Question page
 
   @tag6
   Scenario Outline: Validating "Search the Array"  practice question editor Functionality
-    Given The user is on the practice question editor page
-    When The user enters the <code> in Text Editor and clicks RUN button
-    Then The <message> should be displayed
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
     Examples: 
-      | code         | message                         |
-      | valid code   | Output displayed in the console |
-      | Invalid code | error message pop in the window |
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag7
-  Scenario: Navigate to "Max Consecutive Ones" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Arrays in Python" page
-    When the user clicks the "Max Consecutive Ones" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+  @tag5
+  Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
+    Given The user is on the Search the array page
+    And The user will be redirected to Array question page
+    When The user clicks Max Consecutive Ones link
+    Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag8
+  @tag6
   Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
-    Given The user is on the practice question editor page
-    When The user enters the <code> in Text Editor and clicks RUN button
-    Then The <message> should be displayed
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
     Examples: 
-      | code         | message                         |
-      | valid code   | Output displayed in the console |
-      | Invalid code | error message pop in the window |
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
   @tag9
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Max Consecutive Ones" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Find Numbers with Even Number of Digits" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Max Consecutive Ones page
+    And the user will be redirected to Array page
+    When the user clicks the Find Numbers with Even Number of Digits link
+    Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
   @tag10
-  Scenario: Handle invalid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag11
-  Scenario: Display output for valid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
   @tag12
   Scenario: Navigate to "Squares of a Sorted Array" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Find Numbers with Even Number of Digits" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Squares of a Sorted Array" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Find Numbers with Even Number of Digits page
+    And the user will be redirected to Array page
+    When the user clicks the Squares of a Sorted Array link
+    Then the user should be redirected to Squares of a Sorted Array Question page
 
   @tag13
-  Scenario: Handle invalid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag14
-  Scenario: Display output for valid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
   @tag15
   Scenario: Navigate to "Arrays Using List" page
-    Given the user is signed in to dsAlgo Portal and is on the "Squares of a Sorted Array" page
-    And the user should be redirected to "Array" home page
-    When the user clicks the "Arrays Using List" button
-    Then the user should be redirected to the "Arrays Using List" page
+    Given the user is on the Squares of a Sorted Array page
+    And the user should be redirected to Array home page
+    When the user clicks the Arrays Using List button
+    Then the user should be redirected to the Arrays Using List page
 
-  @tag16
   Scenario: Access "Try Editor" page for "Arrays Using List"
-    Given the user is signed in to dsAlgo Portal and is on the "Arrays Using List" page
-    When the user clicks the "Try Here" button
-    Then the user should be redirected to a page containing a Try Editor with a Run button
+    Given the user is on the Arrays Using List page
+    When The user clicks Try Here>>> button
+    Then Navigate to try Editor window with a Run button to test
 
-    #Examples:
-  #| code        | Message |
-  #| Empty       | Error message in the window|
-  #|valid code   | Output displayed in the console |
-  #|Invalid code | nameerror pop up alert message  |
-  
+  @tag3
+  Scenario Outline: Verify TryEditor functionality for Arrays Using List page
+    Given The user is on the tryEditor window in Arrays page
+    When The user enters the <code> in text editor and clicks RUN Button
+    Then The <alert> should be displayed
+
+    Examples: 
+      | code         | alert                          |
+      | Empty        | Error message in alert window  |
+      | Valid code   | displayed in the console       |
+      | Invalid code | nameerror pop up alert message |
+
   @tag17
   Scenario: Navigate to "Practice Questions" page for "Arrays Using List"
-    Given the user is signed in to dsAlgo Portal and is on the "Array" page after signing in
-    When the user clicks the "Practice Questions" button
-    Then the user should be redirected to the "Practice" page
+    Given The user is on the tryEditor window in Arrays page
+    When The user clicks Practice Questions button following browser back arrow
+    Then The user should be directed to Array practice question page
 
-  @tag18
-  Scenario: Navigate to "Search the Array" question page for "Arrays Using List"
-    Given the user is signed in to dsAlgo Portal and is on the "Arrays Using List" page
-    When the user clicks the "Search the Array" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+  @tag5
+  Scenario: Navigate to "Search the Array" question from Practice Questions page
+    Given The user is in the Practice Questions of array page
+    When The user clicks Search the Array link
+    Then The user should be redirected to Search the Array Question page
 
-  @tag19
-  Scenario: Handle invalid Python code on "Search the Array" question
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code in the Editor and clicks the Run button
-    Then the user should see an error message in an alert window
+  @tag6
+  Scenario Outline: Validating "Search the Array"  practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag20
-  Scenario: Output for valid Python code on "Search the Array" question
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code in the Editor and clicks the Run button
-    Then the user should see the output in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag21
-  Scenario: Navigate to "Max Consecutive Ones" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Arrays Using List" page
-    When the user clicks the "Max Consecutive Ones" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+  @tag5
+  Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
+    Given The user is on the Search the array page
+    And The user will be redirected to Array question page
+    When The user clicks Max Consecutive Ones link
+    Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag22
-  Scenario: Handle invalid Python code for "Max Consecutive Ones"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag6
+  Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag23
-  Scenario: Display output for valid Python code for "Max Consecutive Ones"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag24
+  @tag9
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Max Consecutive Ones" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Find Numbers with Even Number of Digits" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Max Consecutive Ones page
+    And the user will be redirected to Array page
+    When the user clicks the Find Numbers with Even Number of Digits link
+    Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag25
-  Scenario: Handle invalid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag10
+  Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag26
-  Scenario: Display output for valid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag27
+  @Array
   Scenario: Navigate to "Squares of a Sorted Array" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Find Numbers with Even Number of Digits" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Squares of a Sorted Array" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Find Numbers with Even Number of Digits page
+    And the user will be redirected to Array page
+    When the user clicks the Squares of a Sorted Array link
+    Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag28
-  Scenario: Handle invalid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag10
+  Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag29
-  Scenario: Display output for valid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
   @tag30
   Scenario: Navigate to "Basic Operations in Lists" page
-    Given the user is signed in to dsAlgo Portal and is on the "Squares of a Sorted Array" page
-    And the user should be redirected to "Array" home page
-    When the user clicks the "Basic Operations in Lists" button
-    Then the user should be redirected to the "Basic Operations in Lists" page
+    Given the user is on the Squares of a Sorted Array page
+    And the user should be redirected to Array home page
+    When the user clicks the Basic Operations in Lists button
+    Then the user should be redirected to the Basic Operations in Lists page
 
-  @tag31
+  @tag
   Scenario: Access "Try Editor" page for "Basic Operations in Lists"
-    Given the user is signed in to dsAlgo Portal and is on the "Basic Operations in Lists" page
-    When the user clicks the "Try Here" button in the Basic Operations in Lists page
-    Then the user should be redirected to a page having a Try Editor with a Run button to test code
+    Given the user is on the Basic Operations in Lists page
+    When The user clicks Try Here>>> button
+    Then Navigate to try Editor window with a Run button to test
 
-  #Examples:
-  #| code        | Message |
-  #| Empty       | Error message in the window|
-  #|valid code   | Output displayed in the console |
-  #|Invalid code | nameerror pop up alert message  |
+  @tag3
+  Scenario Outline: Verify TryEditor functionality for Basic Operations in Lists page
+    Given The user is on the tryEditor window in Arrays page
+    When The user enters the <code> in text editor and clicks RUN Button
+    Then The <alert> should be displayed
+
+    Examples: 
+      | code         | alert                          |
+      | Empty        | Error message in alert window  |
+      | Valid code   | displayed in the console       |
+      | Invalid code | nameerror pop up alert message |
+
   @tag32
   Scenario: Navigate to "Practice Questions" page for Basic Operations in Lists
-    Given the user is signed in to dsAlgo Portal and is on the Array page
-    When the user clicks the "Practice Questions" button
-    Then the user should be redirected to the "Practice" page
+    Given The user is on the tryEditor window in Arrays page
+    When The user clicks Practice Questions button following browser back arrow
+    Then The user should be directed to Array practice question page
 
-  @tag33
+  @tag5
   Scenario: Navigate to "Search the Array" question from Practice Questions page
-    Given the user is signed in to dsAlgo Portal and is on the Basic Operations in Lists page
-    When the user clicks the "Search the Array" link
-    Then the user should be redirected to a "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given The user is in the Practice Questions of array page
+    When The user clicks Search the Array link
+    Then The user should be redirected to Search the Array Question page
 
-  @tag34
-  Scenario: Error for invalid Python code on "Search the Array" question
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code in the Editor and clicks the Run button
-    Then the user should see an error message in an alert window
+  @tag6
+  Scenario Outline: Validating "Search the Array"  practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @ta35
-  Scenario: Output for valid Python code on "Search the Array" question
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code in the Editor and clicks the Run button
-    Then the user should see the output in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag36
-  Scenario: Navigate to "Max Consecutive Ones" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Basic Operations in Lists" page
-    When the user clicks the "Max Consecutive Ones" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+  @tag5
+  Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
+    Given The user is on the Search the array page
+    And The user will be redirected to Array question page
+    When The user clicks Max Consecutive Ones link
+    Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag37
-  Scenario: Handle invalid Python code for "Max Consecutive Ones"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag6
+  Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag38
-  Scenario: Display output for valid Python code for "Max Consecutive Ones"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag39
+  @tag9
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Max Consecutive Ones" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Find Numbers with Even Number of Digits" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Max Consecutive Ones page
+    And the user will be redirected to Array page
+    When the user clicks the Find Numbers with Even Number of Digits link
+    Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag40
-  Scenario: Handle invalid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag10
+  Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag41
-  Scenario: Display output for valid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag42
+  @arra
   Scenario: Navigate to "Squares of a Sorted Array" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Find Numbers with Even Number of Digits" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Squares of a Sorted Array" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Find Numbers with Even Number of Digits page
+    And the user will be redirected to Array page
+    When the user clicks the Squares of a Sorted Array link
+    Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag43
-  Scenario: Handle invalid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag10
+  Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag44
-  Scenario: Display output for valid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
   @tag45
   Scenario: Navigate to "Applications of Array" page
-    Given the user is signed in to dsAlgo Portal and is on the "Squares of a Sorted Array" page
-    And the user should be redirected to "Array" home page
-    When the user clicks the "Applications of Array" button
-    Then the user should be redirected to the "Applications of Array" page
+    Given the user is on the Squares of a Sorted Array page
+    And the user should be redirected to Array home page
+    When the user clicks the Applications of Array button
+    Then the user should be redirected to the Applications of Array page
 
-  @tag46
+  @tag
   Scenario: Access "Try Editor" page for "Applications of Array"
-    Given the user is signed in to dsAlgo Portal and is on the "Applications of Array" page
-    When the user clicks the "Try Here" button in the Applications of Array page
-    Then the user should be redirected to a page having a Try Editor with a Run button to test code
+    Given the user is on the Applications of Array page
+    When The user clicks Try Here>>> button
+    Then Navigate to try Editor window with a Run button to test
 
-  @tag47
-  Scenario Outline: "Arrays in Python" TryEditor Functionality
-    Given The user is on the Try Editor Array page
-    When The user enters the <code> in Text Editor and clicks RUN button
-    Then The <message> should be displayed
+  @tag3
+  Scenario Outline: Verify TryEditor functionality for Applications of Array page
+    Given The user is on the tryEditor window in Arrays page
+    When The user enters the <code> in text editor and clicks RUN Button
+    Then The <alert> should be displayed
 
     Examples: 
-      | code         | Message                         |
-      | Empty        | Error message in the window     |
-      | valid code   | Output displayed in the console |
-      | Invalid code | nameerror pop up alert message  |
-
-  @tag49
-  Scenario: Handle error for running without entering code in Try Editor
-    Given the user is signed in to dsAlgo Portal and is on the Try Editor page
-    When the user clicks the Run button without entering any code in the Editor
-    Then the user should see an error message in an alert window
-
-  @tag50
-  Scenario: Handle error for running invalid Python code in Try Editor
-    Given the user is signed in to dsAlgo Portal and is on the Try Editor page
-    When the user enters invalid Python code in the Editor and clicks the Run button
-    Then the user should see an error message in an alert window
-
-  @tag51
-  Scenario: Output for valid Python code in Try Editor
-    Given the user is signed in to dsAlgo Portal and is on the Try Editor page
-    When the user enters valid Python code in the Editor and clicks the Run button
-    Then the user should see the output in the console
+      | code         | alert                          |
+      | Empty        | Error message in alert window  |
+      | Valid code   | displayed in the console       |
+      | Invalid code | nameerror pop up alert message |
 
   @tag52
   Scenario: Navigate to "Practice Questions" page for Applications of Array
-    Given the user is signed in to dsAlgo Portal and is on the Array page
-    When the user clicks the "Practice Questions" button
-    Then the user should be redirected to the "Practice" page
+    Given The user is on the tryEditor window in Arrays page
+    When The user clicks Practice Questions button following browser back arrow
+    Then The user should be directed to Array practice question page
 
-  @tag53
+  @tag5
   Scenario: Navigate to "Search the Array" question from Practice Questions page
-    Given the user is signed in to dsAlgo Portal and is on the Applications of Array page
-    When the user clicks the "Search the Array" link
-    Then the user should be redirected to a "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given The user is in the Practice Questions of array page
+    When The user clicks Search the Array link
+    Then The user should be redirected to Search the Array Question page
 
-  @tag54
-  Scenario: Error for invalid Python code on "Search the Array" question
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code in the Editor and clicks the Run button
-    Then the user should see an error message in an alert window
+  @tag6
+  Scenario Outline: Validating "Search the Array"  practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag55
-  Scenario: Output for valid Python code on "Search the Array" question
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code in the Editor and clicks the Run button
-    Then the user should see the output in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag56
-  Scenario: Navigate to "Max Consecutive Ones" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Applications of Array" page
-    When the user clicks the "Max Consecutive Ones" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+  @tag5
+  Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
+    Given The user is on the Search the array page
+    And The user will be redirected to Array question page
+    When The user clicks Max Consecutive Ones link
+    Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag57
-  Scenario: Handle invalid Python code for "Max Consecutive Ones"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag6
+  Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag58
-  Scenario: Display output for valid Python code for "Max Consecutive Ones"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag59
+  @tag9
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Max Consecutive Ones" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Find Numbers with Even Number of Digits" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Max Consecutive Ones page
+    And the user will be redirected to Array page
+    When the user clicks the Find Numbers with Even Number of Digits link
+    Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag60
-  Scenario: Handle invalid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag10
+  Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag61
-  Scenario: Display output for valid Python code for "Find Numbers with Even Number of Digits"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
-  @tag62
+  @taga
   Scenario: Navigate to "Squares of a Sorted Array" question page
-    Given the user is signed in to dsAlgo Portal and is on the "Find Numbers with Even Number of Digits" page
-    And the user will be redirected to "Array" page
-    When the user clicks the "Squares of a Sorted Array" link
-    Then the user should be redirected to the "Question" page containing a question and a Try Editor with Run and Submit buttons
+    Given the user is on the Find Numbers with Even Number of Digits page
+    And the user will be redirected to Array page
+    When the user clicks the Squares of a Sorted Array link
+    Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag63
-  Scenario: Handle invalid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters invalid Python code and clicks the Run button
-    Then an error message should be displayed in an alert window
+  @tag10
+  Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
+    Given The user is in the Practice page with run and submit buttons
+    When The user enters the <code> in practice question and clicks Submit Button and RUN Button
+    Then The <alert> should be displayed in Practice
 
-  @tag64
-  Scenario: Display output for valid Python code for "Squares of a Sorted Array"
-    Given the user is signed in to dsAlgo Portal and is on the practice question editor
-    When the user enters valid Python code and clicks the Run button
-    Then the output should be displayed in the console
+    Examples: 
+      | code         | alert                           |
+      | Valid code   | Output displayed in the console |
+      | Invalid code | Bad Input error msg             |
 
   @tag65
   Scenario: Verify that user able to sign out successfully
-    Given The user is in the Queue page
-    When The user clicks "Sign out"
-    Then The user should be redirected to home page with message "Logged out successfully"
+    Given The user is in the Array page
+    When The user clicks Sign out
+    Then The user should be redirected to home page with message Logged out successfully

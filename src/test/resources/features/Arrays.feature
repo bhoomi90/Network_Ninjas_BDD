@@ -1,7 +1,7 @@
-@tag
+@overall
 Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
 
-  @arraytag1
+  @Arraytag1
   Scenario: Verify that user is able to navigate to "Arrays" data structure page
     Given The user is in the Home page after Sign in
     When The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu
@@ -37,13 +37,13 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
     When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
-  @tag5
+  @Arraytag6
   Scenario: Navigate to "Search the Array" question from Practice Questions page
     Given The user is in the Practice Questions of array page
     When The user clicks Search the Array link
     Then The user should be redirected to Search the Array Question page
 
-  @tag6
+  @Arraytag7
   Scenario Outline: Validating "Search the Array"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -54,14 +54,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag5
+  @Arraytag8
   Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
     Given The user is on the Search the array page
     And The user will be redirected to Array question page
     When The user clicks Max Consecutive Ones link
     Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag6
+  @Arraytag9
   Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -72,14 +72,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag9
+  @Arraytag10
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
     Given the user is on the Max Consecutive Ones page
     And the user will be redirected to Array page
     When the user clicks the Find Numbers with Even Number of Digits link
     Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag10
+  @Arraytag11
   Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -90,14 +90,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag12
+  @Arraytag12
   Scenario: Navigate to "Squares of a Sorted Array" question page
     Given the user is on the Find Numbers with Even Number of Digits page
     And the user will be redirected to Array page
     When the user clicks the Squares of a Sorted Array link
     Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag13
+  @Arraytag13
   Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -108,19 +108,20 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag15
+  @Arraytag14
   Scenario: Navigate to "Arrays Using List" page
     Given the user is on the Squares of a Sorted Array page
     And the user should be redirected to Array home page
     When the user clicks the Arrays Using List button
     Then the user should be redirected to the Arrays Using List page
 
+  @Arraytag15
   Scenario: Access "Try Editor" page for "Arrays Using List"
     Given the user is on the Arrays Using List page
     When The user clicks Try Here>>> button
     Then Navigate to try Editor window with a Run button to test
 
-  @tag3
+  @Arraytag16
   Scenario Outline: Verify TryEditor functionality for Arrays Using List page
     Given The user is on the tryEditor window in Arrays page
     When The user enters the <code> in text editor and clicks RUN Button
@@ -132,19 +133,19 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | displayed in the console       |
       | Invalid code | nameerror pop up alert message |
 
-  @tag17
+  @Arraytag17
   Scenario: Navigate to "Practice Questions" page for "Arrays Using List"
     Given The user is on the tryEditor window in Arrays page
     When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
-  @tag5
+  @Arraytag18
   Scenario: Navigate to "Search the Array" question from Practice Questions page
     Given The user is in the Practice Questions of array page
     When The user clicks Search the Array link
     Then The user should be redirected to Search the Array Question page
 
-  @tag6
+  @Arraytag19
   Scenario Outline: Validating "Search the Array"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -155,14 +156,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag5
+  @Arraytag20
   Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
     Given The user is on the Search the array page
     And The user will be redirected to Array question page
     When The user clicks Max Consecutive Ones link
     Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag6
+  @Arraytag21
   Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -173,14 +174,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag9
+  @Arraytag22
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
     Given the user is on the Max Consecutive Ones page
     And the user will be redirected to Array page
     When the user clicks the Find Numbers with Even Number of Digits link
     Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag10
+  @Arraytag23
   Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -191,14 +192,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @Array
+  @Arraytag24
   Scenario: Navigate to "Squares of a Sorted Array" question page
     Given the user is on the Find Numbers with Even Number of Digits page
     And the user will be redirected to Array page
     When the user clicks the Squares of a Sorted Array link
     Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag10
+  @Arraytag25
   Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -209,20 +210,20 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag30
+  @Arraytag26
   Scenario: Navigate to "Basic Operations in Lists" page
     Given the user is on the Squares of a Sorted Array page
     And the user should be redirected to Array home page
     When the user clicks the Basic Operations in Lists button
     Then the user should be redirected to the Basic Operations in Lists page
 
-  @tag
+  @Arraytag27
   Scenario: Access "Try Editor" page for "Basic Operations in Lists"
     Given the user is on the Basic Operations in Lists page
     When The user clicks Try Here>>> button
     Then Navigate to try Editor window with a Run button to test
 
-  @tag3
+  @Arraytag28
   Scenario Outline: Verify TryEditor functionality for Basic Operations in Lists page
     Given The user is on the tryEditor window in Arrays page
     When The user enters the <code> in text editor and clicks RUN Button
@@ -234,19 +235,19 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | displayed in the console       |
       | Invalid code | nameerror pop up alert message |
 
-  @tag32
+  @Arraytag29
   Scenario: Navigate to "Practice Questions" page for Basic Operations in Lists
     Given The user is on the tryEditor window in Arrays page
     When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
-  @tag5
+  @Arraytag30
   Scenario: Navigate to "Search the Array" question from Practice Questions page
     Given The user is in the Practice Questions of array page
     When The user clicks Search the Array link
     Then The user should be redirected to Search the Array Question page
 
-  @tag6
+  @Arraytag31
   Scenario Outline: Validating "Search the Array"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -257,14 +258,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag5
+  @Arraytag32
   Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
     Given The user is on the Search the array page
     And The user will be redirected to Array question page
     When The user clicks Max Consecutive Ones link
     Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag6
+  @Arraytag33
   Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -275,14 +276,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag9
+  @Arraytag34
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
     Given the user is on the Max Consecutive Ones page
     And the user will be redirected to Array page
     When the user clicks the Find Numbers with Even Number of Digits link
     Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag10
+  @Arraytag35
   Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -293,14 +294,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @arra
+  @Arraytag36
   Scenario: Navigate to "Squares of a Sorted Array" question page
     Given the user is on the Find Numbers with Even Number of Digits page
     And the user will be redirected to Array page
     When the user clicks the Squares of a Sorted Array link
     Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag10
+  @Arraytag37
   Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -311,20 +312,20 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag45
+  @Arraytag38
   Scenario: Navigate to "Applications of Array" page
     Given the user is on the Squares of a Sorted Array page
     And the user should be redirected to Array home page
     When the user clicks the Applications of Array button
     Then the user should be redirected to the Applications of Array page
 
-  @tag
+  @Arraytag39
   Scenario: Access "Try Editor" page for "Applications of Array"
     Given the user is on the Applications of Array page
     When The user clicks Try Here>>> button
     Then Navigate to try Editor window with a Run button to test
 
-  @tag3
+  @Arraytag40
   Scenario Outline: Verify TryEditor functionality for Applications of Array page
     Given The user is on the tryEditor window in Arrays page
     When The user enters the <code> in text editor and clicks RUN Button
@@ -336,19 +337,19 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | displayed in the console       |
       | Invalid code | nameerror pop up alert message |
 
-  @tag52
+  @Arraytag41
   Scenario: Navigate to "Practice Questions" page for Applications of Array
     Given The user is on the tryEditor window in Arrays page
     When The user clicks Practice Questions of array button following browser back arrow
     Then The user should be directed to Array practice question page
 
-  @tag5
+  @Arraytag42
   Scenario: Navigate to "Search the Array" question from Practice Questions page
     Given The user is in the Practice Questions of array page
     When The user clicks Search the Array link
     Then The user should be redirected to Search the Array Question page
 
-  @tag6
+  @Arraytag43
   Scenario Outline: Validating "Search the Array"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -359,14 +360,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag5
+  @Arraytag44
   Scenario: Navigate to "Max Consecutive Ones" question from Practice Questions page
     Given The user is on the Search the array page
     And The user will be redirected to Array question page
     When The user clicks Max Consecutive Ones link
     Then The user should be directed to Max Consecutive Ones Question page
 
-  @tag6
+  @Arraytag45
   Scenario Outline: Validating "Max Consecutive Ones"  practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -377,14 +378,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag9
+  @Arraytag46
   Scenario: Navigate to "Find Numbers with Even Number of Digits" question page
     Given the user is on the Max Consecutive Ones page
     And the user will be redirected to Array page
     When the user clicks the Find Numbers with Even Number of Digits link
     Then the user should be directed to Find Numbers with Even Number of Digits Question page
 
-  @tag10
+  @Arraytag47
   Scenario Outline: Validating "Find Numbers with Even Number of Digits" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -395,14 +396,14 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @taga
+  @Arraytag48
   Scenario: Navigate to "Squares of a Sorted Array" question page
     Given the user is on the Find Numbers with Even Number of Digits page
     And the user will be redirected to Array page
     When the user clicks the Squares of a Sorted Array link
     Then the user should be redirected to Squares of a Sorted Array Question page
 
-  @tag10
+  @Arraytag49
   Scenario Outline: Validating "Squares of a Sorted Array" practice question editor Functionality
     Given The user is in the Practice page with run and submit buttons
     When The user enters the <code> in practice question and clicks Submit Button and RUN Button
@@ -413,7 +414,7 @@ Feature: Navigation and Functionality for Array Data Structures in dsAlgo Portal
       | Valid code   | Output displayed in the console |
       | Invalid code | Bad Input error msg             |
 
-  @tag65
+  @Arraytag50
   Scenario: Verify that user able to sign out successfully
     Given The user is in the Array page
     When The user clicks Sign out

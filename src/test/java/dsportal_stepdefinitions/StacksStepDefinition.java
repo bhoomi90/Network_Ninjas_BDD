@@ -43,12 +43,10 @@ public class StacksStepDefinition extends DriverManager {
 		pageTitle = cp.getCurrentTitle();
 		LoggerReader.info("Current page is: " +pageTitle);
 		if(pageTitle.equals("Numpy Ninja")) {
-			System.out.println("I am here");
 			cp.getStarted();
 			cp.login();
 		}
 		else {
-			System.out.println("I am there");
 			cp.login();
 		}
 	}

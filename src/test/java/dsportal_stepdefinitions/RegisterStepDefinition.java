@@ -106,7 +106,7 @@ public class RegisterStepDefinition extends DriverManager {
 	public void the_user_clicks_register_button_after_entering_username_and_password_with_password_confirmation_field_empty() throws InterruptedException {
 		// reg.clickRegister(pageTitle, expectedPageUrl, currentPageUrl);
 		reg.register_initial();
-		reg.clickRegister("username", "password", " ");
+		reg.clickRegister("nikiy", "hukasdyi", " ");
 		Thread.sleep(1000);
 	}
 
@@ -144,8 +144,7 @@ public class RegisterStepDefinition extends DriverManager {
 	public void the_user_should_able_to_see_an_pwd_warning_message(String expectedMSG) {
 		String actualMSG = reg.compareAlertText();
 		LoggerReader.info(actualMSG);
-		Assert.assertEquals(actualMSG, expectedMSG, "Didn't get password warning message");
-		
+		Assert.assertEquals(actualMSG, expectedMSG, "Didn't get password warning message");		
 	}
 	
 	@When("The user clicks Register button after entering existing Username")

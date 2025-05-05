@@ -47,10 +47,14 @@ public class CommonPage {
 		 PageFactory.initElements(driver, this);
 	}
 	
-
-	
-	public void login() {
+	public String getCurrentTitle() {
+		return driver.getTitle();
+	}
+	public void getStarted() {
 		getStarted.click();
+	}
+	
+	public void login() {	
 		signIn.click();
 		userName.sendKeys("Network_Ninjas");
 		password.sendKeys("OrangeS@12");

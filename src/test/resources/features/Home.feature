@@ -132,7 +132,6 @@ Feature: Home page features
     When The user clicks Get Started buttons of Stack on the homepage while Log in
     Then The user should be redirected to Stack page
 
-  @tag29
   Scenario: Verify that user able to land on Queue page while clickingGet Started buttons of Queue on the home page during Log in
     Given The user is on the Home page
     When The user clicks Get Started buttons of Queue on the homepage while Log in

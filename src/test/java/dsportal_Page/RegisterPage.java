@@ -1,14 +1,11 @@
 package dsportal_Page;
 
-import java.time.Duration;
-
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import dsportal_utilities.LoggerReader;
 
@@ -60,6 +57,7 @@ public class RegisterPage {
 
 	}
 	
+	@SuppressWarnings("deprecation")
 	public String getValidationMessage_username() {
 		String msg;
 		try {
@@ -71,6 +69,7 @@ public class RegisterPage {
 			return msg;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public String getValidationMessage_password() {
 		String msg;
 		try {
@@ -82,6 +81,8 @@ public class RegisterPage {
 		return msg;
 	}
 	
+	
+	@SuppressWarnings("deprecation")
 	public String getValidationMessage_passwordConfirmation() {
 		String msg;
 		try {
@@ -131,6 +132,3 @@ public class RegisterPage {
 //	         }
 //	     }
 //	}
-
-
-

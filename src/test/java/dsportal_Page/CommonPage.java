@@ -14,6 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import dsportal_utilities.ExcelReader;
 import dsportal_utilities.LoggerReader;
 
 public class CommonPage {
@@ -37,20 +38,23 @@ public class CommonPage {
 	String validCode, invalidCode, loginText, logoutText;
 	
 	public CommonPage(WebDriver driver) {
-		 CommonPage.driver = driver;
-		 
-//		 if(driver.getTitle().equals("Numpy Ninja")) 
-//			 LoggerReader.info("I am on ds-algo App");
-//		 else
-//			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
-		 
+		 CommonPage.driver = driver;		 
 		 PageFactory.initElements(driver, this);
 	}
 	
-
-	
-	public void login() {
+	public String getCurrentTitle() {
+		return driver.getTitle();	
+//		if (driver != null && ((RemoteWebDriver) driver).getSessionId() != null) {
+//		    return driver.getTitle(); // or other actions
+//		} else {
+//		    throw new IllegalStateException("WebDriver session is not active.");
+//		}		
+	}
+	public void getStarted() {
 		getStarted.click();
+	}
+	
+	public void login() {	
 		signIn.click();
 		userName.sendKeys("Network_Ninjas");
 		password.sendKeys("OrangeS@12");
@@ -67,47 +71,20 @@ public class CommonPage {
 
 	public void emptyCode() {
 		runBttn.click();			
-//		Assert.assertFalse(isAlertPresent(CommonPage.driver), "Alert displayed for empty code");
-//		LoggerReader.error("Test failed: No python code entered. Expected to get alert");
-	}
-	
-	public void readExcelsheet() throws IOException {
-		 String path = System.getProperty("user.dir")+"/src/test/resources/TestCode/pythonCode.xlsx";
-		 File Excelfile = new File(path);
-		 
-		 FileInputStream Fis = new FileInputStream(Excelfile);
-		 XSSFWorkbook workbook = new XSSFWorkbook(Fis);
-		 XSSFSheet sheet = workbook.getSheet("Sheet 1");
-		 
-		 int rows = sheet.getLastRowNum();
-		 LoggerReader.info("Last ROW: "+rows);
-		 int cols = sheet.getRow(0).getLastCellNum();
-		 LoggerReader.info("Last col: " +cols);	
-
-		 validCode = sheet.getRow(0).getCell(0).getStringCellValue();
-		 System.out.print(sheet.getRow(0).getCell(0).getStringCellValue());
-	
-		 invalidCode = sheet.getRow(0).getCell(1).getStringCellValue();
-		 System.out.print(sheet.getRow(0).getCell(1).getStringCellValue());
-		 	
-		 workbook.close();
-		 Fis.close();			
 	}
 	
 	public void validCode() throws IOException {
-		readExcelsheet();
-		enterCode.sendKeys(validCode);
+		ExcelReader.readExcelSheet();
+		//readExcelsheet();
+		enterCode.sendKeys(ExcelReader.getValidCode());
 		runBttn.click();
-//		LoggerReader.info("Valid python code entered");
-//		Assert.assertNotEquals(isAlertPresent(CommonPage.driver), true, "Alert displayed for valid python code");
 	}
 	
 	public void invalidCode() throws IOException {
-		readExcelsheet();
-		enterCode.sendKeys(invalidCode);
+		ExcelReader.readExcelSheet();
+		//readExcelsheet();
+		enterCode.sendKeys(ExcelReader.getInvalidCode());
 		runBttn.click();
-//		LoggerReader.info("Invalid python code entered");
-//		Assert.assertEquals(isAlertPresent(CommonPage.driver), true, "No alert displayed for invalid python code");		
 	}
 	
 	public void practiceQue_page() {

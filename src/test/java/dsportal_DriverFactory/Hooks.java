@@ -25,10 +25,11 @@ public class Hooks extends DriverManager {
 		LoggerReader.info("Loading Config file");
 		ConfigReader.loadConfig();
 		String browser = ConfigReader.getBrowserType();
-		String url = ConfigReader.getURL();
+		String url = ConfigReader.getPropertyValue("URL");
 		
 		if(browser==null) {
-			browser = ConfigReader.getBrowser();
+			LoggerReader.info("Browser is null. Take browser from config property");
+			browser = ConfigReader.getPropertyValue("BROWSER");
 		}
 		LoggerReader.info("Setup browser executed");
 		LoggerReader.info("Initializing driver for : "+browser);
@@ -43,7 +44,7 @@ public class Hooks extends DriverManager {
 	@AfterAll
 	public static void after_all() {		
 		driverManager.quitBrowser();
-		LoggerReader.info("teardown browser executed");
+//		LoggerReader.info("teardown browser executed: " + ConfigReader.getBrowserType());
 	}
 	
 	@After

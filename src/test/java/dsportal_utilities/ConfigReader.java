@@ -3,11 +3,14 @@ package dsportal_utilities;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.WebDriver;
+
 public class ConfigReader {
 
 	public static Properties properties;
 	public static final String propertyFilePath = "./src/test/resources/config.properties";
-	public static String browserType = null;
+	private static ThreadLocal<String> browserType = new ThreadLocal<String>();
+//	public static String browserType = null;
 	
 	public static void loadConfig() throws Throwable {
 		FileInputStream fis;
@@ -17,32 +20,20 @@ public class ConfigReader {
 		fis.close();
 	}
 	
-	public static String getURL() {
-		String url = properties.getProperty("URL");
-		if(url!=null)
-			return url;
+	public static String getPropertyValue(String key) {
+		String value = properties.getProperty(key);
+		if(value!=null)
+			return value;
 		else
-			throw new RuntimeException("URL not specified in config.properties file");
-	}
-
-	public static String getBrowser() {
-		String browser = properties.getProperty("BROWSER");
-		if(browser!=null)
-			return browser;
-		else
-			throw new RuntimeException("browser not specified in config.properties file");
+			throw new RuntimeException("Key "+key+" not specified in config.properties file");
 	}
 	
 	public static void setBrowserType(String browser) {
-		browserType = browser;
+		browserType.set(browser);
 	}
 
-	public static String getBrowserType() {//throws Throwable {
-		//if (browserType != null)
-			return browserType;
-//		else
-//			throw new RuntimeException("browser not specified in the testng.xml");
-		
+	public static String getBrowserType() {
+			return browserType.get();
 	}
 	
 }

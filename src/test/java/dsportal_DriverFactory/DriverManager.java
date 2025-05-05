@@ -1,5 +1,8 @@
 package dsportal_DriverFactory;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,8 +23,14 @@ public class DriverManager {
     // Method to configure Chrome options
     public ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
+        Map<String, Object> prefs = new HashMap<String, Object>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        prefs.put("profile.password_manager_leak_detection", false);
+        options.setExperimentalOption("prefs", prefs);
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications");
+        options.addArguments("disable-infobars");
         return options;
     }
     // Method to configure Edge options
@@ -29,12 +38,15 @@ public class DriverManager {
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications");
+        options.addArguments("disable-infobars");
         return options;
     }
     // Method to configure Firefox options
     public FirefoxOptions getFirefoxOptions() {
         FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-notifications");
+        options.addArguments("disable-infobars");
         return options;
     }
     // Start browser based on the input

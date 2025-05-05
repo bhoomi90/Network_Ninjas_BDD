@@ -40,7 +40,15 @@ public class StacksStepDefinition extends DriverManager {
   			LoggerReader.info("Create constructor for Common page");
   			setUpCommonPage();
   		}
-  		cp.login();	   		
+		pageTitle = cp.getCurrentTitle();
+		LoggerReader.info("Current page is: " +pageTitle);
+		if(pageTitle.equals("Numpy Ninja")) {
+			cp.getStarted();
+			cp.login();
+		}
+		else {
+			cp.login();
+		}
 	}
 	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")

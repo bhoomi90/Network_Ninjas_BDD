@@ -1,11 +1,13 @@
 @overall
 Feature: Navigation and Functionality for Login in DSPortal app
 
+  @Login1
   Scenario: Verify that user is able to land on Login Page
     Given The user is on the DS Algo Home Page
     When The user should click the Sign in link
     Then The user should be redirected to Sign in page
 
+  @Login2
   Scenario Outline: Login with multiple credentials
     Given The user is on the DS Algo Sign in Page
     When The user enter <user_name> username  and <password> password
@@ -19,16 +21,19 @@ Feature: Navigation and Functionality for Login in DSPortal app
       | Valid     | Invalid        | Invalid username and password |
       | Invalid   | Invalid        | Invalid username and password |
 
+  @Login3
   Scenario: Login with empty password field
     Given The user is on the DS Algo Sign in Page
     When The user enter valid username and empty password
     Then The user should get expected_msg below password field
 
+  @Login4
   Scenario: Login with valid password field
     Given The user is on the DS Algo Sign in Page
     When The user enter Valid username and Valid password
     Then The user should get expected_msg "You are logged in"
 
+  @Login5
   Scenario: Navigate to home page after Sign out
     Given The user is in the Home page
     When The user clicks Sign out

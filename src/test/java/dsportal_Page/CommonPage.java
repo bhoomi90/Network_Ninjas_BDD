@@ -14,6 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import dsportal_utilities.ExcelReader;
 import dsportal_utilities.LoggerReader;
 
 public class CommonPage {
@@ -72,40 +73,17 @@ public class CommonPage {
 		runBttn.click();			
 	}
 	
-	public void readExcelsheet() throws IOException {
-		 String path = System.getProperty("user.dir")+"/src/test/resources/TestCode/pythonCode.xlsx";
-		 File Excelfile = new File(path);
-		 
-		 FileInputStream Fis = new FileInputStream(Excelfile);
-		 XSSFWorkbook workbook = new XSSFWorkbook(Fis);
-		 XSSFSheet sheet = workbook.getSheet("Sheet 1");
-		 
-		 int rows = sheet.getLastRowNum();
-		 LoggerReader.info("Last ROW: "+rows);
-		 int cols = sheet.getRow(0).getLastCellNum();
-		 LoggerReader.info("Last col: " +cols);	
-
-		 validCode = sheet.getRow(0).getCell(0).getStringCellValue();
-		 System.out.print(sheet.getRow(0).getCell(0).getStringCellValue());
-	
-		 invalidCode = sheet.getRow(0).getCell(1).getStringCellValue();
-		 System.out.print(sheet.getRow(0).getCell(1).getStringCellValue());
-		 	
-		 workbook.close();
-		 Fis.close();			
-	}
-	
 	public void validCode() throws IOException {
-		//ExcelReader.readExcelSheet();
-		readExcelsheet();
-		enterCode.sendKeys(validCode);
+		ExcelReader.readExcelSheet();
+		//readExcelsheet();
+		enterCode.sendKeys(ExcelReader.getValidCode());
 		runBttn.click();
 	}
 	
 	public void invalidCode() throws IOException {
-		//ExcelReader.readExcelSheet();
-		readExcelsheet();
-		enterCode.sendKeys(invalidCode);
+		ExcelReader.readExcelSheet();
+		//readExcelsheet();
+		enterCode.sendKeys(ExcelReader.getInvalidCode());
 		runBttn.click();
 	}
 	

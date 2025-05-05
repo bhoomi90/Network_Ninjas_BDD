@@ -12,6 +12,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 	public class ExcelReader {
+		
+		static String validCode ;
+		static String invalidCode;
 
 		public static void writeExcelSheet() throws IOException{
 			 XSSFWorkbook workbook = new XSSFWorkbook();
@@ -57,10 +60,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 			 System.out.println("Last ROW: "+rows);
 			 int cols = sheet.getRow(0).getLastCellNum();
 			 System.out.println("Last col: " +cols);
-				
-			 String validCode, invalidCode ;
-			 
-			 
+							 
 			 for(int r=0; r<=rows; r++){		
 				 for(int c=0;c<cols; c++){
 				 	validCode = sheet.getRow(0).getCell(0).getStringCellValue();
@@ -73,6 +73,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 			 
 			 workbook.close();
 			 Fis.close();		
+		}
+		
+		public static String getValidCode() {			
+			return validCode;
+		}
+		
+		public static String getInvalidCode() {			
+			return invalidCode;
 		}
 		
 		public static void main(String[] args) throws IOException {

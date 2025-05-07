@@ -12,8 +12,8 @@ import io.cucumber.java.en.When;
 
 public class LoginStepDefinition extends DriverManager {
 	
-	static LoginPage login_page;
-	static CommonPage cp;
+	private static LoginPage login_page;
+	private static CommonPage cp;
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	
 	public static void setUpLoginPage() {
@@ -26,10 +26,11 @@ public class LoginStepDefinition extends DriverManager {
 	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
-		if(login_page==null) {
-		LoggerReader.info("Create constructor for Login page");
+//		if(login_page==null) {
+//		LoggerReader.info("Create constructor for Login page");
+//		setUpLoginPage();
+//	}
 		setUpLoginPage();
-	}
 	    login_page.getStarted();
 		pageTitle =login_page.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "NumpyNinja");
@@ -139,10 +140,11 @@ public class LoginStepDefinition extends DriverManager {
 	
 	@When("The user clicks Sign out")
 	public void the_user_clicks_sign_out() {	
-		if(cp==null) {
-  			LoggerReader.info("Create constructor for Common page");
-  			setUpCommonPage();
-  		}
+//		if(cp==null) {
+//  			LoggerReader.info("Create constructor for Common page");
+//  			setUpCommonPage();
+//  		}
+		setUpCommonPage();
 		cp.signOut();   
 	}
 	       

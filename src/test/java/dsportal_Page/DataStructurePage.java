@@ -1,11 +1,5 @@
 package dsportal_Page;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import dsportal_utilities.LoggerReader;
 
 public class DataStructurePage {
-	public static WebDriver driver;
+	private static WebDriver driver;
 
 	@FindBy(xpath = ("//h5[text()='Data Structures-Introduction']/../a[text()='Get Started']"))
 	WebElement DataStrucIntro;

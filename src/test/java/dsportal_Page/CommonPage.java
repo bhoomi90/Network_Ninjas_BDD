@@ -1,11 +1,7 @@
 package dsportal_Page;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +15,7 @@ import dsportal_utilities.LoggerReader;
 
 public class CommonPage {
 
-	public static WebDriver driver;
+	private static WebDriver driver;// = DriverFactory.getDriver();
 	
 	@FindBy (xpath=("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy (xpath=("//*[text()='Sign in']")) WebElement signIn ;
@@ -44,12 +40,12 @@ public class CommonPage {
 	
 	public String getCurrentTitle() {
 		return driver.getTitle();	
-//		if (driver != null && ((RemoteWebDriver) driver).getSessionId() != null) {
-//		    return driver.getTitle(); // or other actions
-//		} else {
-//		    throw new IllegalStateException("WebDriver session is not active.");
-//		}		
 	}
+	
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
 	public void getStarted() {
 		getStarted.click();
 	}

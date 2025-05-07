@@ -16,8 +16,9 @@ import io.cucumber.java.en.When;
 
 public class StacksStepDefinition extends DriverManager {
 
-	static StackPage stack;
-	static CommonPage cp;
+	private static StackPage stack;// = new StackPage();
+	private static CommonPage cp;// = new CommonPage();
+	//private static WebDriver driver = getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String stackPageURL = homePageURL+"stack/";
@@ -35,11 +36,12 @@ public class StacksStepDefinition extends DriverManager {
 	
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {
- 
-  		if(cp==null) {
-  			LoggerReader.info("Create constructor for Common page");
-  			setUpCommonPage();
-  		}
+//  		if(cp==null) {
+//  			System.out.println("Create constructor for Common page");
+//  			LoggerReader.info("Create constructor for Common page");
+ // 			setUpCommonPage();
+//  		}
+  		setUpCommonPage();
 		pageTitle = cp.getCurrentTitle();
 		LoggerReader.info("Current page is: " +pageTitle);
 		if(pageTitle.equals("Numpy Ninja")) {
@@ -53,10 +55,11 @@ public class StacksStepDefinition extends DriverManager {
 	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
-		if(stack==null) {
-			LoggerReader.info("Create constructor for Stack page");
-			setUpStackPage();
-		}
+//		if(stack==null) {
+//			LoggerReader.info("Create constructor for Stack page");
+//			setUpStackPage();
+//		}
+		setUpStackPage();
 	    stack.getStarted_stack_page();
 	}
 
@@ -122,7 +125,7 @@ public class StacksStepDefinition extends DriverManager {
    	
 	@Then("The Error message in alert window should be displayed")
 	public void the_error_message_in_alert_window_should_be_displayed() {
-		Assert.assertFalse(cp.isAlertPresent(cp.driver), "Alert displayed for empty code");
+		Assert.assertFalse(cp.isAlertPresent(driver), "Alert displayed for empty code");
 		LoggerReader.error("Test failed: No python code entered. Expected to get alert");	       	       
 	}
 	
@@ -135,7 +138,7 @@ public class StacksStepDefinition extends DriverManager {
 	@Then("The displayed in the console should be displayed")
 	public void the_displayed_in_the_console_should_be_displayed() {
 		LoggerReader.info("Valid python code entered");
-		Assert.assertNotEquals(cp.isAlertPresent(cp.driver), true, "Alert displayed for valid python code");    	       
+		Assert.assertNotEquals(cp.isAlertPresent(driver), true, "Alert displayed for valid python code");    	       
 	}
 	
 	@When("The user enters the Invalid code in text editor and clicks RUN Button")
@@ -147,7 +150,7 @@ public class StacksStepDefinition extends DriverManager {
     @Then("The nameerror pop up alert message should be displayed")
     public void the_nameerror_pop_up_alert_message_should_be_displayed() {
 		LoggerReader.info("Invalid python code entered");
-		Assert.assertEquals(cp.isAlertPresent(cp.driver), true, "No alert displayed for invalid python code");	
+		Assert.assertEquals(cp.isAlertPresent(driver), true, "No alert displayed for invalid python code");	
 		Alert alert = driver.switchTo().alert();
 		LoggerReader.info(alert.getText());
 		//Thread.sleep(2000);

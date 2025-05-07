@@ -11,23 +11,22 @@ import io.cucumber.java.en.When;
 
 public class QueueStepDefinition extends DriverManager {
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	static QueuePage queue;
+	private static QueuePage queue;
 	String pageTitle, currentPageUrl, expectedPageUrl, QueuePageURL;
 	String QueueImpleURL, QueueCollectURL, QueueImpArrayURL, QueueOperURL;
 
 	public static void setUpQueuePage() {
-
 		queue = new QueuePage(driver);
-
 	}
 
 	@When("The user clicks the Get Started button in Queue Panel or The user select Queue item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_queue_panel_or_the_user_select_queue_item_from_the_drop_down_menu() {
-		if (queue == null) {
-			LoggerReader.info("Create constructor for Queue Page");
-			setUpQueuePage();
-		}
+//		if (queue == null) {
+//			LoggerReader.info("Create constructor for Queue Page");
+//			setUpQueuePage();
+//		}
 		// queue.clickGetStarted();
+		setUpQueuePage();
 		queue.dropdown_queue_page();
 	}
 

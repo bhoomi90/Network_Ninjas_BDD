@@ -13,24 +13,25 @@ import io.cucumber.java.en.When;
 
 public class ArraysStepDefinition extends DriverManager {
 
-	static ArraysPage arrays;
+	private static ArraysPage arrays;
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String arrayPageURL = homePageURL + "array/";
 	// enterCode, queRunButton;
 
-	public void setUpArraysPage() {
-		this.arrays = new ArraysPage(driver);
+	public static void setUpArraysPage() {
+		arrays = new ArraysPage(driver);
 	}
 
 	@When("The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_Array_panel_or_the_user_select_Array_item_from_the_drop_down_menu() {
 
-		if (arrays == null) {
-			LoggerReader.info("Create driver for Arrays page");
-			setUpArraysPage();
-		}
+//		if (arrays == null) {
+//			LoggerReader.info("Create driver for Arrays page");
+//			setUpArraysPage();
+//		}
 		// arrays.dropdown_array_page();
+		setUpArraysPage();
 		arrays.arrayGetStarted();
 	}
 

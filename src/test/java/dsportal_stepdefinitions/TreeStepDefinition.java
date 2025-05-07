@@ -11,7 +11,7 @@ import io.cucumber.java.en.When;
 
 public class TreeStepDefinition extends DriverManager {
 
-	static TreePage tree;
+	private static TreePage tree;
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String treePageURL = homePageURL+"tree/";
@@ -23,10 +23,11 @@ public class TreeStepDefinition extends DriverManager {
 	@When("The user clicks the Get Started button in Tree Panel or The user select Tree item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
 		
-		if(tree==null) {
-			LoggerReader.info("Create constructor for Tree page");
-			setUpTreePage();
-		}
+//		if(tree==null) {
+//			LoggerReader.info("Create constructor for Tree page");
+//			setUpTreePage();
+//		}
+		setUpTreePage();
 	    tree.open_tree_page();
 	}
 	

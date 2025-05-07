@@ -23,7 +23,7 @@ public class ArraysPage {
 
 //private static final CharSequence validCode = null;
 	// public static WebDriver driver;
-	static WebDriver driver;
+	private static WebDriver driver;
 	@FindBy(xpath = ("//h5[text()='Array']/../a[text()='Get Started']"))
 	WebElement arrayGetStarted;
 	@FindBy(xpath = ("//*[@data-toggle='dropdown']"))

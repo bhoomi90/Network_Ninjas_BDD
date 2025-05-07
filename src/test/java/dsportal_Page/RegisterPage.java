@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import dsportal_utilities.LoggerReader;
 
 public class RegisterPage {
-	public static WebDriver driver;
+	private static WebDriver driver;
 
 	@FindBy(xpath = ("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy(xpath = ("//a[text()=' Register ']")) WebElement register_initial;

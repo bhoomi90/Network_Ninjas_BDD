@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class QueuePage {
 
-	public static WebDriver driver;
+	private static WebDriver driver;
 	String URL = "https://dsportalapp.herokuapp.com/";
 
 	@FindBy(xpath = ("//*[text()='Get Started']"))
@@ -62,8 +62,6 @@ public class QueuePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
-
 
 	// Methods
 

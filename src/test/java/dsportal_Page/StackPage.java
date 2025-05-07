@@ -9,7 +9,7 @@ import dsportal_utilities.LoggerReader;
 
 public class StackPage {
 
-	static WebDriver driver;
+	private static WebDriver driver = null;// = DriverFactory.getDriver();
 
 	@FindBy (xpath=("//h5[text()='Stack']/../a[text()='Get Started']")) WebElement stackClick;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
@@ -40,12 +40,13 @@ public class StackPage {
 	
 	public void getStarted_stack_page() {
 		stackClick.click();
+		LoggerReader.info("I am on Stack Page");
 	}
 	
 	public void dropdown_stack_page() {
 		dropdown.click();
 		dropdownStack.click();
-		LoggerReader.info("I am on Stack Page");
+		LoggerReader.info("I am on Stack Page from dropdown");
 	}
 	
 	public void operationInStack_page() {

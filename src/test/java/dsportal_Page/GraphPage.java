@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import dsportal_utilities.LoggerReader;
 
 public class GraphPage {
-	//public static WebDriver driver;
-	static WebDriver driver;
+	
+	private static WebDriver driver;
 	public String homePageURL = "https://dsportalapp.herokuapp.com/";
 	public String graphPageURL = homePageURL+"graph/";
 
@@ -40,8 +40,8 @@ public class GraphPage {
 	WebElement tryEditorButton;
 
 	public GraphPage(WebDriver driver) {
-	//GraphPage.driver = driver;
-	this.driver = driver;
+	
+		GraphPage.driver = driver;
 	
 		if(driver.getTitle().equals("NumpyNinja")) 
 			 LoggerReader.info("I am on ds-algo App");

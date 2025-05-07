@@ -13,8 +13,7 @@ import io.cucumber.java.en.When;
 
 public class DataStructureStepDefinition extends DriverManager {
 	
-	static DataStructurePage DataStrucpge;
-	static LoginPage login_page;
+	public static DataStructurePage DataStrucpge;
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String dsPageURL = homePageURL+"data-structures-introduction/";
@@ -25,11 +24,12 @@ public class DataStructureStepDefinition extends DriverManager {
 	
 	@When("The user clicks the Getting Started button in Data Structures - Introduction")
 	public void the_user_clicks_the_getting_started_button_in_data_structures_introduction() {
-		if(DataStrucpge==null) {
-  			LoggerReader.info("Create constructor for Data Structures page");
-  			setUpDataStructurePage();
-  		}
-	   DataStrucpge.DataStruc_page(); 
+//		if(DataStrucpge==null) {
+//  			LoggerReader.info("Create constructor for Data Structures page");
+//  			setUpDataStructurePage();
+//  		}
+		setUpDataStructurePage();
+		DataStrucpge.DataStruc_page(); 
 	}
 
 	@Then("The user be directed to Data Structures- Introduction Page")

@@ -17,10 +17,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class HomeStepDefinition extends DriverManager  {
-	static HomePage hp;
-	static LoginPage lp;
-	static CommonPage cp;
-	static DataStructurePage DataStrucpge;
+	private static HomePage hp;
+	private static CommonPage cp;
 	
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
@@ -42,9 +40,6 @@ public class HomeStepDefinition extends DriverManager  {
 	public static void setUpCommonPage() {
 		cp = new CommonPage(driver);
 	}
-	public static void setUpDataStructurePage() {
-		DataStrucpge = new DataStructurePage(driver);
-	}
 	
 	@Given("The user has browser open")
 	public void the_user_has_browser_open() {
@@ -60,10 +55,11 @@ public class HomeStepDefinition extends DriverManager  {
 
 	@Then("The user should be able to land on dsAlgo portal with Get Started button")
 	public void the_user_should_be_able_to_land_on_ds_algo_portal_with_get_started_button() {
-		if(hp == null) {
-			LoggerReader.info("Create constructor for Home Page");
-			setUpHomePage();
-		}
+//		if(hp == null) {
+//			LoggerReader.info("Create constructor for Home Page");
+//			setUpHomePage();
+//		}
+		setUpHomePage();
 		 	currentPageUrl = hp.getCurrentUrl();
 		 	expectedPageUrl = Dsalgo_url;
 		 	LoggerReader.info("The user is able to directed to ds-algo page: "+currentPageUrl);
@@ -164,7 +160,7 @@ public class HomeStepDefinition extends DriverManager  {
 
 	@When("The user selects Array from the drop down after Log in.")
 	public void the_user_selects_array_from_the_drop_down_after_log_in() {
-		if(cp==null) setUpCommonPage();
+		setUpCommonPage();
 	    cp.login();
 	    hp.dropdown();
 	    hp.dropdown_array();	    

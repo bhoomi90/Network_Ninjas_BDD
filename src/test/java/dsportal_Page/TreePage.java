@@ -9,7 +9,7 @@ import dsportal_utilities.LoggerReader;
 
 public class TreePage {
 
-	static WebDriver driver;
+	private static WebDriver driver;
 	
 	@FindBy(xpath= ("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement treeLink;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;

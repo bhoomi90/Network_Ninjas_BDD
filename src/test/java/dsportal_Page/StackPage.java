@@ -6,12 +6,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 
 public class StackPage {
 
 	private WebDriver driver = null;
 
+	public String homePageURL = ConfigReader.getPropertyValue("URL"); // shouldhandle these on page
+	public String stackPageURL = homePageURL + "stack/";
+	public String operationInStackURL = stackPageURL + "operations-in-stack/";
+	public String implementationURL = stackPageURL + "implementation/";
+	public String applicationsURL = stackPageURL + "stack-applications/";
+
+	
 	@FindBy (xpath=("//h5[text()='Stack']/../a[text()='Get Started']")) WebElement stackClick;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
 	@FindBy (xpath=("//a[text()='Stack']")) WebElement dropdownStack;

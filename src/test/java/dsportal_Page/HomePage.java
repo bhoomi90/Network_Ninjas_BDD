@@ -11,6 +11,15 @@ import dsportal_utilities.LoggerReader;
 public class HomePage {
 	
 	private WebDriver driver = null;
+	public String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
+	public String Home_Url =(Dsalgo_url+"home");
+	public String DataStruc_Url =(Dsalgo_url+"data-structures-introduction/");
+	public String Array_Url =(Dsalgo_url+"array/");
+	public String Linkedlist_Url =(Dsalgo_url+"linked-list/");
+	public String Stack_Url =(Dsalgo_url+"stack/");
+	public String Queue_Url =(Dsalgo_url+"queue/");
+	public String Tree_Url =(Dsalgo_url+"tree/");
+	public String Graph_Url =(Dsalgo_url+"graph/");
 
 	@FindBy(xpath = ("//*[text()='Sign in']"))
 	WebElement signIn;
@@ -52,17 +61,7 @@ public class HomePage {
 	WebElement graph;
 	@FindBy (xpath=("//*[@role='alert']")) 
 	WebElement alertMsg;
-	
-	String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
-	public String Home_Url =(Dsalgo_url+"home/");
-	
-	String DataStruc_Url =(Dsalgo_url+"data-structures-introduction/");
-	String Array_Url =(Dsalgo_url+"array/");
-	String Linkedlist_Url =(Dsalgo_url+"linked-list/");
-	String Stack_Url =(Dsalgo_url+"stack/");
-	String Queue_Url =(Dsalgo_url+"queue/");
-	String Tree_Url =(Dsalgo_url+"tree/");
-	String Graph_Url =(Dsalgo_url+"graph/");
+
 	String loginText;
 	
 	public HomePage() {
@@ -90,6 +89,9 @@ public class HomePage {
 	public void navigateback() {
 		driver.navigate().back();
 		LoggerReader.info("Clicking browser back arrow");
+	}
+	public void navigateTo() {
+		driver.navigate().to(Dsalgo_url);
 	}
 	public void refreshPage() {
 		driver.navigate().refresh();

@@ -1,9 +1,7 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.LinkedListPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
@@ -13,11 +11,7 @@ import io.cucumber.java.en.When;
 public class LinkedListStepDefinition {
 
 	LinkedListPage linkedList = new LinkedListPage();
-	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
-	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	String linkedListPageURL = homePageURL+"linked-list/";
-	
 	
 	@When("The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
@@ -28,7 +22,7 @@ public class LinkedListStepDefinition {
 	@Then("The user is directed to Linked List Data Structure Page")
 	public void the_user_is_directed_to_linked_list_data_structure_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = linkedListPageURL;
+		   expectedPageUrl = linkedList.linkedListPageURL;
 		   LoggerReader.info("The user is able to directed to linked list page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Linked List page");	    
 	}

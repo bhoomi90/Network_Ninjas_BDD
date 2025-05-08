@@ -2,10 +2,8 @@ package dsportal_stepdefinitions;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.ArraysPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
@@ -15,10 +13,8 @@ import io.cucumber.java.en.When;
 public class ArraysStepDefinition {
 
 	ArraysPage arrays = new ArraysPage();
-	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl;
-	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	String arrayPageURL = homePageURL + "array/";
+
 	// enterCode, queRunButton;
 
 	@When("The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu")
@@ -29,7 +25,7 @@ public class ArraysStepDefinition {
 	@Then("The user is directed to Array Data Structure Page")
 	public void the_user_is_directed_to_Array_data_structure_page() {
 		currentPageUrl = arrays.getCurrentUrl();
-		expectedPageUrl = arrayPageURL;
+		expectedPageUrl = arrays.arrayPageURL;
 		LoggerReader.info("The user is able to directed to linked list page: " + currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl, "The user is not directed to Linked List page");
 	}

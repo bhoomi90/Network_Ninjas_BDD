@@ -17,12 +17,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 
 public class ArraysPage {
 
 //private static final CharSequence validCode = null;
 	private WebDriver driver = null;
+	public String homePageURL = ConfigReader.getPropertyValue("URL");;
+	public String arrayPageURL = homePageURL + "array/";
+	
 	@FindBy(xpath = ("//h5[text()='Array']/../a[text()='Get Started']"))
 	WebElement arrayGetStarted;
 	@FindBy(xpath = ("//*[@data-toggle='dropdown']"))

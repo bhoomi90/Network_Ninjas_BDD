@@ -1,9 +1,7 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.CommonPage;
 import dsportal_Page.HomePage;
 import dsportal_utilities.LoggerReader;
@@ -14,39 +12,26 @@ import io.cucumber.java.en.When;
 public class HomeStepDefinition {
 	HomePage hp = new HomePage();
 	CommonPage cp = new CommonPage();
-	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
-	String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
-	String Home_Url =(Dsalgo_url+"home");
-	String DataStruc_Url =(Dsalgo_url+"data-structures-introduction/");
-	String Array_Url =(Dsalgo_url+"array/");
-	String Linkedlist_Url =(Dsalgo_url+"linked-list/");
-	String Stack_Url =(Dsalgo_url+"stack/");
-	String Queue_Url =(Dsalgo_url+"queue/");
-	String Tree_Url =(Dsalgo_url+"tree/");
-	String Graph_Url =(Dsalgo_url+"graph/");
-	
+
 	@Given("The user has browser open")
 	public void the_user_has_browser_open() {
-		 System.out.println("Browser is open. Current URL: " + driver.getCurrentUrl());   	    
+		LoggerReader.info("Browser is open. Current URL: " + hp.getCurrentUrl());
 	}
 
 	@When("The user enter correct dsAlgo portal URL")
 	public void the_user_enter_correct_ds_algo_portal_url() {
-	    driver.get("https://dsportalapp.herokuapp.com/");
-	    LoggerReader.info("User navigated to the dsAlgo portal URL");
-	    
+		hp.navigateTo();
+		LoggerReader.info("User navigated to the dsAlgo portal URL");
 	}
 
 	@Then("The user should be able to land on dsAlgo portal with Get Started button")
 	public void the_user_should_be_able_to_land_on_ds_algo_portal_with_get_started_button() {
-
-		 	currentPageUrl = hp.getCurrentUrl();
-		 	expectedPageUrl = Dsalgo_url;
-		 	LoggerReader.info("The user is able to directed to ds-algo page: "+currentPageUrl);
-		 	Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to dsalgo page");		    
+	 	currentPageUrl = hp.getCurrentUrl();
+	 	expectedPageUrl = hp.Dsalgo_url;
+	 	LoggerReader.info("The user is able to directed to ds-algo page: "+currentPageUrl);
+	 	Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to dsalgo page");	
 	}
-
 	@Given("The user is on the DS Algo Portal")
 	public void the_user_is_on_the_ds_algo_portal() {
 		pageTitle =hp.getCurrentTitle();
@@ -54,25 +39,17 @@ public class HomeStepDefinition {
 	}
 
 	@When("The user clicks the Get Started button")
-	public void the_user_clicks_the_get_started_button() {
+	public void the_user_clicks_the_get_started_button() {		    
 	    hp.getstarted();	    
 	}
 	
 	@Then("The user should be navigated to the Home page which displays the Register and Sign in links.")
 	public void the_user_should_be_navigated_to_the_home_page_which_displays_the_register_and_sign_in_links() {
 		 currentPageUrl = hp.getCurrentUrl();
-		 expectedPageUrl = Home_Url;
+		 expectedPageUrl = hp.Home_Url;
 		 LoggerReader.info("The user is able to directed to Home page: "+currentPageUrl);
 		 Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Home page");	  
 	}
-
-//	@Then("The user should be navigated to the Data Structure Introduction page, which displays the Register and Sign in links.")
-//	public void the_user_should_be_navigated_to_the_data_structure_introduction_page_which_displays_the_register_and_sign_in_links() {
-//		 currentPageUrl = hp.getCurrentUrl();
-//		 expectedPageUrl = Home_Url;
-//		 LoggerReader.info("The user is able to directed to Home page: "+currentPageUrl);
-//		 Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Home page");	    
-//	}
 
 	@Given("The user is on the Home page")
 	public void the_user_is_on_the_home_page() {
@@ -90,12 +67,6 @@ public class HomeStepDefinition {
 
 	    
 	}
-
-//	@When("The user selects Data Structures from the drop down without Sign in.")
-//	public void the_user_selects_data_structures_from_the_drop_down_without_sign_in() {
-//	    
-//	    
-//	}
 
 	@When("The user selects Arrays from the drop down without Sign in.")
 	public void the_user_selects_arrays_from_the_drop_down_without_sign_in() {
@@ -150,7 +121,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Array page")
 	public void the_user_should_be_redirected_to_array_page() {
 		currentPageUrl = hp.getCurrentUrl();
-		expectedPageUrl = Array_Url;
+		expectedPageUrl = hp.Array_Url;
 		LoggerReader.info("The user is able to directed to array page: "+currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to array page");  
 		hp.navigateback();
@@ -167,7 +138,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Linked List page")
 	public void the_user_should_be_redirected_to_linked_list_page() {
 		currentPageUrl = hp.getCurrentUrl();
-		expectedPageUrl = Linkedlist_Url;
+		expectedPageUrl = hp.Linkedlist_Url;
 		LoggerReader.info("The user is able to directed to linkedlist page: "+currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to linkedlist page");
 	    hp.navigateback();
@@ -184,7 +155,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Stack page")
 	public void the_user_should_be_redirected_to_stack_page() {
 		currentPageUrl = hp.getCurrentUrl();
-		expectedPageUrl = Stack_Url;
+		expectedPageUrl = hp.Stack_Url;
 		LoggerReader.info("The user is able to directed to stack page: "+currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to stack page");
 	    hp.navigateback();
@@ -202,7 +173,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Queue page")
 	public void the_user_should_be_redirected_to_queue_page() {
 		currentPageUrl = hp.getCurrentUrl();
-		expectedPageUrl = Queue_Url;
+		expectedPageUrl = hp.Queue_Url;
 		LoggerReader.info("The user is able to directed to queue page: "+currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to queue page");
 	    hp.navigateback();    
@@ -219,7 +190,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Tree page")
 	public void the_user_should_be_redirected_to_tree_page() {
 		currentPageUrl = hp.getCurrentUrl();
-		expectedPageUrl = Tree_Url;
+		expectedPageUrl = hp.Tree_Url;
 		LoggerReader.info("The user is able to directed to tree page: "+currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to tree page");
 	    hp.navigateback();	    
@@ -236,7 +207,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Graph page")
 	public void the_user_should_be_redirected_to_graph_page() {
 		currentPageUrl = hp.getCurrentUrl();
-		expectedPageUrl = Graph_Url;
+		expectedPageUrl = hp.Graph_Url;
 		LoggerReader.info("The user is able to directed to graph page: "+currentPageUrl);
 		Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph page");
 	    hp.navigateback();	    
@@ -293,7 +264,7 @@ public class HomeStepDefinition {
 	@Then("The user should be redirected to Data Structures page")
 	public void the_user_should_be_redirected_to_data_structures_page() {
 		 currentPageUrl = hp.getCurrentUrl();
-		 expectedPageUrl = DataStruc_Url;
+		 expectedPageUrl = hp.DataStruc_Url;
 		 LoggerReader.info("The user is able to directed to Data Structures page: "+currentPageUrl);
 		 Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Data Structures page"); 
 		 hp.navigateback();	  

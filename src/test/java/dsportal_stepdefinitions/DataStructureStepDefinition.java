@@ -1,10 +1,9 @@
 package dsportal_stepdefinitions;
 
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
+import dsportal_Page.CommonPage;
 import dsportal_Page.DataStructurePage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
@@ -14,10 +13,9 @@ import io.cucumber.java.en.When;
 public class DataStructureStepDefinition {
 	
 	DataStructurePage DataStrucpge = new DataStructurePage();
-	WebDriver driver = DriverManager.getdriver();
+	CommonPage cp = new CommonPage();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
-	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	String dsPageURL = homePageURL+"data-structures-introduction/";
+
 	
 	
 	@When("The user clicks the Getting Started button in Data Structures - Introduction")
@@ -29,7 +27,7 @@ public class DataStructureStepDefinition {
 	@Then("The user be directed to Data Structures- Introduction Page")
 	public void the_user_be_directed_to_data_structures_introduction_page() {
 		   currentPageUrl = DataStrucpge.getCurrentUrl();
-		   expectedPageUrl = dsPageURL;
+		   expectedPageUrl = DataStrucpge.dsPageURL;
 		   LoggerReader.info("The user is able to directed to Data Structures page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Data Structures page"); 
 	    
@@ -73,8 +71,8 @@ public class DataStructureStepDefinition {
 
 	@When("The user clicks browser back arrow to go to Data Structures - Introduction  page")
 	public void the_user_clicks_browser_back_arrow_to_go_to_data_structures_introduction_page() {
-		driver.navigate().back();
-		driver.navigate().back();
+		 cp.goBackOnePage();
+		 cp.goBackOnePage();
 	}
 }
 

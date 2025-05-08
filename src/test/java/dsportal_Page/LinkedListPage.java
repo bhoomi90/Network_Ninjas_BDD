@@ -7,12 +7,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 
 
 public class LinkedListPage {
 
 		private WebDriver driver = null;
+		public String homePageURL = ConfigReader.getPropertyValue("URL");;
+		public String linkedListPageURL = homePageURL+"linked-list/";
 
 		@FindBy (xpath=("//h5[text()='Linked List']/../a[text()='Get Started']")) WebElement linkedListClick;
 		@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;

@@ -6,11 +6,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 
 public class TreePage {
 
 	private WebDriver driver = null;
+	public String homePageURL = ConfigReader.getPropertyValue("URL");
+	public String treePageURL = homePageURL+"tree/";
 	
 	@FindBy(xpath= ("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement treeLink;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;

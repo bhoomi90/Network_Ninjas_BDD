@@ -14,8 +14,8 @@ public class QueueStepDefinition {
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	QueuePage queue = new QueuePage();
 	WebDriver driver = DriverManager.getdriver();
-	String pageTitle, currentPageUrl, expectedPageUrl, QueuePageURL;
-	String QueueImpleURL, QueueCollectURL, QueueImpArrayURL, QueueOperURL;
+	String pageTitle, currentPageUrl, expectedPageUrl;
+
 
 
 	@When("The user clicks the Get Started button in Queue Panel or The user select Queue item from the drop down menu")

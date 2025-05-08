@@ -1,9 +1,7 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.CommonPage;
 import dsportal_Page.LoginPage;
 import dsportal_utilities.LoggerReader;
@@ -14,7 +12,6 @@ import io.cucumber.java.en.When;
 public class LoginStepDefinition {
 	
 	LoginPage login_page = new LoginPage();
-	WebDriver driver = DriverManager.getdriver();
 	CommonPage cp = new CommonPage();
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	

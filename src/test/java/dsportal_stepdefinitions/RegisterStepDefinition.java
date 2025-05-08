@@ -1,9 +1,7 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.RegisterPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
@@ -13,7 +11,6 @@ import io.cucumber.java.en.When;
 public class RegisterStepDefinition  {
 
 	RegisterPage reg = new RegisterPage();
-	WebDriver driver = DriverManager.getdriver();
 	//private String filePath = "src/test/resources/TestCode/Credentials.xlsx";
 	String pageTitle, currentPageUrl, expectedPageUrl;
 

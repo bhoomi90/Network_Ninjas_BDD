@@ -2,6 +2,7 @@ package dsportal_Page;
 
 import java.io.IOException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,6 +49,12 @@ public class CommonPage {
 		return driver.getCurrentUrl();
 	}
 	
+	public void refreshPage() {
+		driver.navigate().refresh();
+	}
+	public void goBackOnePage() {
+		driver.navigate().back();
+	}
 	public void getStarted() {
 		getStarted.click();
 	}
@@ -73,14 +80,12 @@ public class CommonPage {
 	
 	public void validCode() throws IOException {
 		ExcelReader.readExcelSheet();
-		//readExcelsheet();
 		enterCode.sendKeys(ExcelReader.getValidCode());
 		runBttn.click();
 	}
 	
 	public void invalidCode() throws IOException {
 		ExcelReader.readExcelSheet();
-		//readExcelsheet();
 		enterCode.sendKeys(ExcelReader.getInvalidCode());
 		runBttn.click();
 	}
@@ -108,12 +113,23 @@ public class CommonPage {
 		LoggerReader.info("User is logged out");
 	}
 	
-	public boolean isAlertPresent(WebDriver driver) {
+	public boolean isAlertPresent() {
 		try {
 			driver.switchTo().alert();
 			return true;
 		} catch (NoAlertPresentException e) {
 			return false;
 		}
+	}
+	
+	public String getAlertText() {
+		Alert alert = driver.switchTo().alert();
+		String text = alert.getText();
+		return text;
+	}
+	
+	public void acceptAlert() {
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 	}
 }

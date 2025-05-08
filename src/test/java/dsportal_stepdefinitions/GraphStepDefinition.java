@@ -13,10 +13,8 @@ import io.cucumber.java.en.When;
 public class GraphStepDefinition {
 	
 	GraphPage graph = new GraphPage();
-	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
-	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	String GraphPageURL = homePageURL+"graph/";
+
 
 
 	
@@ -29,7 +27,7 @@ public class GraphStepDefinition {
 	@Then("The user is directed to Graph Data Structure Page")
 	public void the_user_is_directed_to_graph_data_structure_page() {
 		   currentPageUrl = graph.getCurrentUrl();
-		   expectedPageUrl = GraphPageURL;
+		   expectedPageUrl = graph.graphPageURL;
 		   LoggerReader.info("The user is able to directed to graph page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph page");    
 	}
@@ -64,7 +62,7 @@ public class GraphStepDefinition {
 
 	@Given("The user is on the tryEditor window in Graph page")
 	public void the_user_is_on_the_try_editor_window_in_graph_page() {
-		pageTitle = driver.getTitle();
+		pageTitle = graph.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "Assessment");
 	    
 	}
@@ -94,7 +92,7 @@ public class GraphStepDefinition {
 	@Given("The user is in the Graph Representations page")
 	public void the_user_is_in_the_graph_representations_page() {
 	    
-		pageTitle = driver.getTitle();
+		pageTitle = graph.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "Graph Representations");
 	}
 

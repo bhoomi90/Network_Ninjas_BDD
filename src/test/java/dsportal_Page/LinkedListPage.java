@@ -16,6 +16,13 @@ public class LinkedListPage {
 		private WebDriver driver = null;
 		public String homePageURL = ConfigReader.getPropertyValue("URL");;
 		public String linkedListPageURL = homePageURL+"linked-list/";
+		public String introURL= linkedListPageURL+"introduction/";
+		public String createLinkListURL = linkedListPageURL+"creating-linked-list/";
+		public String typeLinkListURL= linkedListPageURL+"types-of-linked-list/";
+		public String impleLinkListURL= linkedListPageURL+"implement-linked-list-in-python/";
+		public String traversalURL= linkedListPageURL+"traversal/";
+		public String insertionURL= linkedListPageURL+"insertion-in-linked-list/";
+		public String deletionURL= linkedListPageURL+"deletion-in-linked-list/";
 
 		@FindBy (xpath=("//h5[text()='Linked List']/../a[text()='Get Started']")) WebElement linkedListClick;
 		@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;

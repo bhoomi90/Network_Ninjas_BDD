@@ -53,7 +53,7 @@ public class QueueStepDefinition {
 	@Then("The user should be redirected to Implementation of Queue in Python page")
 	public void the_user_should_be_redirected_to_implementation_of_queue_in_python_page() {
 		currentPageUrl = queue.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/implementation-lists/";
+		expectedPageUrl = queue.QueueImpleURL;
 		LoggerReader.info("The user is able to directed to Implementation of Queue in Python page: " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl,
 				"The user is not directed to Implementation of Queue in Python page");
@@ -79,7 +79,7 @@ public class QueueStepDefinition {
 	@Then("The user should be redirected to Implementation using collections.deque page")
 	public void the_user_should_be_redirected_to_implementation_using_collections_deque_page() {
 		currentPageUrl = queue.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/implementation-collections/";
+		expectedPageUrl = queue.QueueCollectURL;
 		LoggerReader
 				.info("The user is able to directed to Implementation using collections.deque page: " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl,
@@ -101,7 +101,7 @@ public class QueueStepDefinition {
 	@Then("The user should be redirected to Implementation using array page")
 	public void the_user_should_be_redirected_to_implementation_using_array_page() {
 		currentPageUrl = driver.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/Implementation-array/";
+		expectedPageUrl = queue.QueueImpArrayURL;
 		LoggerReader.info("The user is able to directed to Implementation using array " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl,
 				"The user is not directed to Implementation using array page");
@@ -121,7 +121,7 @@ public class QueueStepDefinition {
 	@Then("The user should be redirected to Queue Operations page")
 	public void the_user_should_be_redirected_to_queue_operations_page() {
 		currentPageUrl = queue.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/QueueOp/";
+		expectedPageUrl = queue.QueueOperURL;
 		LoggerReader.info("The user is able to directed to Creating Queue Operations page: " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Queue Operations page");
 	}

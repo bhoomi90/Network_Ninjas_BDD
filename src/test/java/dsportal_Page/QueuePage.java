@@ -13,8 +13,13 @@ import dsportal_utilities.LoggerReader;
 public class QueuePage {
 
 	private WebDriver driver = null;
-	String homePageURL = ConfigReader.getPropertyValue("URL");;
-	String QueueImpleURL, QueueCollectURL, QueueImpArrayURL, QueueOperURL, QueuePageURL;
+	public String homePageURL = ConfigReader.getPropertyValue("URL");
+	public String queuePageURL = homePageURL+ "queue/";
+	public String QueueImpleURL= queuePageURL +"implementation-lists/";
+	public String QueueCollectURL= queuePageURL +"implementation-collections/";
+	public String QueueImpArrayURL= queuePageURL +"Implementation-array/";
+	public String QueueOperURL= queuePageURL +"QueueOp/";
+	
 	
 	@FindBy(xpath = ("//*[text()='Get Started']"))
 	WebElement getStarted;

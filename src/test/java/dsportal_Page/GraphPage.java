@@ -13,7 +13,9 @@ public class GraphPage {
 	private WebDriver driver = null;
 	public String homePageURL = "https://dsportalapp.herokuapp.com/";
 	public String graphPageURL = homePageURL+"graph/";
-
+	public String ggraphPageURL = graphPageURL+"graph/";
+	public String graphRepreURL= graphPageURL+"graph-representations/";
+	
 	@FindBy(id = "id_username")
 	WebElement userName;
 

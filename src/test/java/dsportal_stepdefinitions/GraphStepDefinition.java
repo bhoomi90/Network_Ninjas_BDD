@@ -45,7 +45,7 @@ public class GraphStepDefinition {
 	@Then("The user be directed to Graph Page")
 	public void the_user_be_directed_to_graph_page() {
 		   currentPageUrl = graph.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/graph/graph/";
+		   expectedPageUrl = graph.ggraphPageURL;
 		   LoggerReader.info("The user is able to directed to graph page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph page");    	    	    
 	}
@@ -81,7 +81,7 @@ public class GraphStepDefinition {
 	@Then("The user be directed to Graph Representations Page")
 	public void the_user_be_directed_to_graph_representations_page() {
 		   currentPageUrl = graph.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/graph/graph-representations/";
+		   expectedPageUrl = graph.graphRepreURL;
 		   LoggerReader.info("The user is able to directed to graph Representations page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to graph Representations page");    	        
 	    

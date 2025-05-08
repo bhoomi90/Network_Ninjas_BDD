@@ -1,9 +1,7 @@
 package dsportal_stepdefinitions;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.GraphPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;

@@ -14,6 +14,19 @@ public class TreePage {
 	private WebDriver driver = null;
 	public String homePageURL = ConfigReader.getPropertyValue("URL");
 	public String treePageURL = homePageURL+"tree/";
+	public String overviewofTree = treePageURL + "overview-of-trees/";
+	public String Terminologies = treePageURL + "terminologies/";
+	public String typeTree = treePageURL + "types-of-trees/";
+	public String traversal = treePageURL + "tree-traversals/";
+	public String traversalIllu = treePageURL + "traversals-illustration/";
+	public String binaryTree = treePageURL + "binary-trees/";
+	public String typeBinary = treePageURL + "types-of-binary-trees/";
+	public String implementationPython = treePageURL + "implementation-in-python/";
+	public String binaryTreeTra = treePageURL + "binary-tree-traversals/";
+	public String impleBinary = treePageURL + "implementation-of-binary-trees/";
+	public String appBinary = treePageURL + "applications-of-binary-trees/";
+	public String binarySearch = treePageURL + "binary-search-trees/";
+	public String impleBST = treePageURL + "implementation-of-bst/";
 	
 	@FindBy(xpath= ("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement treeLink;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;

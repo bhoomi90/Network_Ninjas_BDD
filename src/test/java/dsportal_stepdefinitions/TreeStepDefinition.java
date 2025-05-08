@@ -45,7 +45,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Overview of Trees Page")
 	public void the_user_be_directed_to_overview_of_trees_page() {
 		currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/overview-of-trees/";
+		expectedPageUrl = tree.overviewofTree;
 		LoggerReader.info("The user is able to directed to Overview of Trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Overview of Trees Page");	       	    
 	}
@@ -75,7 +75,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Terminologies Page")
 	public void the_user_be_directed_to_terminologies_page() {
 		currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/terminologies/";
+		expectedPageUrl = tree.Terminologies;
 		LoggerReader.info("The user is able to directed to Terminologies Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Terminologies Page");	           
 	}
@@ -94,7 +94,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Types of Trees Page")
 	public void the_user_be_directed_to_types_of_trees_page() {
 		currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/types-of-trees/";
+		expectedPageUrl = tree.typeTree;
 		LoggerReader.info("The user is able to directed to Types of Trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Types of Trees Page");	    	    
 	}
@@ -113,7 +113,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Tree Traversals Page")
 	public void the_user_be_directed_to_tree_traversals_page() {
 		currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/tree-traversals/";
+		expectedPageUrl = tree.traversal;
 		LoggerReader.info("The user is able to directed to Tree Traversals Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Tree Traversals Page");	        
 	}
@@ -132,7 +132,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Traversals Illustration Page")
 	public void the_user_be_directed_to_traversals_illustration_page() {
 		currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/traversals-illustration/";
+		expectedPageUrl = tree.traversalIllu;
 		LoggerReader.info("The user is able to directed to Traversals-Illustration Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Traversals-Illustration Page");	     	    
 	}
@@ -151,7 +151,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Binary Trees Page")
 	public void the_user_be_directed_to_binary_trees_page() {
 		currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/binary-trees/";
+		expectedPageUrl = tree.binaryTree;
 		LoggerReader.info("The user is able to directed to Binary Trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Binary Trees Page");	    	    
 	}
@@ -171,7 +171,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Types of Binary Trees Page")
 	public void the_user_be_directed_to_types_of_binary_trees_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/types-of-binary-trees/";
+		expectedPageUrl = tree.typeBinary;
 		LoggerReader.info("The user is able to directed to Types of Binary Trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Types of Binary Trees Page");	    	    
 	}
@@ -191,7 +191,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Implementation in Python Page")
 	public void the_user_be_directed_to_implementation_in_python_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/implementation-in-python/";
+		expectedPageUrl = tree.implementationPython;
 		LoggerReader.info("The user is able to directed to Implementation in Python Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Implementation in Python Page");	        
 	}
@@ -210,7 +210,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Binary Tree Traversals Page")
 	public void the_user_be_directed_to_binary_tree_traversals_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/binary-tree-traversals/";
+		expectedPageUrl = tree.binaryTreeTra;
 		LoggerReader.info("The user is able to directed to Binary Tree Traversals Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Binary Tree Traversals Page");	        
 	}
@@ -229,7 +229,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Implementation of Binary Trees Page")
 	public void the_user_be_directed_to_implementation_of_binary_trees_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/implementation-of-binary-trees/";
+		expectedPageUrl = tree.impleBinary;
 		LoggerReader.info("The user is able to directed to Implementation of Binary Trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Implementation of Binary Trees Page");	    	    
 	}
@@ -248,7 +248,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Applications of Binary trees Page")
 	public void the_user_be_directed_to_applications_of_binary_trees_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/applications-of-binary-trees/";
+		expectedPageUrl = tree.appBinary;
 		LoggerReader.info("The user is able to directed to Applications of Binary trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Applications of Binary trees Page");	    	    
 	}
@@ -267,7 +267,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Binary Search Trees Page")
 	public void the_user_be_directed_to_binary_search_trees_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/binary-search-trees/";
+		expectedPageUrl = tree.binarySearch;
 		LoggerReader.info("The user is able to directed to Binary Search Trees Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Binary Search Trees Page");	    	    
 	}
@@ -286,7 +286,7 @@ public class TreeStepDefinition  {
 	@Then("The user be directed to Implementation Of BST Page")
 	public void the_user_be_directed_to_implementation_of_bst_page() {
 	    currentPageUrl = tree.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/tree/implementation-of-bst/";
+		expectedPageUrl = tree.impleBST;
 		LoggerReader.info("The user is able to directed to Implementation Of BST Page: "+currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Implementation Of BST Page");	    	    
 	}

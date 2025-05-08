@@ -1,5 +1,6 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -9,25 +10,18 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LinkedListStepDefinition extends DriverManager {
+public class LinkedListStepDefinition {
 
-	private static LinkedListPage linkedList;
+	LinkedListPage linkedList = new LinkedListPage();
+	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String linkedListPageURL = homePageURL+"linked-list/";
 	
-	public static void setUp_LinkedlistPage() {
-			linkedList = new LinkedListPage(driver);
-	}
 	
 	@When("The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
 
-//		if(linkedList == null) {
-//			LoggerReader.info("Create constructor for Linked List Page");
-//			setUp_LinkedlistPage();
-//		}
-		setUp_LinkedlistPage();
 		linkedList.open_linkedList_page();	    
 	}
 

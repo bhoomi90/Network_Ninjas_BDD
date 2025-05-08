@@ -1,5 +1,6 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -10,27 +11,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStepDefinition extends DriverManager {
+public class LoginStepDefinition {
 	
-	private static LoginPage login_page;
-	private static CommonPage cp;
+	LoginPage login_page = new LoginPage();
+	WebDriver driver = DriverManager.getdriver();
+	CommonPage cp = new CommonPage();
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	
-	public static void setUpLoginPage() {
-		login_page = new LoginPage(driver);
-	}
-
-	public static void setUpCommonPage() {
-		cp = new CommonPage(driver);
-	}
 	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
-//		if(login_page==null) {
-//		LoggerReader.info("Create constructor for Login page");
-//		setUpLoginPage();
-//	}
-		setUpLoginPage();
+
 	    login_page.getStarted();
 		pageTitle =login_page.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "NumpyNinja");
@@ -144,12 +135,14 @@ public class LoginStepDefinition extends DriverManager {
 //  			LoggerReader.info("Create constructor for Common page");
 //  			setUpCommonPage();
 //  		}
-		setUpCommonPage();
+		//setUpCommonPage();
+//		CommonPage cp = new CommonPage();
 		cp.signOut();   
 	}
 	       
 	@Then("The user should be redirected to home page with message Logged out successfully")
 	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
+//		CommonPage cp = new CommonPage();
 	    cp.compareLogoutMsg();     	
    	}
 

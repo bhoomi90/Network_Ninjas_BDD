@@ -1,5 +1,6 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -9,23 +10,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class RegisterStepDefinition extends DriverManager {
+public class RegisterStepDefinition  {
 
-	private static RegisterPage reg;
+	RegisterPage reg = new RegisterPage();
+	WebDriver driver = DriverManager.getdriver();
 	//private String filePath = "src/test/resources/TestCode/Credentials.xlsx";
 	String pageTitle, currentPageUrl, expectedPageUrl;
 
-	public static void setUp_RegisterPage() {
-		reg = new RegisterPage(driver);
-	}
-
 	@Given("The user is on the ds portal  page")
 	public void the_user_is_on_the_ds_portal_page() {
-//		if (reg == null) {
-//			LoggerReader.info("Create constructor for Register Page");
-//			setUp_RegisterPage();
-//		}
-		setUp_RegisterPage();
+
 	}
 
 	@When("The user clicks get started on the Home page")

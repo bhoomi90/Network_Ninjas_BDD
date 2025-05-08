@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class DataStructurePage {
-	private static WebDriver driver;
+	private WebDriver driver = null;
 
 	@FindBy(xpath = ("//h5[text()='Data Structures-Introduction']/../a[text()='Get Started']"))
 	WebElement DataStrucIntro;
@@ -25,15 +26,10 @@ public class DataStructurePage {
 
 	String validCode, invalidCode;
 
-	public DataStructurePage(WebDriver driver) {
-		DataStructurePage.driver = driver;
-
-		if (driver.getTitle().equals("NumpyNinja"))
-			LoggerReader.info("I am on ds-algo App");
-		else
-			throw new IllegalStateException("This is not ds-algo app. The current page is: " + driver.getCurrentUrl());
-
+	public DataStructurePage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized DataStructurePage Page");
 	}
 
 	public String getCurrentUrl() {

@@ -2,7 +2,6 @@ package dsportal_Page;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,12 +9,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.ExcelReader;
 import dsportal_utilities.LoggerReader;
 
 public class CommonPage {
 
-	private static WebDriver driver;// = DriverFactory.getDriver();
+	public WebDriver driver;
 	
 	@FindBy (xpath=("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy (xpath=("//*[text()='Sign in']")) WebElement signIn ;
@@ -29,13 +29,15 @@ public class CommonPage {
 	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
 	
 	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;	
+	@FindBy (className = ("container")) WebElement pageContent;
 	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
 	
 	String validCode, invalidCode, loginText, logoutText;
 	
-	public CommonPage(WebDriver driver) {
-		 CommonPage.driver = driver;		 
+	public CommonPage() {
+		 this.driver = DriverManager.getdriver();		 
 		 PageFactory.initElements(driver, this);
+		 LoggerReader.info("Initialized Common Page");
 	}
 	
 	public String getCurrentTitle() {
@@ -88,10 +90,9 @@ public class CommonPage {
 		LoggerReader.info("I am on practice questions page");
 	}
 	
-	public static boolean practiceQue_content() {
-		WebElement content = driver.findElement(By.className("container"));
-		LoggerReader.info("Page content is: " +content.getText());
-		if(content.getText().length()==0)
+	public boolean practiceQue_content() {
+		LoggerReader.info("Page content is: " +pageContent.getText());
+		if(pageContent.getText().length()==0)
 			return false;
 		else
 			return true;
@@ -107,7 +108,7 @@ public class CommonPage {
 		LoggerReader.info("User is logged out");
 	}
 	
-	public static boolean isAlertPresent(WebDriver driver) {
+	public boolean isAlertPresent(WebDriver driver) {
 		try {
 			driver.switchTo().alert();
 			return true;

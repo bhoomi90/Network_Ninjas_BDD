@@ -4,13 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class LoginPage {
 
-	public static WebDriver driver;
+	private WebDriver driver = null;
 	
 	@FindBy(xpath = ("//*[text()='Get Started']"))
 	WebElement getStarted;
@@ -28,11 +28,12 @@ public class LoginPage {
 	WebElement alertMsg;
 
 	String loginText, logoutText, errorText;
-	private String mSG;
+	//private String mSG;
 	
-	public LoginPage(WebDriver driver) {
-		LoginPage.driver = driver;
+	public LoginPage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Login Page");
 	}
 
 	public String getCurrentUrl() {

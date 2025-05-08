@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -17,20 +16,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class ArraysPage {
 
 //private static final CharSequence validCode = null;
-	// public static WebDriver driver;
-	private static WebDriver driver;
+	private WebDriver driver = null;
 	@FindBy(xpath = ("//h5[text()='Array']/../a[text()='Get Started']"))
 	WebElement arrayGetStarted;
 	@FindBy(xpath = ("//*[@data-toggle='dropdown']"))
 	WebElement dropdown;
 	@FindBy(xpath = ("//a[text()='Arrays']"))
 	WebElement dropdownArray;
-	@FindBy(className = "CodeMirror-line")
+	@FindBy(css = ".CodeMirror")
 	WebElement enterCode;
 
 	@FindBy(xpath = ("//button[text()='Run']"))
@@ -58,16 +57,11 @@ public class ArraysPage {
 	@FindBy(xpath = ("//a[text()='Squares of  a Sorted Array']"))
 	WebElement squaresOfASortedArray;
 
-	public ArraysPage(WebDriver driver) {
+	public ArraysPage() {
 
-		this.driver = driver;
-
-		if (driver.getTitle().equals("NumpyNinja"))
-			LoggerReader.info("I am on ds-algo App");
-		else
-			throw new IllegalStateException("This is not ds-algo app. The current page is: " + driver.getCurrentUrl());
-
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Array Page");
 	}
 
 	public void arrayGetStarted() {
@@ -102,6 +96,7 @@ public class ArraysPage {
 		String validCode = readExcelFile(); // Implement or call from a utility
 
 		if (validCode != null && !validCode.isEmpty()) {
+			System.out.println("Entering Valid code");
 			enterCode.clear();
 			enterCode.sendKeys(validCode);
 			System.out.println("Valid Python code entered: " + validCode);

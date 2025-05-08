@@ -6,12 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 
 public class LinkedListPage {
 
-		private static WebDriver driver;
+		private WebDriver driver = null;
 
 		@FindBy (xpath=("//h5[text()='Linked List']/../a[text()='Get Started']")) WebElement linkedListClick;
 		@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
@@ -29,15 +30,10 @@ public class LinkedListPage {
 		@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
 		@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
 		
-		public LinkedListPage(WebDriver driver) {
-			 this.driver = driver;
-			 
-			 if(driver.getTitle().equals("NumpyNinja")) 
-				 LoggerReader.info("I am on ds-algo App");
-			 else
-				 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
-			 
-			 PageFactory.initElements(driver, this);
+		public LinkedListPage() {
+			this.driver = DriverManager.getdriver();
+			PageFactory.initElements(driver, this);
+			LoggerReader.info("Initialized Linked List Page");
 		}
 
 		public String getCurrentUrl() {

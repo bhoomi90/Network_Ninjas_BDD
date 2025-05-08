@@ -1,25 +1,20 @@
 package dsportal_stepdefinitions;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
-import dsportal_DriverFactory.Hooks;
 import dsportal_Page.CommonPage;
-import dsportal_Page.DataStructurePage;
 import dsportal_Page.HomePage;
-import dsportal_Page.LoginPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class HomeStepDefinition extends DriverManager  {
-	private static HomePage hp;
-	private static CommonPage cp;
-	
+public class HomeStepDefinition {
+	HomePage hp = new HomePage();
+	CommonPage cp = new CommonPage();
+	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
 	String Home_Url =(Dsalgo_url+"home");
@@ -30,16 +25,6 @@ public class HomeStepDefinition extends DriverManager  {
 	String Queue_Url =(Dsalgo_url+"queue/");
 	String Tree_Url =(Dsalgo_url+"tree/");
 	String Graph_Url =(Dsalgo_url+"graph/");
-	
-	
-	@FindBy (xpath=("//div[contains(text(),'You are not logged in')]")) WebElement notloggedinalert;
-	
-	public static void setUpHomePage() {
-		hp = new HomePage(driver);
-	}
-	public static void setUpCommonPage() {
-		cp = new CommonPage(driver);
-	}
 	
 	@Given("The user has browser open")
 	public void the_user_has_browser_open() {
@@ -55,11 +40,7 @@ public class HomeStepDefinition extends DriverManager  {
 
 	@Then("The user should be able to land on dsAlgo portal with Get Started button")
 	public void the_user_should_be_able_to_land_on_ds_algo_portal_with_get_started_button() {
-//		if(hp == null) {
-//			LoggerReader.info("Create constructor for Home Page");
-//			setUpHomePage();
-//		}
-		setUpHomePage();
+
 		 	currentPageUrl = hp.getCurrentUrl();
 		 	expectedPageUrl = Dsalgo_url;
 		 	LoggerReader.info("The user is able to directed to ds-algo page: "+currentPageUrl);
@@ -160,7 +141,7 @@ public class HomeStepDefinition extends DriverManager  {
 
 	@When("The user selects Array from the drop down after Log in.")
 	public void the_user_selects_array_from_the_drop_down_after_log_in() {
-		setUpCommonPage();
+		//setUpCommonPage();
 	    cp.login();
 	    hp.dropdown();
 	    hp.dropdown_array();	    

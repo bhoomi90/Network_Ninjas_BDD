@@ -20,7 +20,7 @@ import io.cucumber.testng.CucumberOptions;
 						
 				monochrome=true,  //console output color
 				features = {"src/test/resources/features"}, 				
-//				tags="@DS1",
+				tags="@overall",
 				glue= {"dsportal_stepdefinitions","dsportal_DriverFactory"}) //location of step definition files
 
 		public class testRunner extends AbstractTestNGCucumberTests{	

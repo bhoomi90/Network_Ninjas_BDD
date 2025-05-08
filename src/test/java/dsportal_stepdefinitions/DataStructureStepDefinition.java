@@ -1,34 +1,28 @@
 package dsportal_stepdefinitions;
 
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.DataStructurePage;
-import dsportal_Page.LoginPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class DataStructureStepDefinition extends DriverManager {
+public class DataStructureStepDefinition {
 	
-	public static DataStructurePage DataStrucpge;
+	DataStructurePage DataStrucpge = new DataStructurePage();
+	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String dsPageURL = homePageURL+"data-structures-introduction/";
 	
-	public static void setUpDataStructurePage() {
-		DataStrucpge = new DataStructurePage(driver);
-	}
 	
 	@When("The user clicks the Getting Started button in Data Structures - Introduction")
 	public void the_user_clicks_the_getting_started_button_in_data_structures_introduction() {
-//		if(DataStrucpge==null) {
-//  			LoggerReader.info("Create constructor for Data Structures page");
-//  			setUpDataStructurePage();
-//  		}
-		setUpDataStructurePage();
+
 		DataStrucpge.DataStruc_page(); 
 	}
 

@@ -1,5 +1,6 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -9,25 +10,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class TreeStepDefinition extends DriverManager {
+public class TreeStepDefinition  {
 
-	private static TreePage tree;
+	TreePage tree = new TreePage();
+	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String treePageURL = homePageURL+"tree/";
 	
-	public static void setUpTreePage() {
-		tree = new TreePage(driver);
-	}
-	
 	@When("The user clicks the Get Started button in Tree Panel or The user select Tree item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
 		
-//		if(tree==null) {
-//			LoggerReader.info("Create constructor for Tree page");
-//			setUpTreePage();
-//		}
-		setUpTreePage();
 	    tree.open_tree_page();
 	}
 	

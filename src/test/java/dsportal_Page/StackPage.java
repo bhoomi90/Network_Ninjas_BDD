@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class StackPage {
 
-	private static WebDriver driver = null;// = DriverFactory.getDriver();
+	private WebDriver driver = null;
 
 	@FindBy (xpath=("//h5[text()='Stack']/../a[text()='Get Started']")) WebElement stackClick;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
@@ -19,15 +20,10 @@ public class StackPage {
 	@FindBy (xpath = ("//a[text()='Implementation']")) WebElement implementationStack;
 	@FindBy (xpath = ("//a[text()='Applications']")) WebElement applicationsStack;
 		
-	public StackPage(WebDriver driver) {
-		 StackPage.driver = driver;
-		 
-		 if(driver.getTitle().equals("NumpyNinja")) 
-			 LoggerReader.info("I am on ds-algo App");
-		 else
-			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
-		 
+	public StackPage() {
+		 this.driver = DriverManager.getdriver(); 
 		 PageFactory.initElements(driver, this);
+		 LoggerReader.info("Initialized Stack Page");
 	}
 	
 	public String getCurrentUrl() {

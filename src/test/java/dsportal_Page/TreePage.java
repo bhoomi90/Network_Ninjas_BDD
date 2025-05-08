@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class TreePage {
 
-	private static WebDriver driver;
+	private WebDriver driver = null;
 	
 	@FindBy(xpath= ("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement treeLink;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
@@ -28,15 +29,10 @@ public class TreePage {
 	@FindBy(xpath="//a[text()='Binary Search Trees']") 	WebElement binsearch_Tree;
 	@FindBy(xpath="//a[text()='Implementation Of BST']") WebElement impleBST_Tree;
 	
-	public TreePage(WebDriver driver) {
-		 TreePage.driver = driver;
-		 
-		 if(driver.getTitle().equals("NumpyNinja")) 
-			 LoggerReader.info("I am on ds-algo App");
-		 else
-			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
-		 
-		 PageFactory.initElements(driver, this);
+	public TreePage() {
+		this.driver = DriverManager.getdriver();
+		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Tree Page");
 	}
 	
 	public String getCurrentUrl() {

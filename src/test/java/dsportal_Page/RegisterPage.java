@@ -7,10 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class RegisterPage {
-	private static WebDriver driver;
+	private WebDriver driver = null;
 
 	@FindBy(xpath = ("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy(xpath = ("//a[text()=' Register ']")) WebElement register_initial;
@@ -23,10 +24,10 @@ public class RegisterPage {
 	
 	String errorText;
 
-	public RegisterPage(WebDriver driver) {
-		this.driver = driver;
-
+	public RegisterPage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Register Page");
 	}
 	
 	public String getCurrentUrl() {

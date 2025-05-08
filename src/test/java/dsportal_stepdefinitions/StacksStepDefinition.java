@@ -4,6 +4,7 @@ package dsportal_stepdefinitions;
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -14,11 +15,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StacksStepDefinition extends DriverManager {
+public class StacksStepDefinition  {
 
-	private static StackPage stack;// = new StackPage();
-	private static CommonPage cp;// = new CommonPage();
-	//private static WebDriver driver = getdriver();
+	StackPage stack = new StackPage();
+	CommonPage cp = new CommonPage();
+	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String stackPageURL = homePageURL+"stack/";
@@ -26,22 +27,10 @@ public class StacksStepDefinition extends DriverManager {
 	String implementationURL = stackPageURL+"implementation/";
 	String applicationsURL = stackPageURL+"stack-applications/";
 	
-	public static void setUpStackPage() {
-		stack = new StackPage(driver);			
-	}
-	
-	public static void setUpCommonPage() {
-		cp = new CommonPage(driver);
-	}
-	
+
 	@Given("The user is in the Home page after Sign in")
 	public void the_user_is_in_the_home_page_after_sign_in() {
-//  		if(cp==null) {
-//  			System.out.println("Create constructor for Common page");
-//  			LoggerReader.info("Create constructor for Common page");
- // 			setUpCommonPage();
-//  		}
-  		setUpCommonPage();
+
 		pageTitle = cp.getCurrentTitle();
 		LoggerReader.info("Current page is: " +pageTitle);
 		if(pageTitle.equals("Numpy Ninja")) {
@@ -55,11 +44,7 @@ public class StacksStepDefinition extends DriverManager {
 	
 	@When("The user clicks the Get Started button in Stack Panel or The user select Stack item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_stack_panel_or_the_user_select_stack_item_from_the_drop_down_menu() {
-//		if(stack==null) {
-//			LoggerReader.info("Create constructor for Stack page");
-//			setUpStackPage();
-//		}
-		setUpStackPage();
+
 	    stack.getStarted_stack_page();
 	}
 

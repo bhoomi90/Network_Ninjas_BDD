@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class HomePage {
 	
-	private static WebDriver driver;
+	private WebDriver driver = null;
 
 	@FindBy(xpath = ("//*[text()='Sign in']"))
 	WebElement signIn;
@@ -64,15 +65,10 @@ public class HomePage {
 	String Graph_Url =(Dsalgo_url+"graph/");
 	String loginText;
 	
-	public HomePage(WebDriver driver) {
-		this.driver = driver;
-
-		if (driver.getTitle().equals("Numpy Ninja"))
-			LoggerReader.info("I am on ds-algo App");
-		else
-			throw new IllegalStateException("This is not ds-algo app. The current page is: " + driver.getCurrentUrl());
-
+	public HomePage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Home Page");
 	}
 	
 	public String getCurrentUrl() {

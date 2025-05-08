@@ -2,6 +2,7 @@ package dsportal_stepdefinitions;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -11,27 +12,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class ArraysStepDefinition extends DriverManager {
+public class ArraysStepDefinition {
 
-	private static ArraysPage arrays;
+	ArraysPage arrays = new ArraysPage();
+	WebDriver driver = DriverManager.getdriver();
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
 	String arrayPageURL = homePageURL + "array/";
 	// enterCode, queRunButton;
 
-	public static void setUpArraysPage() {
-		arrays = new ArraysPage(driver);
-	}
-
 	@When("The user clicks the Get Started button in Array Panel or The user select Array item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_Array_panel_or_the_user_select_Array_item_from_the_drop_down_menu() {
-
-//		if (arrays == null) {
-//			LoggerReader.info("Create driver for Arrays page");
-//			setUpArraysPage();
-//		}
-		// arrays.dropdown_array_page();
-		setUpArraysPage();
 		arrays.arrayGetStarted();
 	}
 
@@ -105,7 +96,7 @@ public class ArraysStepDefinition extends DriverManager {
 	@Given("The user is in the Practice page with run and submit buttons")
 	public void the_user_is_in_the_practice_page_with_run_and_submit_buttons() {
 		pageTitle = arrays.getCurrentTitle();
-		Assert.assertEquals(pageTitle, "Practice Questions");
+		//Assert.assertEquals(pageTitle, "Practice Questions");
 		Assert.assertEquals(pageTitle, "Assessment");
 	}
 

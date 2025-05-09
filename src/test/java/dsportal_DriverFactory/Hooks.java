@@ -23,7 +23,6 @@ public class Hooks extends DriverManager {
 		LoggerReader.info("Loading Config file");
 		ConfigReader.loadConfig();
 		String browser = ConfigReader.getBrowserType();
-		String url = ConfigReader.getPropertyValue("URL");
 		
 		if(browser==null) {
 			LoggerReader.info("Browser is null. Take browser from config property");
@@ -37,7 +36,7 @@ public class Hooks extends DriverManager {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		driver.get(url);
+		driver.get(ConfigReader.getPropertyValue("URL"));
 	}
 	
 	@AfterAll

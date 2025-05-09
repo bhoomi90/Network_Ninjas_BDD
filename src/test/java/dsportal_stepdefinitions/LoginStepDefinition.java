@@ -1,5 +1,7 @@
 package dsportal_stepdefinitions;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 
 import dsportal_Page.CommonPage;
@@ -53,18 +55,18 @@ public class LoginStepDefinition {
 	
 
 	@When("The user enter Empty username  and Empty password")
-	public void the_user_enter_empty_username_and_empty_password() {
+	public void the_user_enter_empty_username_and_empty_password() throws IOException, Throwable {
 	    login_page.empty_fields();
 	}
 
 	@When("The user enter Empty username  and Valid Password password")
-	public void the_user_enter_empty_username_and_valid_password_password() {
+	public void the_user_enter_empty_username_and_valid_password_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.empty_valid_field();
 	}
 
 	@When("The user enter Invalid username  and Valid password")
-	public void the_user_enter_invalid_username_and_valid_password() {
+	public void the_user_enter_invalid_username_and_valid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.invalid_valid_field();
 	}
@@ -78,19 +80,19 @@ public class LoginStepDefinition {
 	}
 
 	@When("The user enter Valid username  and Invalid password")
-	public void the_user_enter_valid_username_and_invalid_password() {
+	public void the_user_enter_valid_username_and_invalid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.valid_invalid_field();
 	}
 
 	@When("The user enter Invalid username  and Invalid password")
-	public void the_user_enter_invalid_username_and_invalid_password() {
+	public void the_user_enter_invalid_username_and_invalid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.invalid_invalid_field();
 	}
 
 	@When("The user enter valid username and empty password")
-	public void the_user_enter_valid_username_and_empty_password() {
+	public void the_user_enter_valid_username_and_empty_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.valid_empty_field();
 	}
@@ -104,7 +106,7 @@ public class LoginStepDefinition {
 	}
 	
 	@When("The user enter Valid username and Valid password")
-	public void the_user_enter_valid_username_and_valid_password() {
+	public void the_user_enter_valid_username_and_valid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.valid_valid_field();
 	}
@@ -128,18 +130,11 @@ public class LoginStepDefinition {
 	
 	@When("The user clicks Sign out")
 	public void the_user_clicks_sign_out() {	
-//		if(cp==null) {
-//  			LoggerReader.info("Create constructor for Common page");
-//  			setUpCommonPage();
-//  		}
-		//setUpCommonPage();
-//		CommonPage cp = new CommonPage();
 		cp.signOut();   
 	}
 	       
 	@Then("The user should be redirected to home page with message Logged out successfully")
 	public void the_user_should_be_redirected_to_home_page_with_message_logged_out_successfully() {
-//		CommonPage cp = new CommonPage();
 	    cp.compareLogoutMsg();     	
    	}
 

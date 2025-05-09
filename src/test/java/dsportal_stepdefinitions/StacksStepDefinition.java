@@ -1,7 +1,5 @@
 package dsportal_stepdefinitions;
 
-import java.io.IOException;
-
 import org.testng.Assert;
 
 import dsportal_Page.CommonPage;
@@ -103,7 +101,7 @@ public class StacksStepDefinition {
 	}
 
 	@When("The user enters the Valid code in text editor and clicks RUN Button")
-	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() throws IOException {
+	public void the_user_enters_the_valid_code_in_text_editor_and_clicks_run_button() throws Throwable {
 		cp.refreshPage();
 		cp.validCode();
 	}
@@ -115,7 +113,7 @@ public class StacksStepDefinition {
 	}
 
 	@When("The user enters the Invalid code in text editor and clicks RUN Button")
-	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() throws IOException {
+	public void the_user_enters_the_invalid_code_in_text_editor_and_clicks_run_button() throws Throwable {
 		cp.refreshPage();
 		cp.invalidCode();
 	}

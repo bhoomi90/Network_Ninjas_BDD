@@ -75,12 +75,35 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 			 Fis.close();		
 		}
 		
-		public static String getValidCode() {			
-			return validCode;
+		public static String getCellValue(String sheetName, int rowNum, int colNum) throws IOException, Throwable {
+			String path = System.getProperty("user.dir")+"/src/test/resources/TestCode/ExcelSheet.xlsx";
+			
+			try (FileInputStream Fis = new FileInputStream(new File(path)); XSSFWorkbook workbook = new XSSFWorkbook(Fis);) {
+				
+				XSSFSheet sheet = workbook.getSheet(sheetName);
+				if(sheet == null) {
+					throw new IllegalArgumentException("Sheet "+sheetName+ " not found");
+				}
+				Row row = sheet.getRow(rowNum);
+				if(row == null) {
+					throw new IllegalArgumentException("Row "+ rowNum+ "not found in sheet" +sheetName);
+				}
+				Cell cell = row.getCell(colNum);
+				if(cell == null) {
+					throw new IllegalArgumentException("Cell at column"+ colNum+ "not found in sheet" +sheetName);
+				}
+				return cell.toString();
+			}
 		}
 		
-		public static String getInvalidCode() {			
-			return invalidCode;
+		public static String getValidCode() throws IOException, Throwable {			
+			//return validCode;
+			return getCellValue("pythonCode", 0, 0);
+		}
+		
+		public static String getInvalidCode() throws IOException, Throwable {			
+			//return invalidCode;
+			return getCellValue("pythonCode", 1, 0);
 		}
 		
 		public static void main(String[] args) throws IOException {

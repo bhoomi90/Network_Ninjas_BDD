@@ -1,7 +1,5 @@
 package dsportal_Page;
 
-import java.io.IOException;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -78,14 +76,14 @@ public class CommonPage {
 		runBttn.click();			
 	}
 	
-	public void validCode() throws IOException {
-		ExcelReader.readExcelSheet();
+	public void validCode() throws Throwable {
+		//ExcelReader.readExcelSheet();
 		enterCode.sendKeys(ExcelReader.getValidCode());
 		runBttn.click();
 	}
 	
-	public void invalidCode() throws IOException {
-		ExcelReader.readExcelSheet();
+	public void invalidCode() throws Throwable {
+		//ExcelReader.readExcelSheet();
 		enterCode.sendKeys(ExcelReader.getInvalidCode());
 		runBttn.click();
 	}

@@ -19,7 +19,7 @@ import io.cucumber.java.Scenario;
 public class Hooks extends DriverManager {
 	
 	@BeforeAll
-	public static synchronized void before_all() throws Throwable {
+	public static void before_all() throws Throwable {
 		LoggerReader.info("Loading Config file");
 		ConfigReader.loadConfig();
 		String browser = ConfigReader.getBrowserType();
@@ -40,7 +40,7 @@ public class Hooks extends DriverManager {
 	}
 	
 	@AfterAll
-	public  static synchronized void after_all() {		
+	public static void after_all() {		
 		LoggerReader.info("teardown browser executed: " + ConfigReader.getBrowserType());
 		quitBrowser();		
 	}

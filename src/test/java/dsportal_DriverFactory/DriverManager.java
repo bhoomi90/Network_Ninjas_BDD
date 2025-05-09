@@ -52,7 +52,7 @@ public class DriverManager {
 	}
 
 	// Start browser based on the input
-	public static synchronized WebDriver startBrowser(String browserName) {
+	public static WebDriver startBrowser(String browserName) {
 		quitBrowser();
 
 		switch (browserName.toLowerCase()) {
@@ -83,7 +83,7 @@ public class DriverManager {
 	}
 	
 	// Quit browser
-	public static synchronized void quitBrowser() {
+	public static void quitBrowser() {
 		if (threadlocalDriver.get() != null) {
 			LoggerReader.info("Closing local driver");
 			threadlocalDriver.get().quit();

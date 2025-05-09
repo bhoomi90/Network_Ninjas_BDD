@@ -26,12 +26,12 @@ public class ConfigReader {
 			throw new RuntimeException("Key "+key+" not specified in config.properties file");
 	}
 	
-	public synchronized static void setBrowserType(String browser) {
+	public static void setBrowserType(String browser) {
 		browserType.set(browser);
 		//browserType = browser;
 	}
 
-	public synchronized static String getBrowserType() {
+	public static String getBrowserType() {
 			return browserType.get();
 		//return browserType;
 	}

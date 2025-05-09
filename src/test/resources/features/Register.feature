@@ -43,11 +43,11 @@ Feature: Register page features
   #Given The user is on the user registration page
   #When The user clicks Register button after entering a username with spacebar characters other than digits
   #Then The user is not able to see error msg after entering invalid data
-  #@tag7
-  #Scenario: Verify that user receives error message for invalid password field during registration
-  #Given The user is on the user registration page
-  #When The user clicks Register button after entering a password with numeric data
-  #Then The user is not able to see error msg after entering invalid data
+  @Reg11
+  Scenario: Verify that user receives error message for invalid password field during registration
+  Given The user is on the user registration page
+  When The user clicks Register button after entering a password with numeric data
+  Then The user is able to see error msg after entering invalid data "password_mismatch:The two password fields didn’t match."
   @Reg7
   Scenario: Verify that user receives error message for mismatched Password and Password Confirmation field during registration
     Given The user is on the user registration page

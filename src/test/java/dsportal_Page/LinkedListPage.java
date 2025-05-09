@@ -14,7 +14,7 @@ import dsportal_utilities.LoggerReader;
 public class LinkedListPage {
 
 		private WebDriver driver = null;
-		public String homePageURL = ConfigReader.getPropertyValue("URL");;
+		public String homePageURL = ConfigReader.getPropertyValue("URL");
 		public String linkedListPageURL = homePageURL+"linked-list/";
 		public String introURL= linkedListPageURL+"introduction/";
 		public String createLinkListURL = linkedListPageURL+"creating-linked-list/";

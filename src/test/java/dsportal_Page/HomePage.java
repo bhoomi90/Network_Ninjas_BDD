@@ -1,16 +1,25 @@
 package dsportal_Page;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class HomePage {
 	
-	WebDriver driver;
+	private WebDriver driver = null;
+	public String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
+	public String Home_Url =(Dsalgo_url+"home");
+	public String DataStruc_Url =(Dsalgo_url+"data-structures-introduction/");
+	public String Array_Url =(Dsalgo_url+"array/");
+	public String Linkedlist_Url =(Dsalgo_url+"linked-list/");
+	public String Stack_Url =(Dsalgo_url+"stack/");
+	public String Queue_Url =(Dsalgo_url+"queue/");
+	public String Tree_Url =(Dsalgo_url+"tree/");
+	public String Graph_Url =(Dsalgo_url+"graph/");
 
 	@FindBy(xpath = ("//*[text()='Sign in']"))
 	WebElement signIn;
@@ -52,28 +61,13 @@ public class HomePage {
 	WebElement graph;
 	@FindBy (xpath=("//*[@role='alert']")) 
 	WebElement alertMsg;
-	
-	String Dsalgo_url = ("https://dsportalapp.herokuapp.com/");
-	public String Home_Url =(Dsalgo_url+"home/");
-	
-	String DataStruc_Url =(Dsalgo_url+"data-structures-introduction/");
-	String Array_Url =(Dsalgo_url+"array/");
-	String Linkedlist_Url =(Dsalgo_url+"linked-list/");
-	String Stack_Url =(Dsalgo_url+"stack/");
-	String Queue_Url =(Dsalgo_url+"queue/");
-	String Tree_Url =(Dsalgo_url+"tree/");
-	String Graph_Url =(Dsalgo_url+"graph/");
+
 	String loginText;
 	
-	public HomePage(WebDriver driver) {
-		this.driver = driver;
-
-		if (driver.getTitle().equals("Numpy Ninja"))
-			LoggerReader.info("I am on ds-algo App");
-		else
-			throw new IllegalStateException("This is not ds-algo app. The current page is: " + driver.getCurrentUrl());
-
+	public HomePage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Home Page");
 	}
 	
 	public String getCurrentUrl() {
@@ -95,6 +89,9 @@ public class HomePage {
 	public void navigateback() {
 		driver.navigate().back();
 		LoggerReader.info("Clicking browser back arrow");
+	}
+	public void navigateTo() {
+		driver.navigate().to(Dsalgo_url);
 	}
 	public void refreshPage() {
 		driver.navigate().refresh();

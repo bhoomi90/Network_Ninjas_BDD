@@ -1,5 +1,6 @@
 package dsportal_stepdefinitions;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import dsportal_DriverFactory.DriverManager;
@@ -9,25 +10,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class QueueStepDefinition extends DriverManager {
+public class QueueStepDefinition {
 	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	static QueuePage queue;
-	String pageTitle, currentPageUrl, expectedPageUrl, QueuePageURL;
-	String QueueImpleURL, QueueCollectURL, QueueImpArrayURL, QueueOperURL;
+	QueuePage queue = new QueuePage();
+	WebDriver driver = DriverManager.getdriver();
+	String pageTitle, currentPageUrl, expectedPageUrl;
 
-	public static void setUpQueuePage() {
 
-		queue = new QueuePage(driver);
-
-	}
 
 	@When("The user clicks the Get Started button in Queue Panel or The user select Queue item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_queue_panel_or_the_user_select_queue_item_from_the_drop_down_menu() {
-		if (queue == null) {
-			LoggerReader.info("Create constructor for Queue Page");
-			setUpQueuePage();
-		}
-		// queue.clickGetStarted();
+
 		queue.dropdown_queue_page();
 	}
 
@@ -60,7 +53,7 @@ public class QueueStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Implementation of Queue in Python page")
 	public void the_user_should_be_redirected_to_implementation_of_queue_in_python_page() {
 		currentPageUrl = queue.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/implementation-lists/";
+		expectedPageUrl = queue.QueueImpleURL;
 		LoggerReader.info("The user is able to directed to Implementation of Queue in Python page: " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl,
 				"The user is not directed to Implementation of Queue in Python page");
@@ -86,7 +79,7 @@ public class QueueStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Implementation using collections.deque page")
 	public void the_user_should_be_redirected_to_implementation_using_collections_deque_page() {
 		currentPageUrl = queue.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/implementation-collections/";
+		expectedPageUrl = queue.QueueCollectURL;
 		LoggerReader
 				.info("The user is able to directed to Implementation using collections.deque page: " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl,
@@ -108,7 +101,7 @@ public class QueueStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Implementation using array page")
 	public void the_user_should_be_redirected_to_implementation_using_array_page() {
 		currentPageUrl = driver.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/Implementation-array/";
+		expectedPageUrl = queue.QueueImpArrayURL;
 		LoggerReader.info("The user is able to directed to Implementation using array " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl,
 				"The user is not directed to Implementation using array page");
@@ -128,7 +121,7 @@ public class QueueStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Queue Operations page")
 	public void the_user_should_be_redirected_to_queue_operations_page() {
 		currentPageUrl = queue.getCurrentUrl();
-		expectedPageUrl = "https://dsportalapp.herokuapp.com/queue/QueueOp/";
+		expectedPageUrl = queue.QueueOperURL;
 		LoggerReader.info("The user is able to directed to Creating Queue Operations page: " + currentPageUrl);
 		Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Queue Operations page");
 	}

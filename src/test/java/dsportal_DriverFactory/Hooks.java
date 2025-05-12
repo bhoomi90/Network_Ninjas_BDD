@@ -18,14 +18,11 @@ import io.cucumber.java.Scenario;
 
 public class Hooks extends DriverManager {
 	
-	static DriverManager driverManager = new DriverManager();
-	
 	@BeforeAll
 	public static void before_all() throws Throwable {
 		LoggerReader.info("Loading Config file");
 		ConfigReader.loadConfig();
 		String browser = ConfigReader.getBrowserType();
-		String url = ConfigReader.getPropertyValue("URL");
 		
 		if(browser==null) {
 			LoggerReader.info("Browser is null. Take browser from config property");
@@ -33,18 +30,19 @@ public class Hooks extends DriverManager {
 		}
 		LoggerReader.info("Setup browser executed");
 		LoggerReader.info("Initializing driver for : "+browser);
-		driverManager.startBrowser(browser);
+				
+		startBrowser(browser);
 
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.get(url);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.get(ConfigReader.getPropertyValue("URL"));
 	}
 	
 	@AfterAll
 	public static void after_all() {		
-		driverManager.quitBrowser();
-//		LoggerReader.info("teardown browser executed: " + ConfigReader.getBrowserType());
+		LoggerReader.info("teardown browser executed: " + ConfigReader.getBrowserType());
+		quitBrowser();		
 	}
 	
 	@After

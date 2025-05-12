@@ -1,8 +1,9 @@
 package dsportal_stepdefinitions;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.CommonPage;
 import dsportal_Page.LoginPage;
 import dsportal_utilities.LoggerReader;
@@ -10,26 +11,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStepDefinition extends DriverManager {
+public class LoginStepDefinition {
 	
-	static LoginPage login_page;
-	static CommonPage cp;
+	LoginPage login_page = new LoginPage();
+	CommonPage cp = new CommonPage();
 	String pageTitle, currentPageUrl, expectedPageUrl;
 	
-	public static void setUpLoginPage() {
-		login_page = new LoginPage(driver);
-	}
-
-	public static void setUpCommonPage() {
-		cp = new CommonPage(driver);
-	}
 	
 	@Given("The user is on the DS Algo Home Page")
 	public void the_user_is_on_the_ds_algo_home_page() {
-		if(login_page==null) {
-		LoggerReader.info("Create constructor for Login page");
-		setUpLoginPage();
-	}
+
 	    login_page.getStarted();
 		pageTitle =login_page.getCurrentTitle();
 		Assert.assertEquals(pageTitle, "NumpyNinja");
@@ -64,18 +55,18 @@ public class LoginStepDefinition extends DriverManager {
 	
 
 	@When("The user enter Empty username  and Empty password")
-	public void the_user_enter_empty_username_and_empty_password() {
+	public void the_user_enter_empty_username_and_empty_password() throws IOException, Throwable {
 	    login_page.empty_fields();
 	}
 
 	@When("The user enter Empty username  and Valid Password password")
-	public void the_user_enter_empty_username_and_valid_password_password() {
+	public void the_user_enter_empty_username_and_valid_password_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.empty_valid_field();
 	}
 
 	@When("The user enter Invalid username  and Valid password")
-	public void the_user_enter_invalid_username_and_valid_password() {
+	public void the_user_enter_invalid_username_and_valid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.invalid_valid_field();
 	}
@@ -89,19 +80,19 @@ public class LoginStepDefinition extends DriverManager {
 	}
 
 	@When("The user enter Valid username  and Invalid password")
-	public void the_user_enter_valid_username_and_invalid_password() {
+	public void the_user_enter_valid_username_and_invalid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.valid_invalid_field();
 	}
 
 	@When("The user enter Invalid username  and Invalid password")
-	public void the_user_enter_invalid_username_and_invalid_password() {
+	public void the_user_enter_invalid_username_and_invalid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.invalid_invalid_field();
 	}
 
 	@When("The user enter valid username and empty password")
-	public void the_user_enter_valid_username_and_empty_password() {
+	public void the_user_enter_valid_username_and_empty_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.valid_empty_field();
 	}
@@ -115,7 +106,7 @@ public class LoginStepDefinition extends DriverManager {
 	}
 	
 	@When("The user enter Valid username and Valid password")
-	public void the_user_enter_valid_username_and_valid_password() {
+	public void the_user_enter_valid_username_and_valid_password() throws IOException, Throwable {
 		login_page.clickSignin();
 		login_page.valid_valid_field();
 	}
@@ -139,10 +130,6 @@ public class LoginStepDefinition extends DriverManager {
 	
 	@When("The user clicks Sign out")
 	public void the_user_clicks_sign_out() {	
-		if(cp==null) {
-  			LoggerReader.info("Create constructor for Common page");
-  			setUpCommonPage();
-  		}
 		cp.signOut();   
 	}
 	       

@@ -3,39 +3,31 @@ package dsportal_stepdefinitions;
 
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
+import dsportal_Page.CommonPage;
 import dsportal_Page.DataStructurePage;
-import dsportal_Page.LoginPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class DataStructureStepDefinition extends DriverManager {
+public class DataStructureStepDefinition {
 	
-	static DataStructurePage DataStrucpge;
-	static LoginPage login_page;
+	DataStructurePage DataStrucpge = new DataStructurePage();
+	CommonPage cp = new CommonPage();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
-	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	String dsPageURL = homePageURL+"data-structures-introduction/";
+
 	
-	public static void setUpDataStructurePage() {
-		DataStrucpge = new DataStructurePage(driver);
-	}
 	
 	@When("The user clicks the Getting Started button in Data Structures - Introduction")
 	public void the_user_clicks_the_getting_started_button_in_data_structures_introduction() {
-		if(DataStrucpge==null) {
-  			LoggerReader.info("Create constructor for Data Structures page");
-  			setUpDataStructurePage();
-  		}
-	   DataStrucpge.DataStruc_page(); 
+
+		DataStrucpge.DataStruc_page(); 
 	}
 
 	@Then("The user be directed to Data Structures- Introduction Page")
 	public void the_user_be_directed_to_data_structures_introduction_page() {
 		   currentPageUrl = DataStrucpge.getCurrentUrl();
-		   expectedPageUrl = dsPageURL;
+		   expectedPageUrl = DataStrucpge.dsPageURL;
 		   LoggerReader.info("The user is able to directed to Data Structures page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Data Structures page"); 
 	    
@@ -79,8 +71,8 @@ public class DataStructureStepDefinition extends DriverManager {
 
 	@When("The user clicks browser back arrow to go to Data Structures - Introduction  page")
 	public void the_user_clicks_browser_back_arrow_to_go_to_data_structures_introduction_page() {
-		driver.navigate().back();
-		driver.navigate().back();
+		 cp.goBackOnePage();
+		 cp.goBackOnePage();
 	}
 }
 

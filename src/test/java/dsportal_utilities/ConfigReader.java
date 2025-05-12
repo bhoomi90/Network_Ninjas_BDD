@@ -3,11 +3,9 @@ package dsportal_utilities;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import org.openqa.selenium.WebDriver;
-
 public class ConfigReader {
 
-	public static Properties properties;
+	public  static Properties properties;
 	public static final String propertyFilePath = "./src/test/resources/config.properties";
 	private static ThreadLocal<String> browserType = new ThreadLocal<String>();
 //	public static String browserType = null;
@@ -30,10 +28,12 @@ public class ConfigReader {
 	
 	public static void setBrowserType(String browser) {
 		browserType.set(browser);
+		//browserType = browser;
 	}
 
 	public static String getBrowserType() {
 			return browserType.get();
+		//return browserType;
 	}
 	
 }

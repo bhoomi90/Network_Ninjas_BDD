@@ -1,41 +1,38 @@
 package dsportal_stepdefinitions;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
 import dsportal_Page.RegisterPage;
+import dsportal_utilities.ExcelReader;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class RegisterStepDefinition extends DriverManager {
+public class RegisterStepDefinition  {
 
-	static RegisterPage reg;
-	//private String filePath = "src/test/resources/TestCode/Credentials.xlsx";
+	RegisterPage reg = new RegisterPage();
 	String pageTitle, currentPageUrl, expectedPageUrl;
-
-	public void setUp_RegisterPage() {
-		this.reg = new RegisterPage(driver);
-	}
+	String username, password, passwordconfirm;
 
 	@Given("The user is on the ds portal  page")
 	public void the_user_is_on_the_ds_portal_page() {
-		if (reg == null) {
-			LoggerReader.info("Create constructor for Register Page");
-			setUp_RegisterPage();
-		}
+		reg.navigateTo();
 	}
 
 	@When("The user clicks get started on the Home page")
 	public void the_user_clicks_get_started_on_the_home_page() {
+		pageTitle = reg.getCurrentTitle();
+		Assert.assertEquals(pageTitle, "Numpy Ninja");
 		reg.getStarted();
 	}
 
 	@Then("The user should be redirected to home page")
 	public void the_user_should_be_redirected_to_home_page() {
 		   currentPageUrl = reg.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/home";
+		   expectedPageUrl = reg.homePageURL;
 		   LoggerReader.info("The user is able to directed to home page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to sign in page");
 	}
@@ -43,7 +40,6 @@ public class RegisterStepDefinition extends DriverManager {
 	@Given("The user is on the ds portal home page")
 	public void the_user_is_on_the_ds_portal_home_page() {
 	
-		//reg = new RegisterPage(driver);
 		if (reg.getCurrentTitle().equals("NumpyNinja")) {
 			System.out.println("User is on the DS Algo portal.");
 		}
@@ -57,7 +53,7 @@ public class RegisterStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Register page")
 	public void the_user_should_be_redirected_to_register_page() {
 		   currentPageUrl = reg.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/register";
+		   expectedPageUrl = reg.registerPageURL;
 		   LoggerReader.info("The user is able to directed to register page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to sign in page");
 	}
@@ -82,16 +78,21 @@ public class RegisterStepDefinition extends DriverManager {
 	}
 
 	@When("The user clicks Register button without entering Username with all other fields filled")
-	public void the_user_clicks_register_button_without_entering_username_with_all_other_fields_filled() throws InterruptedException {
+	public void the_user_clicks_register_button_without_entering_username_with_all_other_fields_filled() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister(" ", "password", "password");
+		password = ExcelReader.getCellValue("Register", 3, 1);
+		passwordconfirm = ExcelReader.getCellValue("Register", 3, 2);
+		reg.clickRegister("", password, passwordconfirm);
+		//reg.clickRegister(" ", "hukasdyi", "hukasdyi");
 		Thread.sleep(1000);
 	}
 
 	@When("The user clicks Register button after entering Username with other fields empty")
-	public void the_user_clicks_register_button_after_entering_username_with_other_fields_empty() throws InterruptedException {
+	public void the_user_clicks_register_button_after_entering_username_with_other_fields_empty() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister("username", " ", " ");
+		username = ExcelReader.getCellValue("Register", 3, 0);
+		reg.clickRegister(username, " ", " ");
+		//reg.clickRegister("nikiy", " ", " ");
 		Thread.sleep(1000);
 	}
 
@@ -103,10 +104,12 @@ public class RegisterStepDefinition extends DriverManager {
 	}
 
 	@When("The user clicks Register button after entering Username and Password with Password Confirmation field empty")
-	public void the_user_clicks_register_button_after_entering_username_and_password_with_password_confirmation_field_empty() throws InterruptedException {
-		// reg.clickRegister(pageTitle, expectedPageUrl, currentPageUrl);
+	public void the_user_clicks_register_button_after_entering_username_and_password_with_password_confirmation_field_empty() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister("nikiy", "hukasdyi", " ");
+		username = ExcelReader.getCellValue("Register", 3, 0);
+		password = ExcelReader.getCellValue("Register", 3, 1);
+		reg.clickRegister(username, password, " ");
+		//reg.clickRegister("nikiy", "hukasdyi", " ");
 		Thread.sleep(1000);
 	}
 
@@ -122,22 +125,29 @@ public class RegisterStepDefinition extends DriverManager {
 //		reg.clickRegister("@/./+/-/_", "password", "password");
 //	}
 
-//	@Then("The user is not able to see error msg after entering invalid data")
-//	public void the_user_is_not_able_to_see_error_msg_after_entering_invalid_data() {
-//
-//	}
-//
-//	@When("The user clicks Register button after entering a password with numeric data")
-//	public void the_user_clicks_register_button_after_entering_a_password_with_numeric_data() {
-//		reg.clickRegister("1234", "password", "password");
-//
-//		// reg.clickRegister(pageTitle, expectedPageUrl, currentPageUrl);
-//	}
+	@Then("The user is able to see error msg after entering invalid data {string}")
+	public void the_user_is_able_to_see_error_msg_after_entering_invalid_data(String expectedMSG) {
+		String actualMSG = reg.compareAlertText();
+		LoggerReader.info(actualMSG);
+		Assert.assertEquals(actualMSG, expectedMSG, "Didn't get password warning message");	
+	}
+
+	@When("The user clicks Register button after entering a password with numeric data")
+	public void the_user_clicks_register_button_after_entering_a_password_with_numeric_data() throws IOException, Throwable {
+		reg.register_initial();
+		username = ExcelReader.getCellValue("Register", 7, 0);
+		reg.clickRegister(username, "789123456", "789123456");
+		//reg.clickRegister("networkninjas", "789123456", "789123456");
+	}
 
 	@When("The user clicks Register button after entering different passwords in Password and Password Confirmation fields")
-	public void the_user_clicks_register_button_after_entering_different_passwords_in_password_and_password_confirmation_fields() {
+	public void the_user_clicks_register_button_after_entering_different_passwords_in_password_and_password_confirmation_fields() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister("username", "password", "passwordConfirmation");
+		username = ExcelReader.getCellValue("Register", 3, 0);
+		password = ExcelReader.getCellValue("Register", 3, 1);
+		passwordconfirm = ExcelReader.getCellValue("Register", 3, 3);
+		reg.clickRegister(username, password, passwordconfirm);
+		//reg.clickRegister("nikiy", "hukasdyi", "qwerty");
 	}
 
 	@Then("The user should able to see an pwd warning message {string}")
@@ -148,9 +158,13 @@ public class RegisterStepDefinition extends DriverManager {
 	}
 	
 	@When("The user clicks Register button after entering existing Username")
-	public void the_user_clicks_register_button_after_entering_existing_username() {
+	public void the_user_clicks_register_button_after_entering_existing_username() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister("Network_Ninjas", "Oranges@12", "Oranges@12");
+		username = ExcelReader.getCellValue("Register", 4, 0);
+		password = ExcelReader.getCellValue("Register", 4, 1);
+		passwordconfirm = ExcelReader.getCellValue("Register", 4, 2);
+		reg.clickRegister(username, password, passwordconfirm);
+		//reg.clickRegister("Network_Ninjas", "Oranges@12", "Oranges@12");
 	}
 
 	@Then("The user is not able to see error msg {string} after entering existing username")
@@ -161,9 +175,13 @@ public class RegisterStepDefinition extends DriverManager {
 	}
 	
 	@When("The user clicks Register button after entering same Username and password")
-	public void the_user_clicks_register_button_after_entering_same_username_and_password() {
+	public void the_user_clicks_register_button_after_entering_same_username_and_password() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister("networkninjas", "networkninjas", "networkninjas");
+		username = ExcelReader.getCellValue("Register", 5, 0);
+		password = ExcelReader.getCellValue("Register", 5, 1);
+		passwordconfirm = ExcelReader.getCellValue("Register", 5, 2);
+		reg.clickRegister(username, password, passwordconfirm);
+		//reg.clickRegister("networkninjas", "networkninjas", "networkninjas");
 	}
 
 	@Then("The user is not able to see error msg {string} after entering same Username and password")
@@ -174,9 +192,13 @@ public class RegisterStepDefinition extends DriverManager {
 	}
 
 	@When("The user clicks Register button after entering  with valid username, password and password confirmation in related textboxes")
-	public void the_user_clicks_register_button_after_entering_with_valid_username_password_and_password_confirmation_in_related_textboxes() {
+	public void the_user_clicks_register_button_after_entering_with_valid_username_password_and_password_confirmation_in_related_textboxes() throws IOException, Throwable {
 		reg.register_initial();
-		reg.clickRegister("Network_nija", "Oranges@11", "Oranges@11");
+		username = ExcelReader.getCellValue("Register", 6, 0);
+		password = ExcelReader.getCellValue("Register", 6, 1);
+		passwordconfirm = ExcelReader.getCellValue("Register", 6, 2);
+		reg.clickRegister(username, password, passwordconfirm);
+		//reg.clickRegister("Network_nija", "Oranges@11", "Oranges@11");
 	}
 
 	@Then("The user should be redirected to Home Page of DS Algo with message {string}")

@@ -2,39 +2,27 @@ package dsportal_stepdefinitions;
 
 import org.testng.Assert;
 
-import dsportal_DriverFactory.DriverManager;
-import dsportal_Page.CommonPage;
 import dsportal_Page.LinkedListPage;
 import dsportal_utilities.LoggerReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LinkedListStepDefinition extends DriverManager {
+public class LinkedListStepDefinition {
 
-	static LinkedListPage linkedList;
+	LinkedListPage linkedList = new LinkedListPage();
 	String pageTitle, currentPageUrl, expectedPageUrl ;
-	String homePageURL = "https://dsportalapp.herokuapp.com/";
-	String linkedListPageURL = homePageURL+"linked-list/";
-	
-	public static void setUp_LinkedlistPage() {
-			linkedList = new LinkedListPage(driver);
-	}
 	
 	@When("The user clicks the Get Started button in Linked List Panel or The user select Linked List item from the drop down menu")
 	public void the_user_clicks_the_get_started_button_in_linked_list_panel_or_the_user_select_linked_list_item_from_the_drop_down_menu() {
 
-		if(linkedList == null) {
-			LoggerReader.info("Create constructor for Linked List Page");
-			setUp_LinkedlistPage();
-		}
 		linkedList.open_linkedList_page();	    
 	}
 
 	@Then("The user is directed to Linked List Data Structure Page")
 	public void the_user_is_directed_to_linked_list_data_structure_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = linkedListPageURL;
+		   expectedPageUrl = linkedList.linkedListPageURL;
 		   LoggerReader.info("The user is able to directed to linked list page: "+currentPageUrl);
 		   Assert.assertEquals(expectedPageUrl, currentPageUrl,"The user is not directed to Linked List page");	    
 	}
@@ -53,7 +41,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Introduction page")
 	public void the_user_should_be_redirected_to_introduction_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/introduction/";
+		   expectedPageUrl = linkedList.introURL;
 		   LoggerReader.info("The user is able to directed to Introduction page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Introduction page");	    
 	}
@@ -83,7 +71,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Creating Linked List page")
 	public void the_user_should_be_redirected_to_creating_linked_list_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/creating-linked-list/";
+		   expectedPageUrl = linkedList.createLinkListURL;
 		   LoggerReader.info("The user is able to directed to Creating Linked LIst page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Creating Linked LIst page");	        
 	}
@@ -103,7 +91,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Types of Linked List in Linked List page")
 	public void the_user_should_be_redirected_to_types_of_linked_list_in_linked_list_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/types-of-linked-list/";
+		   expectedPageUrl = linkedList.typeLinkListURL;
 		   LoggerReader.info("The user is able to directed to Types of Linked List page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Types of Linked List page");	    
 	}
@@ -123,7 +111,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Implement Linked List in Python in Linked List page")
 	public void the_user_should_be_redirected_to_implement_linked_list_in_python_in_linked_list_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/implement-linked-list-in-python/";
+		   expectedPageUrl = linkedList.impleLinkListURL;
 		   LoggerReader.info("The user is able to directed to Implement Linked List in Python page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Implement Linked List in Python page");	    	    
 	}
@@ -143,7 +131,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Traversal in Linked List page")
 	public void the_user_should_be_redirected_to_traversal_in_linked_list_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/traversal/";
+		   expectedPageUrl = linkedList.traversalURL;
 		   LoggerReader.info("The user is able to directed to Traversal page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Traversal page");	    	    
 	}
@@ -163,7 +151,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Insertion in Linked List page")
 	public void the_user_should_be_redirected_to_insertion_in_linked_list_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/insertion-in-linked-list/";
+		   expectedPageUrl = linkedList.insertionURL;
 		   LoggerReader.info("The user is able to directed to Insertion page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Insertion page");	    	    
 	}
@@ -183,7 +171,7 @@ public class LinkedListStepDefinition extends DriverManager {
 	@Then("The user should be redirected to Deletion in Linked List page")
 	public void the_user_should_be_redirected_to_deletion_in_linked_list_page() {
 		   currentPageUrl = linkedList.getCurrentUrl();
-		   expectedPageUrl = "https://dsportalapp.herokuapp.com/linked-list/deletion-in-linked-list/";
+		   expectedPageUrl = linkedList.deletionURL;
 		   LoggerReader.info("The user is able to directed to Deletion page: "+currentPageUrl);
 		   Assert.assertEquals(currentPageUrl, expectedPageUrl, "The user is not directed to Deletion page");    	    
 	}

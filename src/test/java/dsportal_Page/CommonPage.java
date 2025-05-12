@@ -1,12 +1,6 @@
 package dsportal_Page;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.By;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,12 +8,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.ExcelReader;
 import dsportal_utilities.LoggerReader;
 
 public class CommonPage {
 
-	public static WebDriver driver;
+	public WebDriver driver;
 	
 	@FindBy (xpath=("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy (xpath=("//*[text()='Sign in']")) WebElement signIn ;
@@ -31,24 +26,33 @@ public class CommonPage {
 	@FindBy (xpath = ("//a[text()='Try here>>>']")) WebElement tryHereClick;
 	@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
 	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
+	//@FindBy(css = ".CodeMirror") WebElement enterCode;
 	
 	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;	
+	@FindBy (className = ("container")) WebElement pageContent;
 	@FindBy (xpath=("//a[text()='Sign out']")) WebElement signOut;
 	
 	String validCode, invalidCode, loginText, logoutText;
 	
-	public CommonPage(WebDriver driver) {
-		 CommonPage.driver = driver;		 
+	public CommonPage() {
+		 this.driver = DriverManager.getdriver();		 
 		 PageFactory.initElements(driver, this);
+		 LoggerReader.info("Initialized Common Page");
 	}
 	
 	public String getCurrentTitle() {
 		return driver.getTitle();	
-//		if (driver != null && ((RemoteWebDriver) driver).getSessionId() != null) {
-//		    return driver.getTitle(); // or other actions
-//		} else {
-//		    throw new IllegalStateException("WebDriver session is not active.");
-//		}		
+	}
+	
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
+	
+	public void refreshPage() {
+		driver.navigate().refresh();
+	}
+	public void goBackOnePage() {
+		driver.navigate().back();
 	}
 	public void getStarted() {
 		getStarted.click();
@@ -73,16 +77,14 @@ public class CommonPage {
 		runBttn.click();			
 	}
 	
-	public void validCode() throws IOException {
-		ExcelReader.readExcelSheet();
-		//readExcelsheet();
+	public void validCode() throws Throwable {
+		//ExcelReader.readExcelSheet();
 		enterCode.sendKeys(ExcelReader.getValidCode());
 		runBttn.click();
 	}
 	
-	public void invalidCode() throws IOException {
-		ExcelReader.readExcelSheet();
-		//readExcelsheet();
+	public void invalidCode() throws Throwable {
+		//ExcelReader.readExcelSheet();
 		enterCode.sendKeys(ExcelReader.getInvalidCode());
 		runBttn.click();
 	}
@@ -92,10 +94,9 @@ public class CommonPage {
 		LoggerReader.info("I am on practice questions page");
 	}
 	
-	public static boolean practiceQue_content() {
-		WebElement content = driver.findElement(By.className("container"));
-		LoggerReader.info("Page content is: " +content.getText());
-		if(content.getText().length()==0)
+	public boolean practiceQue_content() {
+		LoggerReader.info("Page content is: " +pageContent.getText());
+		if(pageContent.getText().length()==0)
 			return false;
 		else
 			return true;
@@ -111,12 +112,23 @@ public class CommonPage {
 		LoggerReader.info("User is logged out");
 	}
 	
-	public static boolean isAlertPresent(WebDriver driver) {
+	public boolean isAlertPresent() {
 		try {
 			driver.switchTo().alert();
 			return true;
 		} catch (NoAlertPresentException e) {
 			return false;
 		}
+	}
+	
+	public String getAlertText() {
+		Alert alert = driver.switchTo().alert();
+		String text = alert.getText();
+		return text;
+	}
+	
+	public void acceptAlert() {
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 	}
 }

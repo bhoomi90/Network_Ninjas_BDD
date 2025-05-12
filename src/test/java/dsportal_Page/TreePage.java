@@ -5,11 +5,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 
 public class TreePage {
 
-	static WebDriver driver;
+	private WebDriver driver = null;
+	public String homePageURL = ConfigReader.getPropertyValue("URL");
+	public String treePageURL = homePageURL+"tree/";
+	public String overviewofTree = treePageURL + "overview-of-trees/";
+	public String Terminologies = treePageURL + "terminologies/";
+	public String typeTree = treePageURL + "types-of-trees/";
+	public String traversal = treePageURL + "tree-traversals/";
+	public String traversalIllu = treePageURL + "traversals-illustration/";
+	public String binaryTree = treePageURL + "binary-trees/";
+	public String typeBinary = treePageURL + "types-of-binary-trees/";
+	public String implementationPython = treePageURL + "implementation-in-python/";
+	public String binaryTreeTra = treePageURL + "binary-tree-traversals/";
+	public String impleBinary = treePageURL + "implementation-of-binary-trees/";
+	public String appBinary = treePageURL + "applications-of-binary-trees/";
+	public String binarySearch = treePageURL + "binary-search-trees/";
+	public String impleBST = treePageURL + "implementation-of-bst/";
 	
 	@FindBy(xpath= ("//h5[text()='Tree']/../a[text()='Get Started']")) WebElement treeLink;
 	@FindBy (xpath=("//*[@data-toggle='dropdown']")) WebElement dropdown;
@@ -28,15 +45,10 @@ public class TreePage {
 	@FindBy(xpath="//a[text()='Binary Search Trees']") 	WebElement binsearch_Tree;
 	@FindBy(xpath="//a[text()='Implementation Of BST']") WebElement impleBST_Tree;
 	
-	public TreePage(WebDriver driver) {
-		 TreePage.driver = driver;
-		 
-		 if(driver.getTitle().equals("NumpyNinja")) 
-			 LoggerReader.info("I am on ds-algo App");
-		 else
-			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
-		 
-		 PageFactory.initElements(driver, this);
+	public TreePage() {
+		this.driver = DriverManager.getdriver();
+		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Tree Page");
 	}
 	
 	public String getCurrentUrl() {

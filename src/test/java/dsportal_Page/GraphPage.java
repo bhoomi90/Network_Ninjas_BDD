@@ -5,14 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
 import dsportal_utilities.LoggerReader;
 
 public class GraphPage {
-	//public static WebDriver driver;
-	static WebDriver driver;
+	
+	private WebDriver driver = null;
 	public String homePageURL = "https://dsportalapp.herokuapp.com/";
 	public String graphPageURL = homePageURL+"graph/";
-
+	public String ggraphPageURL = graphPageURL+"graph/";
+	public String graphRepreURL= graphPageURL+"graph-representations/";
+	
 	@FindBy(id = "id_username")
 	WebElement userName;
 
@@ -39,15 +42,10 @@ public class GraphPage {
 	@FindBy(xpath = "//a[text()='Try here>>>']")
 	WebElement tryEditorButton;
 
-	public GraphPage(WebDriver driver) {
-	//GraphPage.driver = driver;
-	this.driver = driver;
-	
-		if(driver.getTitle().equals("NumpyNinja")) 
-			 LoggerReader.info("I am on ds-algo App");
-		 else
-			 throw new IllegalStateException("This is not ds-algo app. The current page is: " +driver.getCurrentUrl());
+	public GraphPage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Graph Page");
 	}
 	
 	public String getCurrentUrl() {

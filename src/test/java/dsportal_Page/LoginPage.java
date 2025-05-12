@@ -1,17 +1,19 @@
 package dsportal_Page;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
+import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ExcelReader;
 import dsportal_utilities.LoggerReader;
 
 public class LoginPage {
 
-	static WebDriver driver;
-	public static CommonPage cp;
+	private WebDriver driver = null;
 	
 	@FindBy(xpath = ("//*[text()='Get Started']"))
 	WebElement getStarted;
@@ -29,15 +31,12 @@ public class LoginPage {
 	WebElement alertMsg;
 
 	String loginText, logoutText, errorText;
-	private String mSG;
-
-	public static void setUpCommonPage() {
-		cp = new CommonPage(driver);
-	}
+	String userName, password;
 	
-	public LoginPage(WebDriver driver) {
-		LoginPage.driver = driver;
+	public LoginPage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Login Page");
 	}
 
 	public String getCurrentUrl() {
@@ -70,50 +69,63 @@ public class LoginPage {
 	}
 	
 	public String getValidationMessage_username() {
+		@SuppressWarnings("deprecation")
 		String msg = usernameInput.getAttribute("validationMessage");
 		LoggerReader.info(msg);
 		return msg;
 	}
 	
 	public String getValidationMessage_password() {
+		@SuppressWarnings("deprecation")
 		String msg = passwordInput.getAttribute("validationMessage");
 		LoggerReader.info(msg);
 		return msg;
 	}
 	
-	public void empty_valid_field() {
+	public void empty_valid_field() throws IOException, Throwable {
 		usernameInput.sendKeys("");
-		passwordInput.sendKeys("OrangeS@12");
+//		passwordInput.sendKeys("OrangeS@12");
+		password = ExcelReader.getCellValue("Login", 1, 2);
+		passwordInput.sendKeys(password);
 		login.click();
 	}
 	
-	public void valid_empty_field() {
-		usernameInput.sendKeys("Network_Ninjas");
+	public void valid_empty_field() throws IOException, Throwable {
+		userName = ExcelReader.getCellValue("Login", 1, 0);
+		usernameInput.sendKeys(userName);
 		passwordInput.sendKeys("");
 		login.click();
 	}
 	
-	public void invalid_valid_field() {
-		usernameInput.sendKeys("bhoomi_k");
-		passwordInput.sendKeys("OrangeS@12");
+	public void invalid_valid_field() throws IOException, Throwable {
+		userName = ExcelReader.getCellValue("Login", 1, 1);
+		password = ExcelReader.getCellValue("Login", 1, 2);
+		usernameInput.sendKeys(userName);
+		passwordInput.sendKeys(password);
 		login.click();
 	}
 	
-	public void valid_invalid_field() {
-		usernameInput.sendKeys("Network_Ninjas");
-		passwordInput.sendKeys("896382");
+	public void valid_invalid_field() throws IOException, Throwable {
+		userName = ExcelReader.getCellValue("Login", 1, 0);
+		password = ExcelReader.getCellValue("Login", 1, 3);
+		usernameInput.sendKeys(userName);
+		passwordInput.sendKeys(password);
 		login.click();
 	}
 	
-	public void invalid_invalid_field() {
-		usernameInput.sendKeys("chak_k");
-		passwordInput.sendKeys("yell$345");
+	public void invalid_invalid_field() throws IOException, Throwable {
+		userName = ExcelReader.getCellValue("Login", 1, 1);
+		password = ExcelReader.getCellValue("Login", 1, 3);
+		usernameInput.sendKeys(userName);
+		passwordInput.sendKeys(password);
 		login.click();
 	}
 	
-	public void valid_valid_field() {
-		usernameInput.sendKeys("Network_Ninjas");
-		passwordInput.sendKeys("OrangeS@12");
+	public void valid_valid_field() throws IOException, Throwable {
+		userName = ExcelReader.getCellValue("Login", 1, 0);
+		password = ExcelReader.getCellValue("Login", 1, 2);
+		usernameInput.sendKeys(userName);
+		passwordInput.sendKeys(password);
 		login.click();
 	}
 	

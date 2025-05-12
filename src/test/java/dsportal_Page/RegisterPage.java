@@ -7,10 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
 import dsportal_utilities.LoggerReader;
 
 public class RegisterPage {
-	public static WebDriver driver;
+	private WebDriver driver = null;
+	public String Dsalgo_url = ConfigReader.getPropertyValue("URL");
+	public String homePageURL = Dsalgo_url + "home";
+	public String registerPageURL = Dsalgo_url+"register";
 
 	@FindBy(xpath = ("//*[text()='Get Started']")) WebElement getStarted;
 	@FindBy(xpath = ("//a[text()=' Register ']")) WebElement register_initial;
@@ -23,10 +28,10 @@ public class RegisterPage {
 	
 	String errorText;
 
-	public RegisterPage(WebDriver driver) {
-		this.driver = driver;
-
+	public RegisterPage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Register Page");
 	}
 	
 	public String getCurrentUrl() {
@@ -41,14 +46,17 @@ public class RegisterPage {
 		register_initial.click();
 		LoggerReader.info("Clicking Register button");
 	}
-
+	public void navigateTo() {
+		driver.navigate().to(Dsalgo_url);
+	}
 	public void getStarted() {
 		getStarted.click();
 	}
 
 	public void clickRegister(String username, String password, String passwordConfirmation) {
-		LoggerReader.info("Registering user: " + username);
+		LoggerReader.info("Registering with username: " + username);
 		LoggerReader.info("Registering with password: " + password);
+		LoggerReader.info("Registering with passwordConfirmation: " + passwordConfirmation);
 
 		usernameInput.sendKeys(username);
 		passwordInput.sendKeys(password);
@@ -106,29 +114,3 @@ public class RegisterPage {
 		}
 	}
 }
-//	 public WebDriverWait wait;
-//	 
-//	public void registerUsersFromExcel(String filePath) throws IOException {
-//		
-//		System.out.println(filePath + "filePath");
-//		
-//		try (FileInputStream fis = new FileInputStream(filePath);
-//	          XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
-//System.out.println("the user is in excel path");
-//	         Sheet sheet = workbook.getSheetAt(0); 
-//
-//	         for (Row row : sheet) {
-//	             Cell usernameCell = row.getCell(0);
-//	             Cell passwordCell = row.getCell(1);
-//	             Cell passwordConfirmationCell = row.getCell(2);
-//
-//	             if (usernameCell != null && passwordCell != null && passwordConfirmationCell != null) {
-//	                 String username = usernameCell.getStringCellValue();
-//	                 String password = passwordCell.getStringCellValue();
-//	                 String passwordConfirmation = passwordConfirmationCell.getStringCellValue();
-//System.out.println("reading username and password");
-//	                 clickRegister(username, password, passwordConfirmation);
-//	             }
-//	         }
-//	     }
-//	}

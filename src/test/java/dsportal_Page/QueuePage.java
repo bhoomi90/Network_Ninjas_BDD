@@ -1,18 +1,26 @@
 package dsportal_Page;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsportal_DriverFactory.DriverManager;
+import dsportal_utilities.ConfigReader;
+import dsportal_utilities.LoggerReader;
+
 public class QueuePage {
 
-	public static WebDriver driver;
-	String URL = "https://dsportalapp.herokuapp.com/";
-
+	private WebDriver driver = null;
+	public String homePageURL = ConfigReader.getPropertyValue("URL");
+	public String queuePageURL = homePageURL+ "queue/";
+	public String QueueImpleURL= queuePageURL +"implementation-lists/";
+	public String QueueCollectURL= queuePageURL +"implementation-collections/";
+	public String QueueImpArrayURL= queuePageURL +"Implementation-array/";
+	public String QueueOperURL= queuePageURL +"QueueOp/";
+	
+	
 	@FindBy(xpath = ("//*[text()='Get Started']"))
 	WebElement getStarted;
 	@FindBy(xpath = ("//*[text()='Sign In']"))
@@ -58,12 +66,11 @@ public class QueuePage {
 	WebElement outputMessage;
 
 	// Constructor
-	public QueuePage(WebDriver driver) {
-		this.driver = driver;
+	public QueuePage() {
+		this.driver = DriverManager.getdriver();
 		PageFactory.initElements(driver, this);
+		LoggerReader.info("Initialized Queue Page");
 	}
-
-
 
 	// Methods
 

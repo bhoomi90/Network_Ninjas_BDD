@@ -19,16 +19,8 @@ import io.cucumber.testng.CucumberOptions;
 				},
 						
 				monochrome=true,  //console output color
-				//features = {"src/test/resources/features"}, //location of feature files
-				features = {"src/test/resources/features/Login.feature", 
-						"src/test/resources/features/Home.feature",
-						"src/test/resources/features/LinkedList.feature",
-						"src/test/resources/features/stacks.feature",
-						"src/test/resources/features/Tree.feature",
-						"src/test/resources/features/Graph.feature",
-						"src/test/resources/features/DataStructure.feature",
-						"src/test/resources/features/Queue.feature",
-						}, 
+				features = {"src/test/resources/features"}, 				
+				tags="@overall",
 				glue= {"dsportal_stepdefinitions","dsportal_DriverFactory"}) //location of step definition files
 
 		public class testRunner extends AbstractTestNGCucumberTests{	

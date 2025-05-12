@@ -26,6 +26,7 @@ public class CommonPage {
 	@FindBy (xpath = ("//a[text()='Try here>>>']")) WebElement tryHereClick;
 	@FindBy (xpath=("//*[text()='Run']")) WebElement runBttn;
 	@FindBy (xpath=("//textarea[@spellcheck='false']")) WebElement enterCode;
+	//@FindBy(css = ".CodeMirror") WebElement enterCode;
 	
 	@FindBy (xpath = ("//a[text()='Practice Questions']")) WebElement practiceQue;	
 	@FindBy (className = ("container")) WebElement pageContent;

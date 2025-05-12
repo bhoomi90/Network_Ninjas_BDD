@@ -137,8 +137,8 @@ public class StacksStepDefinition {
 
 	@Then("The user is navigated to Practice Questions page")
 	public void the_user_is_navigated_to_practice_questions_page() {
-		Assert.assertFalse(cp.practiceQue_content(), "No questions on practice que page");
-		LoggerReader.error("Test failed: Found the page blank. Expected to navigate to Practice Questions");
+		Assert.assertTrue(cp.practiceQue_content(), "Found the page blank. Expected to have List of Practice Questions");
+		LoggerReader.error("Test failed: Found the page blank. Expected to have List of Practice Questions");
 	}
 
 	@Given("The user is in the blank Practice page")
